@@ -1,0 +1,105 @@
+{
+  "$schema": "./schemas/component.schema.json",
+  "name": "@kobana/ui",
+  "version": "0.1.0",
+  "components": {
+    "status-badge": {
+      "name": "StatusBadge",
+      "description": "Badge semântico que mapeia status para cores e ícones",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/status-badge/status-badge.tsx",
+        "src/components/composites/status-badge/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["badge"],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "confirm-dialog": {
+      "name": "ConfirmDialog",
+      "description": "Dialog de confirmação com variantes de severidade",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/confirm-dialog/confirm-dialog.tsx",
+        "src/components/composites/confirm-dialog/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["alert-dialog", "button"],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "page-header": {
+      "name": "PageHeader",
+      "description": "Cabeçalho de página com título, breadcrumbs e ações",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/page-header/page-header.tsx",
+        "src/components/composites/page-header/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["breadcrumb", "button"],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "filter-bar": {
+      "name": "FilterBar",
+      "description": "Barra de filtros reutilizável com múltiplos tipos",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/filter-bar/filter-bar.tsx",
+        "src/components/composites/filter-bar/filter-bar-types.ts",
+        "src/components/composites/filter-bar/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["input", "select", "popover", "calendar", "button", "badge"],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "form-section": {
+      "name": "FormSection",
+      "description": "Seção de formulário com grid responsivo",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/form-section/form-section.tsx",
+        "src/components/composites/form-section/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["separator"],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "data-table": {
+      "name": "DataTable",
+      "description": "Tabela de dados com filtros, paginação, sorting e ações",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/data-table/data-table.tsx",
+        "src/components/composites/data-table/data-table-toolbar.tsx",
+        "src/components/composites/data-table/data-table-pagination.tsx",
+        "src/components/composites/data-table/data-table-actions.tsx",
+        "src/components/composites/data-table/data-table-bulk-actions.tsx",
+        "src/components/composites/data-table/data-table-column-header.tsx",
+        "src/components/composites/data-table/data-table-empty.tsx",
+        "src/components/composites/data-table/data-table-loading.tsx",
+        "src/components/composites/data-table/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["table", "checkbox", "dropdown-menu", "skeleton", "button", "select"],
+        "kobana": ["filter-bar", "status-badge"],
+        "npm": ["@tanstack/react-table"]
+      }
+    }
+  }
+}

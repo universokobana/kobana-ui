@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["name", "description", "category", "files", "dependencies"],
+  "properties": {
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "category": { "enum": ["composite", "template", "hook", "token"] },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "files": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "shadcn": { "type": "array", "items": { "type": "string" } },
+        "kobana": { "type": "array", "items": { "type": "string" } },
+        "npm": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["shadcn", "kobana", "npm"]
+    }
+  }
+}
