@@ -52,3 +52,30 @@
 - Total: 40 tests passing
 
 **Commit:** `14e5741`
+
+---
+
+## Fase 2 — Compostos Tier 1
+
+### Design Tokens + StatusBadge + ConfirmDialog + PageHeader + FilterBar + FormSection + DataTable
+
+- **Tokens:** colors.ts (8 semantic status colors with CSS vars for light/dark), spacing.ts (4px base scale), typography.ts (font sizes, weights, line heights). Registered in registry as `tokens` component.
+- **StatusBadge:** Configurable status→color/icon mapping. Props: status, label, size, icon, statusConfig, className. Supports custom status strings via statusConfig prop. Uses forwardRef.
+- **ConfirmDialog:** Three variants (danger/warning/info) with variant-specific icon and button colors. Async onConfirm support with auto loading state. Uses AlertDialog from shadcn. forwardRef.
+- **PageHeader:** Breadcrumbs with links, back button, title/description, actions slot. Uses shadcn Breadcrumb. forwardRef.
+- **FilterBar:** Five filter types (text, select, multi-select, date-range, custom). Active filter count badge. Clear all button. Uses shadcn Input, Select, Popover, Calendar, Button, Badge. forwardRef.
+- **FormSection:** Responsive grid (1/2/3 columns) with mobile-first breakpoints. Title, description, separator. forwardRef.
+- **DataTable:** 9 sub-components:
+  - data-table.tsx — main component with TanStack React Table
+  - data-table-toolbar.tsx — search, refresh, column visibility toggle
+  - data-table-pagination.tsx — page navigation, per-page selector, selected count
+  - data-table-actions.tsx — per-row dropdown with normal/destructive actions
+  - data-table-bulk-actions.tsx — bulk actions bar when rows selected
+  - data-table-column-header.tsx — sortable headers with sort/hide dropdown
+  - data-table-empty.tsx — empty state row
+  - data-table-loading.tsx — skeleton loading rows
+  - index.ts — exports all components and types
+- All composites accept `className`, use `forwardRef` where applicable, export named types
+- Registry updated with tokens component
+
+**Commit:** `8fcbe58`

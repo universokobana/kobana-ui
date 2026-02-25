@@ -94,93 +94,93 @@
 ## Fase 2 — Compostos Tier 1
 
 ### Design Tokens
-- [ ] `src/tokens/colors.ts` — cores semânticas (success, warning, error, info)
-- [ ] `src/tokens/spacing.ts` — escala 4px base
-- [ ] `src/tokens/typography.ts` — font sizes, weights, line heights
-- [ ] CSS variables (oklch) para tema light/dark
-- [ ] Registrar no registry como componente `tokens`
+- [x] `src/tokens/colors.ts` — cores semânticas (success, warning, error, info)
+- [x] `src/tokens/spacing.ts` — escala 4px base
+- [x] `src/tokens/typography.ts` — font sizes, weights, line heights
+- [x] CSS variables (oklch) para tema light/dark
+- [x] Registrar no registry como componente `tokens`
 
 ### StatusBadge
-- [ ] `src/components/composites/status-badge/status-badge.tsx`
-- [ ] `src/components/composites/status-badge/index.ts`
-- [ ] Props: `status`, `label`, `size` (sm/md), `icon`, `className`
-- [ ] Mapeamento status → cor/ícone (active, inactive, pending, error, processing)
-- [ ] Prop `statusConfig` para mapear status custom
-- [ ] Deps: shadcn badge
-- [ ] Atualizar registry
+- [x] `src/components/composites/status-badge/status-badge.tsx`
+- [x] `src/components/composites/status-badge/index.ts`
+- [x] Props: `status`, `label`, `size` (sm/md), `icon`, `className`
+- [x] Mapeamento status → cor/ícone (active, inactive, pending, error, processing)
+- [x] Prop `statusConfig` para mapear status custom
+- [x] Deps: shadcn badge
+- [x] Atualizar registry
 
 ### ConfirmDialog
-- [ ] `src/components/composites/confirm-dialog/confirm-dialog.tsx`
-- [ ] `src/components/composites/confirm-dialog/index.ts`
-- [ ] Props: `open`, `onOpenChange`, `variant` (danger/warning/info), `title`, `description`, `confirmLabel`, `cancelLabel`, `onConfirm` (sync + async), `isLoading`, `children` (trigger)
-- [ ] Ícone e cor por variant
-- [ ] Loading state no botão de confirmar
-- [ ] Deps: shadcn alert-dialog, button
-- [ ] Atualizar registry
+- [x] `src/components/composites/confirm-dialog/confirm-dialog.tsx`
+- [x] `src/components/composites/confirm-dialog/index.ts`
+- [x] Props: `open`, `onOpenChange`, `variant` (danger/warning/info), `title`, `description`, `confirmLabel`, `cancelLabel`, `onConfirm` (sync + async), `isLoading`, `children` (trigger)
+- [x] Ícone e cor por variant
+- [x] Loading state no botão de confirmar
+- [x] Deps: shadcn alert-dialog, button
+- [x] Atualizar registry
 
 ### PageHeader
-- [ ] `src/components/composites/page-header/page-header.tsx`
-- [ ] `src/components/composites/page-header/index.ts`
-- [ ] Props: `title`, `description`, `breadcrumbs` (array), `actions` (ReactNode), `backHref`, `className`
-- [ ] Breadcrumbs com links
-- [ ] Botão de voltar quando `backHref`
-- [ ] Layout: título + descrição à esquerda, ações à direita
-- [ ] Deps: shadcn breadcrumb, button
-- [ ] Atualizar registry
+- [x] `src/components/composites/page-header/page-header.tsx`
+- [x] `src/components/composites/page-header/index.ts`
+- [x] Props: `title`, `description`, `breadcrumbs` (array), `actions` (ReactNode), `backHref`, `className`
+- [x] Breadcrumbs com links
+- [x] Botão de voltar quando `backHref`
+- [x] Layout: título + descrição à esquerda, ações à direita
+- [x] Deps: shadcn breadcrumb, button
+- [x] Atualizar registry
 
 ### FilterBar
-- [ ] `src/components/composites/filter-bar/filter-bar.tsx`
-- [ ] `src/components/composites/filter-bar/filter-bar-types.ts`
-- [ ] `src/components/composites/filter-bar/index.ts`
-- [ ] FilterConfig: `key`, `label`, `type` (text/select/multi-select/date-range/custom), `options`, `placeholder`, `component`
-- [ ] Props: `filters`, `values`, `onChange`, `onClear`, `className`
-- [ ] Filtro tipo text (input com debounce)
-- [ ] Filtro tipo select
-- [ ] Filtro tipo multi-select
-- [ ] Filtro tipo date-range (calendar popover)
-- [ ] Filtro tipo custom (renderiza ReactNode)
-- [ ] Botão "Limpar filtros"
-- [ ] Badge de contagem de filtros ativos
-- [ ] Deps: shadcn input, select, popover, calendar, button, badge
-- [ ] Atualizar registry
+- [x] `src/components/composites/filter-bar/filter-bar.tsx`
+- [x] `src/components/composites/filter-bar/filter-bar-types.ts`
+- [x] `src/components/composites/filter-bar/index.ts`
+- [x] FilterConfig: `key`, `label`, `type` (text/select/multi-select/date-range/custom), `options`, `placeholder`, `component`
+- [x] Props: `filters`, `values`, `onChange`, `onClear`, `className`
+- [x] Filtro tipo text (input com debounce)
+- [x] Filtro tipo select
+- [x] Filtro tipo multi-select
+- [x] Filtro tipo date-range (calendar popover)
+- [x] Filtro tipo custom (renderiza ReactNode)
+- [x] Botão "Limpar filtros"
+- [x] Badge de contagem de filtros ativos
+- [x] Deps: shadcn input, select, popover, calendar, button, badge
+- [x] Atualizar registry
 
 ### FormSection
-- [ ] `src/components/composites/form-section/form-section.tsx`
-- [ ] `src/components/composites/form-section/index.ts`
-- [ ] Props: `title`, `description`, `columns` (1/2/3), `children`, `className`
-- [ ] Grid responsivo (1 col em mobile, N colunas em desktop)
-- [ ] Separator entre seções
-- [ ] Deps: shadcn separator
-- [ ] Atualizar registry
+- [x] `src/components/composites/form-section/form-section.tsx`
+- [x] `src/components/composites/form-section/index.ts`
+- [x] Props: `title`, `description`, `columns` (1/2/3), `children`, `className`
+- [x] Grid responsivo (1 col em mobile, N colunas em desktop)
+- [x] Separator entre seções
+- [x] Deps: shadcn separator
+- [x] Atualizar registry
 
 ### DataTable
-- [ ] `src/components/composites/data-table/data-table.tsx` — componente principal
-- [ ] `src/components/composites/data-table/data-table-toolbar.tsx` — busca + filtros + column visibility
-- [ ] `src/components/composites/data-table/data-table-pagination.tsx` — paginação com page size selector
-- [ ] `src/components/composites/data-table/data-table-actions.tsx` — ações por linha (dropdown)
-- [ ] `src/components/composites/data-table/data-table-bulk-actions.tsx` — ações em massa
-- [ ] `src/components/composites/data-table/data-table-column-header.tsx` — header sortável (asc/desc)
-- [ ] `src/components/composites/data-table/data-table-empty.tsx` — estado vazio
-- [ ] `src/components/composites/data-table/data-table-loading.tsx` — skeleton loading
-- [ ] `src/components/composites/data-table/index.ts`
-- [ ] Props genéricas: `columns`, `data`
-- [ ] Busca: `searchKey`, `searchPlaceholder`, `onSearch` (debounce 300ms)
-- [ ] Filtros: `filters`, `filterValues`, `onFilterChange` (integra FilterBar)
-- [ ] Paginação: `pagination` (page, perPage, total, totalPages), `onPageChange`, `onPerPageChange`
-- [ ] Seleção: `selectable`, `bulkActions` (label, icon, onClick, variant)
-- [ ] Ações por linha: `rowActions` (label, icon, onClick, variant, hidden)
-- [ ] Estados: `isLoading`, `emptyState`, `onRowClick`, `onRefresh`
-- [ ] Column visibility toggle
-- [ ] Coluna de ações sticky à direita
-- [ ] `columnLabels` para tradução de headers
-- [ ] Deps: shadcn table, checkbox, dropdown-menu, skeleton, button, select | kobana filter-bar, status-badge | npm @tanstack/react-table
-- [ ] Atualizar registry
+- [x] `src/components/composites/data-table/data-table.tsx` — componente principal
+- [x] `src/components/composites/data-table/data-table-toolbar.tsx` — busca + filtros + column visibility
+- [x] `src/components/composites/data-table/data-table-pagination.tsx` — paginação com page size selector
+- [x] `src/components/composites/data-table/data-table-actions.tsx` — ações por linha (dropdown)
+- [x] `src/components/composites/data-table/data-table-bulk-actions.tsx` — ações em massa
+- [x] `src/components/composites/data-table/data-table-column-header.tsx` — header sortável (asc/desc)
+- [x] `src/components/composites/data-table/data-table-empty.tsx` — estado vazio
+- [x] `src/components/composites/data-table/data-table-loading.tsx` — skeleton loading
+- [x] `src/components/composites/data-table/index.ts`
+- [x] Props genéricas: `columns`, `data`
+- [x] Busca: `searchKey`, `searchPlaceholder`, `onSearch` (debounce 300ms)
+- [x] Filtros: `filters`, `filterValues`, `onFilterChange` (integra FilterBar)
+- [x] Paginação: `pagination` (page, perPage, total, totalPages), `onPageChange`, `onPerPageChange`
+- [x] Seleção: `selectable`, `bulkActions` (label, icon, onClick, variant)
+- [x] Ações por linha: `rowActions` (label, icon, onClick, variant, hidden)
+- [x] Estados: `isLoading`, `emptyState`, `onRowClick`, `onRefresh`
+- [x] Column visibility toggle
+- [x] Coluna de ações sticky à direita
+- [x] `columnLabels` para tradução de headers
+- [x] Deps: shadcn table, checkbox, dropdown-menu, skeleton, button, select | kobana filter-bar, status-badge | npm @tanstack/react-table
+- [x] Atualizar registry
 
 ### Qualidade — Fase 2
-- [ ] Todos os compostos aceitam `className`
-- [ ] Todos usam `forwardRef` onde renderizam DOM
-- [ ] Props exportadas como tipos nomeados (não inline)
-- [ ] Testar via CLI: `add` de cada componente em projeto limpo
+- [x] Todos os compostos aceitam `className`
+- [x] Todos usam `forwardRef` onde renderizam DOM
+- [x] Props exportadas como tipos nomeados (não inline)
+- [x] Testar via CLI: `add` de cada componente em projeto limpo
 
 ---
 
