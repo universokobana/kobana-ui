@@ -253,44 +253,44 @@
 ## Fase 4 — Templates
 
 ### ListPage
-- [ ] `src/components/templates/list-page/list-page.tsx`
-- [ ] `src/components/templates/list-page/index.ts`
-- [ ] Compõe: PageHeader + FilterBar + DataTable + EmptyState
-- [ ] Props de header: `title`, `description`, `breadcrumbs`, `primaryAction`
-- [ ] Props de DataTable: `columns`, `data`, `filters`, `searchKey`, `pagination`, `selectable`, `bulkActions`, `rowActions`
-- [ ] Props de callbacks: `onPageChange`, `onPerPageChange`, `onSearch`, `onFilterChange`, `onRowClick`, `onRefresh`
-- [ ] Props de estado: `isLoading`, `emptyState` ({ title, description, actionLabel, onAction })
-- [ ] Monta tudo automaticamente
-- [ ] Deps kobana: data-table, page-header, confirm-dialog, empty-state
-- [ ] Atualizar registry
+- [x] `src/components/templates/list-page/list-page.tsx`
+- [x] `src/components/templates/list-page/index.ts`
+- [x] Compõe: PageHeader + FilterBar + DataTable + EmptyState
+- [x] Props de header: `title`, `description`, `breadcrumbs`, `primaryAction`
+- [x] Props de DataTable: `columns`, `data`, `filters`, `searchKey`, `pagination`, `selectable`, `bulkActions`, `rowActions`
+- [x] Props de callbacks: `onPageChange`, `onPerPageChange`, `onSearch`, `onFilterChange`, `onRowClick`, `onRefresh`
+- [x] Props de estado: `isLoading`, `emptyState` ({ title, description, actionLabel, onAction })
+- [x] Monta tudo automaticamente
+- [x] Deps kobana: data-table, page-header, confirm-dialog, empty-state
+- [x] Atualizar registry
 
 ### DetailPage
-- [ ] `src/components/templates/detail-page/detail-page.tsx`
-- [ ] `src/components/templates/detail-page/detail-section.tsx`
-- [ ] `src/components/templates/detail-page/index.ts`
-- [ ] Props: `title`, `description`, `breadcrumbs`, `actions`, `backHref`, `tabs` (array), `children`, `isLoading`
-- [ ] DetailSection: `title`, `description`, `actions`, `columns` (1/2/3), `children`
-- [ ] Tabs opcionais (shadcn Tabs)
-- [ ] Loading skeleton
-- [ ] Deps kobana: page-header, confirm-dialog
-- [ ] Deps shadcn: tabs, separator
-- [ ] Atualizar registry
+- [x] `src/components/templates/detail-page/detail-page.tsx`
+- [x] `src/components/templates/detail-page/detail-section.tsx`
+- [x] `src/components/templates/detail-page/index.ts`
+- [x] Props: `title`, `description`, `breadcrumbs`, `actions`, `backHref`, `tabs` (array), `children`, `isLoading`
+- [x] DetailSection: `title`, `description`, `actions`, `columns` (1/2/3), `children`
+- [x] Tabs opcionais (shadcn Tabs)
+- [x] Loading skeleton
+- [x] Deps kobana: page-header, confirm-dialog
+- [x] Deps shadcn: tabs, separator
+- [x] Atualizar registry
 
 ### FormPage
-- [ ] `src/components/templates/form-page/form-page.tsx`
-- [ ] `src/components/templates/form-page/form-page-actions.tsx`
-- [ ] `src/components/templates/form-page/index.ts`
-- [ ] Props: `title`, `description`, `breadcrumbs`, `backHref`, `onSubmit` (async), `onCancel`, `submitLabel`, `cancelLabel`, `isSubmitting`, `isDirty`, `children`
-- [ ] Barra de ações sticky no rodapé (cancelar / salvar)
-- [ ] ConfirmDialog quando `isDirty` e tenta sair
-- [ ] Deps kobana: page-header, form-section, confirm-dialog
-- [ ] Deps shadcn: button
-- [ ] Atualizar registry
+- [x] `src/components/templates/form-page/form-page.tsx`
+- [x] `src/components/templates/form-page/form-page-actions.tsx`
+- [x] `src/components/templates/form-page/index.ts`
+- [x] Props: `title`, `description`, `breadcrumbs`, `backHref`, `onSubmit` (async), `onCancel`, `submitLabel`, `cancelLabel`, `isSubmitting`, `isDirty`, `children`
+- [x] Barra de ações sticky no rodapé (cancelar / salvar)
+- [x] ConfirmDialog quando `isDirty` e tenta sair
+- [x] Deps kobana: page-header, form-section, confirm-dialog
+- [x] Deps shadcn: button
+- [x] Atualizar registry
 
 ### Testes — Fase 4
-- [ ] Teste end-to-end: `add list-page` instala tudo (data-table + page-header + filter-bar + status-badge + confirm-dialog + empty-state)
-- [ ] Teste end-to-end: `add detail-page` instala tudo
-- [ ] Teste end-to-end: `add form-page` instala tudo
+- [x] Teste end-to-end: `add list-page` instala tudo (data-table + page-header + filter-bar + status-badge + confirm-dialog + empty-state)
+- [x] Teste end-to-end: `add detail-page` instala tudo
+- [x] Teste end-to-end: `add form-page` instala tudo
 
 ---
 

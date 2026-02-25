@@ -98,3 +98,16 @@
 - Registry updated with 11 new entries (6 composites + 4 hooks + 1 token already added in Phase 2).
 
 **Commit:** `75289e8`
+
+---
+
+## Fase 4 — Templates
+
+### ListPage + DetailPage + FormPage
+
+- **ListPage:** Composes PageHeader + DataTable + EmptyState. Props for header (title, description, breadcrumbs, primaryAction), DataTable (columns, data, filters, pagination, selection, actions), callbacks, and empty state. Shows EmptyState when data is empty and not loading.
+- **DetailPage:** Composes PageHeader + optional Tabs. DetailSection sub-component with title, description, actions, 1-3 column grid. Loading skeleton state. Supports both tabbed and children-based layouts.
+- **FormPage:** Composes PageHeader + sticky action bar + ConfirmDialog. Async onSubmit. Dirty guard with confirmation dialog when isDirty and user tries to leave. FormPageActions internal component for sticky footer.
+- Registry updated with 3 templates: list-page (deps: data-table, page-header, empty-state), detail-page (deps: page-header + shadcn tabs/separator/skeleton), form-page (deps: page-header, confirm-dialog).
+
+**Commit:** `22d33c1`
