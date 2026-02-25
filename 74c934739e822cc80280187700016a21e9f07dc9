@@ -1,0 +1,41 @@
+tsconfig.json
+  ab3cacd2cedb5d91 1-25
+.prettierrc
+  ab3cacd2cedb5d91 1-7
+tsconfig.build.json
+  ab3cacd2cedb5d91 1-9
+package.json
+  ab3cacd2cedb5d91 1-25,48-49
+src/cli/index.ts
+  ab3cacd2cedb5d91 1-10
+.eslintrc.json
+  ab3cacd2cedb5d91 1-21
+__tests__/cli/setup.test.ts
+  ab3cacd2cedb5d91 1-7
+.gitignore
+  ab3cacd2cedb5d91 1-7
+LICENSE
+  ab3cacd2cedb5d91 1-21
+tsup.config.ts
+  ab3cacd2cedb5d91 1-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "74c934739e822cc80280187700016a21e9f07dc9",
+  "prompts": {
+    "ab3cacd2cedb5d91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "93ab8ec4-de1e-4313-beb7-c0da2733556b",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 145,
+      "total_deletions": 0,
+      "accepted_lines": 150,
+      "overriden_lines": 0
+    }
+  }
+}
