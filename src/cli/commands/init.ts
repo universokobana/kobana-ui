@@ -26,6 +26,22 @@ export const initCommand = new Command('init')
       console.log(chalk.yellow('⚠ shadcn/ui not detected. You may need to set it up first.'));
     }
 
+    // Validate base dependencies
+    const pkgJsonPath = path.join(cwd, 'package.json');
+    if (await fs.pathExists(pkgJsonPath)) {
+      const pkgJson = await fs.readJSON(pkgJsonPath);
+      const allDeps = { ...pkgJson.dependencies, ...pkgJson.devDependencies };
+      const missing: string[] = [];
+      if (!allDeps['react']) missing.push('react');
+      if (!allDeps['tailwindcss']) missing.push('tailwindcss');
+      if (missing.length > 0) {
+        console.log(
+          chalk.yellow(`⚠ Missing recommended dependencies: ${missing.join(', ')}`),
+        );
+        console.log(chalk.dim('  @kobana/ui components require React and Tailwind CSS.'));
+      }
+    }
+
     // Interactive prompts
     const response = await prompts([
       {
