@@ -236,6 +236,51 @@
         "npm": []
       }
     },
+    "list-page": {
+      "name": "ListPage",
+      "description": "Template de página de listagem completa",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/list-page/list-page.tsx",
+        "src/components/templates/list-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button"],
+        "kobana": ["data-table", "page-header", "empty-state"],
+        "npm": ["@tanstack/react-table"]
+      }
+    },
+    "detail-page": {
+      "name": "DetailPage",
+      "description": "Template de página de detalhe com tabs opcionais",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/detail-page/detail-page.tsx",
+        "src/components/templates/detail-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["tabs", "separator", "skeleton"],
+        "kobana": ["page-header"],
+        "npm": []
+      }
+    },
+    "form-page": {
+      "name": "FormPage",
+      "description": "Template de página de formulário com barra sticky e guard de navegação",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/form-page/form-page.tsx",
+        "src/components/templates/form-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button"],
+        "kobana": ["page-header", "confirm-dialog"],
+        "npm": []
+      }
+    },
     "use-debounce": {
       "name": "useDebounce",
       "description": "Hook de debounce genérico",
