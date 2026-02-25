@@ -1,0 +1,55 @@
+src/components/composites/entity-combobox/entity-combobox.tsx
+  c26c7850efc047a7 1-133
+src/components/composites/copy-cell/index.ts
+  c26c7850efc047a7 1-2
+src/components/composites/address-form-fields/city-combobox.tsx
+  c26c7850efc047a7 1-110
+src/hooks/use-filters.ts
+  c26c7850efc047a7 1-70
+src/components/composites/entity-combobox/index.ts
+  c26c7850efc047a7 1-2
+src/components/composites/currency-input/currency-input.tsx
+  c26c7850efc047a7 1-76
+registry/registry.json
+  c26c7850efc047a7 119-251
+src/components/composites/empty-state/empty-state.tsx
+  c26c7850efc047a7 1-45
+src/components/composites/address-form-fields/state-combobox.tsx
+  c26c7850efc047a7 1-102
+src/hooks/use-pagination.ts
+  c26c7850efc047a7 1-32
+src/hooks/use-data-table.ts
+  c26c7850efc047a7 1-69
+src/components/composites/address-form-fields/address-form-fields.tsx
+  c26c7850efc047a7 1-231
+src/components/composites/address-form-fields/index.ts
+  c26c7850efc047a7 1-4
+src/components/composites/currency-input/index.ts
+  c26c7850efc047a7 1-2
+src/components/composites/copy-cell/copy-cell.tsx
+  c26c7850efc047a7 1-52
+src/components/composites/empty-state/index.ts
+  c26c7850efc047a7 1-2
+src/hooks/use-debounce.ts
+  c26c7850efc047a7 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "75289e8a557cf9bc855104a54429c9b51a545818",
+  "prompts": {
+    "c26c7850efc047a7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a009b065-b494-4655-bfff-ce3101841f77",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 1077,
+      "total_deletions": 0,
+      "accepted_lines": 1077,
+      "overriden_lines": 0
+    }
+  }
+}
