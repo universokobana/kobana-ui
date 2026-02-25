@@ -40,51 +40,51 @@
 ## Fase 1 — CLI + Registry
 
 ### Registry
-- [ ] Criar `registry/schemas/component.schema.json`
-- [ ] Criar `registry/registry.json` com 6 componentes iniciais (status-badge, confirm-dialog, page-header, filter-bar, form-section, data-table)
-- [ ] Validar schema contra registry
+- [x] Criar `registry/schemas/component.schema.json`
+- [x] Criar `registry/registry.json` com 6 componentes iniciais (status-badge, confirm-dialog, page-header, filter-bar, form-section, data-table)
+- [x] Validar schema contra registry
 
 ### CLI — Entry point
-- [ ] `src/cli/index.ts` com commander (name, description, version)
-- [ ] Registrar comandos: init, add, list
-- [ ] Configurar bin no package.json
+- [x] `src/cli/index.ts` com commander (name, description, version)
+- [x] Registrar comandos: init, add, list
+- [x] Configurar bin no package.json
 
 ### CLI — Utilitários
-- [ ] `src/cli/utils/config.ts` — `loadConfig()`, `saveConfig()`, `findConfigPath()`
-- [ ] `src/cli/utils/registry.ts` — `fetchRegistry()`, `getComponent()`, `listComponents()`
-- [ ] `src/cli/utils/resolver.ts` — `resolveDependencies()`, detecção circular, deduplicação
-- [ ] `src/cli/utils/installer.ts` — `installComponent()`, `rewriteImports()`, `installShadcnDeps()`, `installNpmDeps()`
-- [ ] Detecção de package manager (npm/pnpm/yarn/bun)
+- [x] `src/cli/utils/config.ts` — `loadConfig()`, `saveConfig()`, `findConfigPath()`
+- [x] `src/cli/utils/registry.ts` — `fetchRegistry()`, `getComponent()`, `listComponents()`
+- [x] `src/cli/utils/resolver.ts` — `resolveDependencies()`, detecção circular, deduplicação
+- [x] `src/cli/utils/installer.ts` — `installComponent()`, `rewriteImports()`, `installShadcnDeps()`, `installNpmDeps()`
+- [x] Detecção de package manager (npm/pnpm/yarn/bun)
 
 ### Comando `init`
-- [ ] Detectar shadcn configurado (buscar `components.json`)
-- [ ] Perguntas interativas (pasta, TypeScript, alias)
-- [ ] Criar estrutura de pastas `src/components/kobana/` (composites, templates, hooks, tokens)
-- [ ] Gerar `kobana.json` na raiz do projeto consumidor
+- [x] Detectar shadcn configurado (buscar `components.json`)
+- [x] Perguntas interativas (pasta, TypeScript, alias)
+- [x] Criar estrutura de pastas `src/components/kobana/` (composites, templates, hooks, tokens)
+- [x] Gerar `kobana.json` na raiz do projeto consumidor
 - [ ] Validar dependências base (react, tailwindcss)
 
 ### Comando `add`
-- [ ] Ler `kobana.json`
-- [ ] Buscar componente(s) no registry
-- [ ] Resolver árvore de dependências completa
-- [ ] Verificar o que já está instalado (skip duplicatas)
-- [ ] Instalar dependências shadcn (`npx shadcn@latest add ...`)
-- [ ] Instalar dependências npm
-- [ ] Copiar arquivos kobana para pasta destino
-- [ ] Reescrever imports (ajustar alias do projeto)
-- [ ] Atualizar `installed` no `kobana.json`
-- [ ] Suportar múltiplos componentes: `add data-table page-header`
+- [x] Ler `kobana.json`
+- [x] Buscar componente(s) no registry
+- [x] Resolver árvore de dependências completa
+- [x] Verificar o que já está instalado (skip duplicatas)
+- [x] Instalar dependências shadcn (`npx shadcn@latest add ...`)
+- [x] Instalar dependências npm
+- [x] Copiar arquivos kobana para pasta destino
+- [x] Reescrever imports (ajustar alias do projeto)
+- [x] Atualizar `installed` no `kobana.json`
+- [x] Suportar múltiplos componentes: `add data-table page-header`
 
 ### Comando `list`
-- [ ] Ler `kobana.json` (componentes instalados)
-- [ ] Buscar registry (todos os componentes)
-- [ ] Exibir agrupado por categoria (composite, template, hook, token)
-- [ ] Indicar status: ✔ instalado / ○ disponível
+- [x] Ler `kobana.json` (componentes instalados)
+- [x] Buscar registry (todos os componentes)
+- [x] Exibir agrupado por categoria (composite, template, hook, token)
+- [x] Indicar status: ✔ instalado / ○ disponível
 
 ### Testes da CLI
-- [ ] `__tests__/cli/resolver.test.ts` — resolve simples, transitivas, circular, deduplicação, coleta shadcn, coleta npm
-- [ ] `__tests__/cli/installer.test.ts` — copia arquivos, reescreve imports shadcn, reescreve imports kobana, não sobrescreve, detecta package manager
-- [ ] `__tests__/cli/config.test.ts` — lê válido, falha inválido, busca subindo diretórios
+- [x] `__tests__/cli/resolver.test.ts` — resolve simples, transitivas, circular, deduplicação, coleta shadcn, coleta npm
+- [x] `__tests__/cli/installer.test.ts` — copia arquivos, reescreve imports shadcn, reescreve imports kobana, não sobrescreve, detecta package manager
+- [x] `__tests__/cli/config.test.ts` — lê válido, falha inválido, busca subindo diretórios
 - [ ] `__tests__/cli/commands/init.test.ts` — cria pastas, gera kobana.json, detecta shadcn
 - [ ] `__tests__/cli/commands/add.test.ts` — adiciona simples, adiciona com deps, skip instalado, atualiza kobana.json
 - [ ] Teste end-to-end: `init` + `add` em projeto limpo

@@ -20,3 +20,25 @@
 - Validated `npm run build` and `npm run test` both pass
 
 **Commit:** `74c9347`
+
+---
+
+## Fase 1 — CLI + Registry
+
+### Registry + CLI Entry + Utilitários + Comandos + Testes
+
+- Created `registry/schemas/component.schema.json` with JSON Schema validation
+- Created `registry/registry.json` with 6 initial components (status-badge, confirm-dialog, page-header, filter-bar, form-section, data-table)
+- Implemented CLI entry point with commander, registering init/add/list commands
+- Utils:
+  - `config.ts`: loadConfig, saveConfig, findConfigPath (searches up directories)
+  - `registry.ts`: fetchRegistry (local + remote), getComponent, listComponents
+  - `resolver.ts`: resolveDependencies with topological ordering, circular detection, deduplication
+  - `installer.ts`: installComponent, rewriteImports, installShadcnDeps, installNpmDeps, detectPackageManager
+- Command `init`: detects shadcn, interactive prompts, creates kobana.json + dir structure
+- Command `add`: resolves full dep tree, installs shadcn/npm/kobana components, updates kobana.json
+- Command `list`: shows components grouped by category with install status
+- 24 tests: resolver (8), installer (8), config (7), setup (1)
+- Build produces working CLI binary (`node dist/index.js --help`)
+
+**Commit:** `28ff278`
