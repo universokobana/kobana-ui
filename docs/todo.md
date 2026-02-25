@@ -187,66 +187,66 @@
 ## Fase 3 — Compostos Tier 2 + Hooks
 
 ### Hooks
-- [ ] `src/hooks/use-data-table.ts` — encapsula sorting, filtering, pagination, selection do TanStack Table
-- [ ] `src/hooks/use-filters.ts` — estado de filtros com URL sync (`toSearchParams`, `fromSearchParams`, `activeCount`)
-- [ ] `src/hooks/use-pagination.ts` — paginação server-side com URL sync (`page`, `perPage`, `offset`, `setPage`, `setPerPage`)
-- [ ] `src/hooks/use-debounce.ts` — debounce genérico
-- [ ] Registrar hooks no registry
+- [x] `src/hooks/use-data-table.ts` — encapsula sorting, filtering, pagination, selection do TanStack Table
+- [x] `src/hooks/use-filters.ts` — estado de filtros com URL sync (`toSearchParams`, `fromSearchParams`, `activeCount`)
+- [x] `src/hooks/use-pagination.ts` — paginação server-side com URL sync (`page`, `perPage`, `offset`, `setPage`, `setPerPage`)
+- [x] `src/hooks/use-debounce.ts` — debounce genérico
+- [x] Registrar hooks no registry
 
 ### CopyCell
-- [ ] `src/components/composites/copy-cell/copy-cell.tsx`
-- [ ] `src/components/composites/copy-cell/index.ts`
-- [ ] Props: `value`, `truncate` (max chars), `className`
-- [ ] Copy to clipboard com feedback visual (ícone Check, 2s)
-- [ ] Tooltip com valor completo
-- [ ] Deps: shadcn button, tooltip
-- [ ] Atualizar registry
+- [x] `src/components/composites/copy-cell/copy-cell.tsx`
+- [x] `src/components/composites/copy-cell/index.ts`
+- [x] Props: `value`, `truncate` (max chars), `className`
+- [x] Copy to clipboard com feedback visual (ícone Check, 2s)
+- [x] Tooltip com valor completo
+- [x] Deps: shadcn button, tooltip
+- [x] Atualizar registry
 
 ### CurrencyInput
-- [ ] `src/components/composites/currency-input/currency-input.tsx`
-- [ ] `src/components/composites/currency-input/index.ts`
-- [ ] Props: `value` (centavos), `onChange`, `currency` (BRL/USD), `locale`, `disabled`, `className`
-- [ ] Formatação automática de moeda
-- [ ] Integração com react-hook-form
-- [ ] Deps: shadcn input
-- [ ] Atualizar registry
+- [x] `src/components/composites/currency-input/currency-input.tsx`
+- [x] `src/components/composites/currency-input/index.ts`
+- [x] Props: `value` (centavos), `onChange`, `currency` (BRL/USD), `locale`, `disabled`, `className`
+- [x] Formatação automática de moeda
+- [x] Integração com react-hook-form
+- [x] Deps: shadcn input
+- [x] Atualizar registry
 
 ### AddressFormFields
-- [ ] `src/components/composites/address-form-fields/address-form-fields.tsx`
-- [ ] `src/components/composites/address-form-fields/state-combobox.tsx` — 27 estados BR
-- [ ] `src/components/composites/address-form-fields/city-combobox.tsx` — cidades IBGE (depende do estado)
-- [ ] `src/components/composites/address-form-fields/index.ts`
-- [ ] Props: `form` (UseFormReturn), `baseName`, `disabled`, `cepApiUrl`, `citiesApiUrl`, `fieldNames` (mapping), `translationNamespace`
-- [ ] Auto-lookup de CEP com preenchimento (rua, bairro, estado, cidade)
-- [ ] Formatação CEP (99999-999)
-- [ ] Seletor de estado com combobox e busca
-- [ ] Combobox de cidade (dependente do estado, async)
-- [ ] Campos: rua, número, complemento, bairro
-- [ ] Deps: shadcn form, input, popover, command
-- [ ] Atualizar registry
+- [x] `src/components/composites/address-form-fields/address-form-fields.tsx`
+- [x] `src/components/composites/address-form-fields/state-combobox.tsx` — 27 estados BR
+- [x] `src/components/composites/address-form-fields/city-combobox.tsx` — cidades IBGE (depende do estado)
+- [x] `src/components/composites/address-form-fields/index.ts`
+- [x] Props: `form` (UseFormReturn), `baseName`, `disabled`, `cepApiUrl`, `citiesApiUrl`, `fieldNames` (mapping), `translationNamespace`
+- [x] Auto-lookup de CEP com preenchimento (rua, bairro, estado, cidade)
+- [x] Formatação CEP (99999-999)
+- [x] Seletor de estado com combobox e busca
+- [x] Combobox de cidade (dependente do estado, async)
+- [x] Campos: rua, número, complemento, bairro
+- [x] Deps: shadcn form, input, popover, command
+- [x] Atualizar registry
 
 ### EntityCombobox
-- [ ] `src/components/composites/entity-combobox/entity-combobox.tsx`
-- [ ] `src/components/composites/entity-combobox/index.ts`
-- [ ] Props genéricas: `value`, `onChange`, `onSearch` (async), `renderItem`, `renderSelected`, `getItemValue`, `getItemLabel`
-- [ ] Props UI: `placeholder`, `searchPlaceholder`, `emptyMessage`, `label`, `disabled`, `className`
-- [ ] Busca assíncrona com debounce
-- [ ] Loading state durante busca
-- [ ] Empty state quando sem resultados
-- [ ] Deps: shadcn popover, command, button
-- [ ] Atualizar registry
+- [x] `src/components/composites/entity-combobox/entity-combobox.tsx`
+- [x] `src/components/composites/entity-combobox/index.ts`
+- [x] Props genéricas: `value`, `onChange`, `onSearch` (async), `renderItem`, `renderSelected`, `getItemValue`, `getItemLabel`
+- [x] Props UI: `placeholder`, `searchPlaceholder`, `emptyMessage`, `label`, `disabled`, `className`
+- [x] Busca assíncrona com debounce
+- [x] Loading state durante busca
+- [x] Empty state quando sem resultados
+- [x] Deps: shadcn popover, command, button
+- [x] Atualizar registry
 
 ### EmptyState
-- [ ] `src/components/composites/empty-state/empty-state.tsx`
-- [ ] `src/components/composites/empty-state/index.ts`
-- [ ] Props: `icon` (ReactNode), `title`, `description`, `action` ({ label, onClick, icon }), `className`
-- [ ] Layout centralizado
-- [ ] Deps: shadcn button
-- [ ] Atualizar registry
+- [x] `src/components/composites/empty-state/empty-state.tsx`
+- [x] `src/components/composites/empty-state/index.ts`
+- [x] Props: `icon` (ReactNode), `title`, `description`, `action` ({ label, onClick, icon }), `className`
+- [x] Layout centralizado
+- [x] Deps: shadcn button
+- [x] Atualizar registry
 
 ### Testes — Fase 3
-- [ ] Testes dos hooks (useDataTable, useFilters, usePagination, useDebounce)
-- [ ] Testar via CLI: `add` de cada componente novo
+- [x] Testes dos hooks (useDataTable, useFilters, usePagination, useDebounce)
+- [x] Testar via CLI: `add` de cada componente novo
 
 ---
 

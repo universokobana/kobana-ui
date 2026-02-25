@@ -79,3 +79,22 @@
 - Registry updated with tokens component
 
 **Commit:** `8fcbe58`
+
+---
+
+## Fase 3 — Compostos Tier 2 + Hooks
+
+### Hooks + CopyCell + CurrencyInput + AddressFormFields + EntityCombobox + EmptyState
+
+- **useDataTable:** Encapsulates TanStack Table state (sorting, filtering, pagination, selection). Supports server-side mode.
+- **useFilters:** Filter state management with URL sync (toSearchParams, fromSearchParams, activeCount).
+- **usePagination:** Server-side pagination with page/perPage/offset. Resets page on perPage change.
+- **useDebounce:** Generic debounce hook (default 300ms).
+- **CopyCell:** Truncated value display with copy-to-clipboard, 2s feedback, tooltip with full value. forwardRef.
+- **CurrencyInput:** Value in cents, auto-formats to locale currency. Supports BRL/USD. forwardRef.
+- **AddressFormFields:** 7 fields (CEP, state, city, street, number, complement, neighborhood). CEP auto-lookup via ViaCEP. State combobox (27 BR states). City combobox (IBGE API, depends on state). Customizable field names and API URLs.
+- **EntityCombobox:** Generic async search combobox with 300ms debounce. Configurable render functions for items and selection.
+- **EmptyState:** Centered layout with icon, title, description, action button. forwardRef.
+- Registry updated with 11 new entries (6 composites + 4 hooks + 1 token already added in Phase 2).
+
+**Commit:** `75289e8`
