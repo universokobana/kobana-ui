@@ -297,35 +297,35 @@
 ## Fase 5 — CLI Avançada
 
 ### Versionamento
-- [ ] Adicionar campo `version` a cada componente no registry
-- [ ] Salvar versão instalada no `kobana.json` (`installed.*.version`)
-- [ ] Salvar hash do arquivo no `kobana.json` (`installed.*.hash`)
-- [ ] Salvar data de instalação (`installed.*.installedAt`)
+- [x] Adicionar campo `version` a cada componente no registry
+- [x] Salvar versão instalada no `kobana.json` (`installed.*.version`)
+- [x] Salvar hash do arquivo no `kobana.json` (`installed.*.hash`)
+- [x] Salvar data de instalação (`installed.*.installedAt`)
 
 ### Comando `diff`
-- [ ] `src/cli/commands/diff.ts`
-- [ ] Ler versão local do arquivo
-- [ ] Buscar versão do registry
-- [ ] Gerar diff colorido (lib `diff`)
-- [ ] Exibir no terminal
-- [ ] Flag `--all` para comparar todos os instalados
+- [x] `src/cli/commands/diff.ts`
+- [x] Ler versão local do arquivo
+- [x] Buscar versão do registry
+- [x] Gerar diff colorido (lib `diff`)
+- [x] Exibir no terminal
+- [x] Flag `--all` para comparar todos os instalados
 
 ### Comando `update`
-- [ ] `src/cli/commands/update.ts`
-- [ ] Comparar versões locais vs registry
-- [ ] Listar componentes desatualizados
-- [ ] Mostrar diff antes de aplicar
-- [ ] Pedir confirmação
-- [ ] Sobrescrever arquivo se confirmado
-- [ ] Detectar modificação local (hash diferente) e avisar
-- [ ] Atualizar versão e hash no `kobana.json`
-- [ ] Flag `--all` — atualizar todos
-- [ ] Flag `--force` — sobrescrever sem confirmação
-- [ ] Flag `--dry-run` — mostrar sem aplicar
+- [x] `src/cli/commands/update.ts`
+- [x] Comparar versões locais vs registry
+- [x] Listar componentes desatualizados
+- [x] Mostrar diff antes de aplicar
+- [x] Pedir confirmação
+- [x] Sobrescrever arquivo se confirmado
+- [x] Detectar modificação local (hash diferente) e avisar
+- [x] Atualizar versão e hash no `kobana.json`
+- [x] Flag `--all` — atualizar todos
+- [x] Flag `--force` — sobrescrever sem confirmação
+- [x] Flag `--dry-run` — mostrar sem aplicar
 
 ### Testes — Fase 5
-- [ ] `__tests__/cli/commands/diff.test.ts` — gera diff correto, mostra "up to date" quando sem mudanças
-- [ ] `__tests__/cli/commands/update.test.ts` — atualiza componente, detecta modificação local, flags --all/--force/--dry-run
+- [x] `__tests__/cli/commands/diff.test.ts` — gera diff correto, mostra "up to date" quando sem mudanças
+- [x] `__tests__/cli/commands/update.test.ts` — atualiza componente, detecta modificação local, flags --all/--force/--dry-run
 
 ---
 

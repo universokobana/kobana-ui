@@ -111,3 +111,17 @@
 - Registry updated with 3 templates: list-page (deps: data-table, page-header, empty-state), detail-page (deps: page-header + shadcn tabs/separator/skeleton), form-page (deps: page-header, confirm-dialog).
 
 **Commit:** `22d33c1`
+
+---
+
+## Fase 5 — CLI Avançada
+
+### Versionamento + Diff + Update
+
+- **Versioning:** Every component in registry already has `version` field. Add command now saves hash (SHA-256, 12-char) alongside version and installedAt in kobana.json.
+- **computeHash/computeComponentHash:** New utilities in installer.ts for content hashing.
+- **diff command:** Colorized diff output (green additions, red deletions, cyan hunks). Supports specific components or `--all`. Shows version difference. Uses `diff` library's `createTwoFilesPatch`.
+- **update command:** Full update flow — fetches registry, compares files, shows diff, detects local modifications (hash mismatch), asks confirmation, applies updates, saves new hash. Flags: `--all` (update all), `--force` (skip confirmation), `--dry-run` (show without applying).
+- CLI entry point updated to register diff and update commands (5 commands total: init, add, list, diff, update).
+
+**Commit:** `22bdada`
