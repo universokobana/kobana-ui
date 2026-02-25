@@ -3,6 +3,22 @@
   "name": "@kobana/ui",
   "version": "0.1.0",
   "components": {
+    "tokens": {
+      "name": "Tokens",
+      "description": "Design tokens: cores semânticas, espaçamento e tipografia",
+      "category": "token",
+      "version": "0.1.0",
+      "files": [
+        "src/tokens/colors.ts",
+        "src/tokens/spacing.ts",
+        "src/tokens/typography.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": []
+      }
+    },
     "status-badge": {
       "name": "StatusBadge",
       "description": "Badge semântico que mapeia status para cores e ícones",
