@@ -42,3 +42,13 @@
 - Build produces working CLI binary (`node dist/index.js --help`)
 
 **Commit:** `28ff278`
+
+### Comando init — Validação + Testes CLI restantes
+
+- Added base dependency validation (react, tailwindcss) to init command
+- Created `__tests__/cli/commands/init.test.ts` (6 tests): directory creation, config generation, shadcn detection, dependency validation
+- Created `__tests__/cli/commands/add.test.ts` (6 tests): simple add, transitive deps, skip installed, config update, no-overwrite, import rewriting
+- Created `__tests__/cli/e2e.test.ts` (4 tests): full init+add flow with real registry
+- Total: 40 tests passing
+
+**Commit:** `14e5741`

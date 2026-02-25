@@ -61,7 +61,7 @@
 - [x] Perguntas interativas (pasta, TypeScript, alias)
 - [x] Criar estrutura de pastas `src/components/kobana/` (composites, templates, hooks, tokens)
 - [x] Gerar `kobana.json` na raiz do projeto consumidor
-- [ ] Validar dependências base (react, tailwindcss)
+- [x] Validar dependências base (react, tailwindcss)
 
 ### Comando `add`
 - [x] Ler `kobana.json`
@@ -85,9 +85,9 @@
 - [x] `__tests__/cli/resolver.test.ts` — resolve simples, transitivas, circular, deduplicação, coleta shadcn, coleta npm
 - [x] `__tests__/cli/installer.test.ts` — copia arquivos, reescreve imports shadcn, reescreve imports kobana, não sobrescreve, detecta package manager
 - [x] `__tests__/cli/config.test.ts` — lê válido, falha inválido, busca subindo diretórios
-- [ ] `__tests__/cli/commands/init.test.ts` — cria pastas, gera kobana.json, detecta shadcn
-- [ ] `__tests__/cli/commands/add.test.ts` — adiciona simples, adiciona com deps, skip instalado, atualiza kobana.json
-- [ ] Teste end-to-end: `init` + `add` em projeto limpo
+- [x] `__tests__/cli/commands/init.test.ts` — cria pastas, gera kobana.json, detecta shadcn
+- [x] `__tests__/cli/commands/add.test.ts` — adiciona simples, adiciona com deps, skip instalado, atualiza kobana.json
+- [x] Teste end-to-end: `init` + `add` em projeto limpo
 
 ---
 
