@@ -1,0 +1,35 @@
+src/components/templates/list-page/list-page.tsx
+  c26c7850efc047a7 1-128
+src/components/templates/list-page/index.ts
+  c26c7850efc047a7 1-2
+src/components/templates/detail-page/index.ts
+  c26c7850efc047a7 1-2
+src/components/templates/form-page/form-page.tsx
+  c26c7850efc047a7 1-114
+registry/registry.json
+  c26c7850efc047a7 239-283
+src/components/templates/detail-page/detail-page.tsx
+  c26c7850efc047a7 1-124
+src/components/templates/form-page/index.ts
+  c26c7850efc047a7 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "22d33c1154383387801658ee88d34e0cbd53c19b",
+  "prompts": {
+    "c26c7850efc047a7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a009b065-b494-4655-bfff-ce3101841f77",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 417,
+      "total_deletions": 0,
+      "accepted_lines": 417,
+      "overriden_lines": 0
+    }
+  }
+}
