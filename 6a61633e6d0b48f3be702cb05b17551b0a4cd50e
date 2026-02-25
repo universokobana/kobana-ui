@@ -1,0 +1,29 @@
+docs/todo.md
+  c26c7850efc047a7 332,334,337-342,345,348,351,354,358,360,363,366-370,373,376,379
+.npmignore
+  c26c7850efc047a7 1-14
+docs/implemented.md
+  c26c7850efc047a7 128-163
+docs/questions.md
+  c26c7850efc047a7 1-31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "6a61633e6d0b48f3be702cb05b17551b0a4cd50e",
+  "prompts": {
+    "c26c7850efc047a7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a009b065-b494-4655-bfff-ce3101841f77",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 106,
+      "total_deletions": 55,
+      "accepted_lines": 106,
+      "overriden_lines": 0
+    }
+  }
+}
