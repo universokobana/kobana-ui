@@ -116,6 +116,139 @@
         "kobana": ["filter-bar", "status-badge"],
         "npm": ["@tanstack/react-table"]
       }
+    },
+    "copy-cell": {
+      "name": "CopyCell",
+      "description": "Célula com copy-to-clipboard, truncate e tooltip",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/copy-cell/copy-cell.tsx",
+        "src/components/composites/copy-cell/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button", "tooltip"],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "currency-input": {
+      "name": "CurrencyInput",
+      "description": "Input com formatação automática de moeda (BRL/USD)",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/currency-input/currency-input.tsx",
+        "src/components/composites/currency-input/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["input"],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "address-form-fields": {
+      "name": "AddressFormFields",
+      "description": "Campos de endereço brasileiro com auto-lookup de CEP",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/address-form-fields/address-form-fields.tsx",
+        "src/components/composites/address-form-fields/state-combobox.tsx",
+        "src/components/composites/address-form-fields/city-combobox.tsx",
+        "src/components/composites/address-form-fields/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["form", "input", "popover", "command", "button"],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "entity-combobox": {
+      "name": "EntityCombobox",
+      "description": "Combobox genérico com busca assíncrona para entidades",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/entity-combobox/entity-combobox.tsx",
+        "src/components/composites/entity-combobox/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["popover", "command", "button"],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "empty-state": {
+      "name": "EmptyState",
+      "description": "Estado vazio com ícone, título, descrição e ação",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/empty-state/empty-state.tsx",
+        "src/components/composites/empty-state/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button"],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "use-data-table": {
+      "name": "useDataTable",
+      "description": "Hook para gerenciar estado do DataTable (sorting, filtering, pagination, selection)",
+      "category": "hook",
+      "version": "0.1.0",
+      "files": [
+        "src/hooks/use-data-table.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": ["@tanstack/react-table"]
+      }
+    },
+    "use-filters": {
+      "name": "useFilters",
+      "description": "Hook para gerenciar estado de filtros com URL sync",
+      "category": "hook",
+      "version": "0.1.0",
+      "files": [
+        "src/hooks/use-filters.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "use-pagination": {
+      "name": "usePagination",
+      "description": "Hook para paginação server-side",
+      "category": "hook",
+      "version": "0.1.0",
+      "files": [
+        "src/hooks/use-pagination.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "use-debounce": {
+      "name": "useDebounce",
+      "description": "Hook de debounce genérico",
+      "category": "hook",
+      "version": "0.1.0",
+      "files": [
+        "src/hooks/use-debounce.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": []
+      }
     }
   }
 }
