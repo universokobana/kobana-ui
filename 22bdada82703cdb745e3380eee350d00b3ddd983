@@ -1,0 +1,31 @@
+src/cli/utils/installer.ts
+  c26c7850efc047a7 3,8-32
+src/cli/commands/add.ts
+  c26c7850efc047a7 9,117,120
+src/cli/index.ts
+  c26c7850efc047a7 5-6,18-19
+src/cli/commands/update.ts
+  c26c7850efc047a7 1-191
+src/cli/commands/diff.ts
+  c26c7850efc047a7 1-119
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "22bdada82703cdb745e3380eee350d00b3ddd983",
+  "prompts": {
+    "c26c7850efc047a7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a009b065-b494-4655-bfff-ce3101841f77",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 344,
+      "total_deletions": 1,
+      "accepted_lines": 344,
+      "overriden_lines": 0
+    }
+  }
+}
