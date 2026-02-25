@@ -5,35 +5,35 @@
 ## Fase 0 — Setup do Projeto
 
 ### Inicialização
-- [ ] Criar `package.json` com escopo `@kobana/ui`
-- [ ] Criar `tsconfig.json` (target ES2022, moduleResolution bundler)
-- [ ] Criar `tsconfig.build.json`
-- [ ] Criar `.gitignore` (node_modules, dist, .next, coverage, storybook-static)
-- [ ] Criar `.eslintrc.json`
-- [ ] Criar `.prettierrc`
-- [ ] Criar `LICENSE`
+- [x] Criar `package.json` com escopo `@kobana/ui`
+- [x] Criar `tsconfig.json` (target ES2022, moduleResolution bundler)
+- [x] Criar `tsconfig.build.json`
+- [x] Criar `.gitignore` (node_modules, dist, .next, coverage, storybook-static)
+- [x] Criar `.eslintrc.json`
+- [x] Criar `.prettierrc`
+- [x] Criar `LICENSE`
 
 ### Build
-- [ ] Instalar dependências dev: `typescript`, `tsup`, `vitest`, `eslint`, `prettier`, `@types/node`
-- [ ] Instalar dependências CLI: `commander`, `chalk`, `ora`, `prompts`, `execa`, `fs-extra`, `diff`
-- [ ] Criar `tsup.config.ts` (entry: cli, format: esm, target: node18, banner: shebang)
-- [ ] Validar `npm run build` funciona sem erros
-- [ ] Validar `npm run test` funciona sem erros
+- [x] Instalar dependências dev: `typescript`, `tsup`, `vitest`, `eslint`, `prettier`, `@types/node`
+- [x] Instalar dependências CLI: `commander`, `chalk`, `ora`, `prompts`, `execa`, `fs-extra`, `diff`
+- [x] Criar `tsup.config.ts` (entry: cli, format: esm, target: node18, banner: shebang)
+- [x] Validar `npm run build` funciona sem erros
+- [x] Validar `npm run test` funciona sem erros
 
 ### Estrutura de diretórios
-- [ ] Criar `src/cli/index.ts`
-- [ ] Criar `src/cli/commands/`
-- [ ] Criar `src/cli/utils/`
-- [ ] Criar `src/components/composites/`
-- [ ] Criar `src/components/templates/`
-- [ ] Criar `src/hooks/`
-- [ ] Criar `src/tokens/`
-- [ ] Criar `registry/`
-- [ ] Criar `registry/schemas/`
-- [ ] Criar `stories/composites/`
-- [ ] Criar `stories/templates/`
-- [ ] Criar `__tests__/cli/`
-- [ ] Criar `__tests__/components/`
+- [x] Criar `src/cli/index.ts`
+- [x] Criar `src/cli/commands/`
+- [x] Criar `src/cli/utils/`
+- [x] Criar `src/components/composites/`
+- [x] Criar `src/components/templates/`
+- [x] Criar `src/hooks/`
+- [x] Criar `src/tokens/`
+- [x] Criar `registry/`
+- [x] Criar `registry/schemas/`
+- [x] Criar `stories/composites/`
+- [x] Criar `stories/templates/`
+- [x] Criar `__tests__/cli/`
+- [x] Criar `__tests__/components/`
 
 ---
 
