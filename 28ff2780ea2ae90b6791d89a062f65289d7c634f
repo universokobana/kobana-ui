@@ -1,0 +1,47 @@
+src/cli/commands/add.ts
+  ab3cacd2cedb5d91 1-137
+__tests__/cli/resolver.test.ts
+  ab3cacd2cedb5d91 1-118
+src/cli/utils/installer.ts
+  ab3cacd2cedb5d91 1-112
+src/cli/utils/resolver.ts
+  ab3cacd2cedb5d91 1-70
+src/cli/commands/init.ts
+  ab3cacd2cedb5d91 1-85
+src/cli/utils/config.ts
+  ab3cacd2cedb5d91 1-86
+registry/registry.json
+  ab3cacd2cedb5d91 1-105
+src/cli/commands/list.ts
+  ab3cacd2cedb5d91 1-73
+__tests__/cli/installer.test.ts
+  ab3cacd2cedb5d91 1-92
+src/cli/utils/registry.ts
+  ab3cacd2cedb5d91 1-60
+src/cli/index.ts
+  ab3cacd2cedb5d91 2-4,13-15
+__tests__/cli/config.test.ts
+  ab3cacd2cedb5d91 1-103
+registry/schemas/component.schema.json
+  ab3cacd2cedb5d91 1-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "28ff2780ea2ae90b6791d89a062f65289d7c634f",
+  "prompts": {
+    "ab3cacd2cedb5d91": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "93ab8ec4-de1e-4313-beb7-c0da2733556b",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 1072,
+      "total_deletions": 0,
+      "accepted_lines": 1072,
+      "overriden_lines": 0
+    }
+  }
+}
