@@ -1,0 +1,14 @@
+__tests__/
+stories/
+docs/
+.eslintrc.json
+.prettierrc
+tsup.config.ts
+tsconfig.json
+tsconfig.build.json
+vitest.config.*
+.github/
+storybook-static/
+coverage/
+*.test.ts
+*.stories.tsx

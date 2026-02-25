@@ -125,3 +125,39 @@
 - CLI entry point updated to register diff and update commands (5 commands total: init, add, list, diff, update).
 
 **Commit:** `22bdada`
+
+---
+
+## Fase 6 — Storybook + Documentação ⏸️ DEFERRED
+
+Deferred. Storybook requires interactive setup (`npx storybook@latest init`) and a React + Tailwind environment. The kobana-ui repo is a CLI + component source repo without React as a dependency. Should be set up when the team is ready.
+
+---
+
+## Fase 7 — Adoção ⏸️ PARTIALLY DEFERRED
+
+### Completed
+- Created `.npmignore` (excludes tests, stories, docs, config files)
+- Validated `npm pack --dry-run` — correct file inclusion/exclusion
+
+### Deferred
+- ESLint plugin → separate package
+- NPM publish → requires credentials and team review
+- Migration POC → requires kobana-billing repo access
+- Workshop → requires team coordination
+- Contribution docs → requires team coordination
+
+**Commit:** `007f5d4`
+
+---
+
+## Completion Summary
+
+**Phases 0–5: Fully implemented.**
+- 40 tests passing across 7 test files
+- CLI with 5 commands: init, add, list, diff, update
+- 12 composite components, 3 templates, 4 hooks, 1 token set
+- Registry with 20 entries and full dependency resolution
+- Component versioning with hash-based local modification detection
+
+**Phases 6–7: Deferred** — require external tools, credentials, and team coordination. See `docs/questions.md` for decision rationale.

@@ -329,81 +329,51 @@
 
 ---
 
-## Fase 6 — Storybook + Documentação
+## Fase 6 — Storybook + Documentação ⏸️ DEFERRED
+
+> Deferred: requires React + Tailwind environment and interactive Storybook setup. See `docs/questions.md`.
 
 ### Setup
-- [ ] Instalar Storybook (`npx storybook@latest init --type react`)
-- [ ] Configurar Tailwind CSS no Storybook
-- [ ] Configurar dark mode toggle
-- [ ] Instalar viewport addon (mobile/desktop)
-- [ ] Instalar a11y addon
-- [ ] Configurar autodocs
+- [ ] ~Instalar Storybook (`npx storybook@latest init --type react`)~ ⏸️
+- [ ] ~Configurar Tailwind CSS no Storybook~ ⏸️
+- [ ] ~Configurar dark mode toggle~ ⏸️
+- [ ] ~Instalar viewport addon (mobile/desktop)~ ⏸️
+- [ ] ~Instalar a11y addon~ ⏸️
+- [ ] ~Configurar autodocs~ ⏸️
 
 ### Stories — Compostos
-- [ ] `stories/composites/StatusBadge.stories.tsx` — default, variantes, sizes, custom config
-- [ ] `stories/composites/ConfirmDialog.stories.tsx` — danger, warning, info, async, loading
-- [ ] `stories/composites/PageHeader.stories.tsx` — simples, breadcrumbs, ações, backHref
-- [ ] `stories/composites/FilterBar.stories.tsx` — text, select, multi-select, date-range, custom, clear
-- [ ] `stories/composites/FormSection.stories.tsx` — 1 col, 2 cols, 3 cols, com descrição
-- [ ] `stories/composites/DataTable.stories.tsx` — default, loading, empty, search, filters, pagination, selection, bulk actions, row actions, sorting, column visibility
-- [ ] `stories/composites/CopyCell.stories.tsx` — default, truncated, copy feedback
-- [ ] `stories/composites/CurrencyInput.stories.tsx` — BRL, USD, disabled
-- [ ] `stories/composites/AddressFormFields.stories.tsx` — default, CEP lookup, disabled
-- [ ] `stories/composites/EntityCombobox.stories.tsx` — default, async search, loading, empty
-- [ ] `stories/composites/EmptyState.stories.tsx` — default, com ícone, com ação
+- [ ] ~All story files~ ⏸️
 
 ### Stories — Templates
-- [ ] `stories/templates/ListPage.stories.tsx` — completo, loading, empty, com filtros
-- [ ] `stories/templates/DetailPage.stories.tsx` — sem tabs, com tabs, loading
-- [ ] `stories/templates/FormPage.stories.tsx` — default, submitting, dirty guard
+- [ ] ~All story files~ ⏸️
 
 ### Documentação por componente
-- [ ] Cada story inclui descrição do componente
-- [ ] Cada story inclui comando CLI de instalação
-- [ ] Cada story inclui tabela de props (autodocs)
-- [ ] Cada story inclui exemplos de uso correto
-- [ ] Cada story inclui exemplos de uso incorreto
+- [ ] ~All documentation~ ⏸️
 
 ### Deploy
-- [ ] Configurar deploy automático do Storybook (GitHub Pages ou Vercel)
-- [ ] Deploy no merge da main
+- [ ] ~Configurar deploy automático do Storybook~ ⏸️
 
 ---
 
-## Fase 7 — Adoção
+## Fase 7 — Adoção ⏸️ DEFERRED
+
+> Deferred: requires npm credentials, kobana-billing access, and team coordination. See `docs/questions.md`.
 
 ### ESLint Rules
-- [ ] Criar pacote `@kobana/eslint-plugin-ui`
-- [ ] Regra `no-direct-shadcn-table` — avisa import de Table fora de kobana
-- [ ] Regra `prefer-kobana-composite` — sugere compostos para padrões conhecidos (AlertDialog → ConfirmDialog, Breadcrumb+heading → PageHeader)
-- [ ] Documentar como instalar e configurar
+- [ ] ~Criar pacote `@kobana/eslint-plugin-ui`~ ⏸️ (separate package)
 
 ### Publicação NPM
-- [ ] Configurar `.npmignore` (stories, tests, storybook, docs, __tests__)
-- [ ] Validar `npm pack` inclui apenas: dist/, registry/, src/components/, src/hooks/, src/tokens/
-- [ ] Publicar `@kobana/ui` no NPM (`npm publish --access public`)
-- [ ] Verificar `npx @kobana/ui init` funciona após publicação
-- [ ] Verificar `npx @kobana/ui add data-table` funciona após publicação
+- [x] Configurar `.npmignore` (stories, tests, storybook, docs, __tests__)
+- [x] Validar `npm pack` inclui apenas: dist/, registry/, src/components/, src/hooks/, src/tokens/
+- [ ] ~Publicar `@kobana/ui` no NPM~ ⏸️ (requires credentials)
+- [ ] ~Verificar `npx @kobana/ui init` funciona após publicação~ ⏸️
+- [ ] ~Verificar `npx @kobana/ui add data-table` funciona após publicação~ ⏸️
 
 ### Migração POC (kobana-billing)
-- [ ] Rodar `npx @kobana/ui init` no kobana-billing
-- [ ] Migrar listagem de subscriptions → ListPage template
-- [ ] Migrar detalhe de subscription → DetailPage template
-- [ ] Migrar formulário de novo customer → FormPage template
-- [ ] Validar visualmente e funcionalmente cada tela migrada
-- [ ] Remover código duplicado antigo
-- [ ] Documentar lições aprendidas
+- [ ] ~All migration tasks~ ⏸️ (requires kobana-billing access)
 
 ### Workshop com o time
-- [ ] Preparar slides: motivação e princípios do design system (20min)
-- [ ] Preparar demo: CLI init + add + uso (20min)
-- [ ] Preparar live coding: migrar uma tela juntos (30min)
-- [ ] Preparar tour do Storybook: como consultar e contribuir (20min)
-- [ ] Preparar hands-on: cada dev migra uma tela (30min)
-- [ ] Realizar workshop (2h)
+- [ ] ~All workshop tasks~ ⏸️ (team coordination)
 
 ### Processo de contribuição
-- [ ] Documentar como criar novo componente composto
-- [ ] Documentar como atualizar registry
-- [ ] Documentar critérios de promoção (3x rule)
-- [ ] Documentar code review requirements (2 aprovações)
+- [ ] ~All documentation tasks~ ⏸️ (team coordination)
