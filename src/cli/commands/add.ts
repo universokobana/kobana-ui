@@ -6,7 +6,7 @@ import path from 'path';
 import { loadConfig, saveConfig } from '../utils/config.js';
 import { fetchRegistry, fetchLocalRegistry } from '../utils/registry.js';
 import { resolveDependencies } from '../utils/resolver.js';
-import { installComponent, installShadcnDeps, installNpmDeps } from '../utils/installer.js';
+import { installComponent, installShadcnDeps, installNpmDeps, computeComponentHash } from '../utils/installer.js';
 
 export const addCommand = new Command('add')
   .description('Add kobana components to your project')
@@ -114,8 +114,10 @@ export const addCommand = new Command('add')
       const componentSpinner = ora(`Adding ${slug}...`).start();
       try {
         await installComponent(component, slug, config, sourceDir, cwd);
+        const hash = await computeComponentHash(component, config, cwd);
         config.installed[slug] = {
           version: component.version,
+          hash,
           installedAt: new Date().toISOString().split('T')[0],
         };
         componentSpinner.succeed(

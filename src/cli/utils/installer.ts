@@ -1,8 +1,35 @@
 import fs from 'fs-extra';
 import path from 'path';
+import crypto from 'crypto';
 import { execa } from 'execa';
 import { KobanaConfig } from './config.js';
 import { ComponentDef } from './registry.js';
+
+/**
+ * Compute a short hash of file content for change detection.
+ */
+export function computeHash(content: string): string {
+  return crypto.createHash('sha256').update(content).digest('hex').slice(0, 12);
+}
+
+/**
+ * Compute combined hash for all files of a component in the project.
+ */
+export async function computeComponentHash(
+  component: ComponentDef,
+  config: KobanaConfig,
+  projectDir: string = process.cwd(),
+): Promise<string> {
+  const contents: string[] = [];
+  for (const file of component.files) {
+    const relativePath = file.replace(/^src\/components\//, '');
+    const destPath = path.join(projectDir, config.componentDir, relativePath);
+    if (await fs.pathExists(destPath)) {
+      contents.push(await fs.readFile(destPath, 'utf-8'));
+    }
+  }
+  return computeHash(contents.join('\n'));
+}
 
 /**
  * Detect the package manager used in the project.
