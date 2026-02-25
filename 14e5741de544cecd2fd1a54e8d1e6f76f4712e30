@@ -1,0 +1,29 @@
+src/cli/commands/init.ts
+  c26c7850efc047a7 29-44
+__tests__/cli/commands/init.test.ts
+  c26c7850efc047a7 1-104
+__tests__/cli/e2e.test.ts
+  c26c7850efc047a7 1-145
+__tests__/cli/commands/add.test.ts
+  c26c7850efc047a7 1-215
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "14e5741de544cecd2fd1a54e8d1e6f76f4712e30",
+  "prompts": {
+    "c26c7850efc047a7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a009b065-b494-4655-bfff-ce3101841f77",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 480,
+      "total_deletions": 0,
+      "accepted_lines": 480,
+      "overriden_lines": 0
+    }
+  }
+}
