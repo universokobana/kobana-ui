@@ -294,6 +294,141 @@
         "kobana": [],
         "npm": []
       }
+    },
+    "theme-toggle": {
+      "name": "ThemeToggle",
+      "description": "Toggle de tema claro/escuro/sistema com dropdown",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/theme-toggle/theme-toggle.tsx",
+        "src/components/composites/theme-toggle/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button", "dropdown-menu"],
+        "kobana": [],
+        "npm": ["next-themes"]
+      }
+    },
+    "number-input": {
+      "name": "NumberInput",
+      "description": "Input numérico com formatação de milhar e decimal configurável",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/number-input/number-input.tsx",
+        "src/components/composites/number-input/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": ["react-number-format"]
+      }
+    },
+    "locale-toggle": {
+      "name": "LocaleToggle",
+      "description": "Seletor de idioma/locale com dropdown",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/locale-toggle/locale-toggle.tsx",
+        "src/components/composites/locale-toggle/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button", "dropdown-menu"],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "require-permission": {
+      "name": "RequirePermission",
+      "description": "Gate de permissão com suporte a single/all/any e fallback AccessDenied",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/require-permission/require-permission.tsx",
+        "src/components/composites/require-permission/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "export-modal": {
+      "name": "ExportModal",
+      "description": "Modal de exportação de dados com estados de progresso e download",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/export-modal/export-modal.tsx",
+        "src/components/composites/export-modal/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "app-sidebar": {
+      "name": "AppSidebar",
+      "description": "Sidebar de navegação colapsável com ícones, badges e toggle",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/app-sidebar/app-sidebar.tsx",
+        "src/components/composites/app-sidebar/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "app-header": {
+      "name": "AppHeader",
+      "description": "Header de aplicação com menu mobile, avatar e menu do usuário",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/app-header/app-header.tsx",
+        "src/components/composites/app-header/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": []
+      }
+    },
+    "app-layout": {
+      "name": "AppLayout",
+      "description": "Layout de aplicação com sidebar, header e conteúdo responsivo",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/app-layout/app-layout.tsx",
+        "src/components/composites/app-layout/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": ["app-sidebar", "app-header"],
+        "npm": []
+      }
+    },
+    "header-notifications": {
+      "name": "HeaderNotifications",
+      "description": "Dropdown de notificações com badge, lista e time-ago",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/header-notifications/header-notifications.tsx",
+        "src/components/composites/header-notifications/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": []
+      }
     }
   }
 }
