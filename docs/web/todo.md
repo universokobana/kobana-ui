@@ -5,168 +5,168 @@
 ## Fase 0 — Setup do Workspace
 
 ### Workspace e Package
-- [ ] Criar `pnpm-workspace.yaml` na raiz
-- [ ] Atualizar `.gitignore` com entradas do web/
-- [ ] Criar `web/package.json` com dependências
-- [ ] Criar `web/tsconfig.json`
-- [ ] Criar `web/postcss.config.mjs`
-- [ ] Criar `web/next.config.mjs` com Fumadocs MDX loader
-- [ ] Criar `web/source.config.ts` para Fumadocs
-- [ ] Criar `web/styles/globals.css` com Tailwind v4 + CSS variables
-- [ ] Criar `web/components.json` para shadcn/ui
-- [ ] Criar `web/lib/utils.ts` com cn()
-- [ ] Instalar dependências com pnpm
-- [ ] Validar: `pnpm --filter @kobana/ui-docs dev` roda sem erros
+- [x] Criar `pnpm-workspace.yaml` na raiz
+- [x] Atualizar `.gitignore` com entradas do web/
+- [x] Criar `web/package.json` com dependências
+- [x] Criar `web/tsconfig.json`
+- [x] Criar `web/postcss.config.mjs`
+- [x] Criar `web/next.config.mjs` com Fumadocs MDX loader
+- [x] Criar `web/source.config.ts` para Fumadocs
+- [x] Criar `web/styles/globals.css` com Tailwind v4 + CSS variables
+- [x] Criar `web/components.json` para shadcn/ui
+- [x] Criar `web/lib/utils.ts` com cn()
+- [x] Instalar dependências com pnpm
+- [x] Validar: `pnpm --filter @kobana/ui-docs dev` roda sem erros
 
 ---
 
 ## Fase 1 — Layout e Navegação
 
 ### Root Layout e Providers
-- [ ] `web/app/layout.tsx` — Root layout com ThemeProvider, fontes, metadata
-- [ ] `web/components/theme-provider.tsx` — next-themes
-- [ ] `web/lib/source.ts` — Fumadocs source loader
+- [x] `web/app/layout.tsx` — Root layout com ThemeProvider, fontes, metadata
+- [x] `web/components/theme-provider.tsx` — next-themes
+- [x] `web/lib/source.ts` — Fumadocs source loader
 
 ### Site Shell
-- [ ] `web/app/(app)/layout.tsx` — Site wrapper com header + footer
-- [ ] `web/components/site-header.tsx` — Logo, links (Docs, GitHub), theme toggle
-- [ ] `web/components/site-footer.tsx` — Links úteis, copyright
+- [x] `web/app/(app)/layout.tsx` — Site wrapper com header + footer
+- [x] `web/components/site-header.tsx` — Logo, links (Docs, GitHub), theme toggle
+- [x] `web/components/site-footer.tsx` — Links úteis, copyright
 
 ### Landing Page
-- [ ] `web/app/(app)/(root)/page.tsx` — Homepage minimalista
+- [x] `web/app/(app)/(root)/page.tsx` — Homepage minimalista
 
 ### Docs Pages
-- [ ] `web/app/(app)/docs/layout.tsx` — Layout de docs com sidebar + ToC
-- [ ] `web/app/(app)/docs/[[...slug]]/page.tsx` — Catch-all com Fumadocs
-- [ ] `web/content/docs/index.mdx` — Placeholder intro page
-- [ ] `web/content/docs/meta.json` — Sidebar ordering
-- [ ] Validar: navegação entre páginas funciona
+- [x] `web/app/(app)/docs/layout.tsx` — Layout de docs com sidebar + ToC
+- [x] `web/app/(app)/docs/[[...slug]]/page.tsx` — Catch-all com Fumadocs
+- [x] `web/content/docs/index.mdx` — Placeholder intro page
+- [x] `web/content/docs/meta.json` — Sidebar ordering
+- [x] Validar: navegação entre páginas funciona
 
 ---
 
 ## Fase 2 — Sistema de Preview de Componentes
 
 ### Syntax Highlighting
-- [ ] `web/lib/highlight-code.ts` — Shiki highlighter com temas
+- [x] `web/lib/highlight-code.ts` — Shiki highlighter com temas
 
 ### Component Preview
-- [ ] `web/components/component-preview.tsx` — Preview container
-- [ ] `web/components/component-source.tsx` — Source code display
-- [ ] `web/components/code-block.tsx` — Bloco de código com copy
-- [ ] `web/components/copy-button.tsx` — Botão copiar com feedback
+- [x] `web/components/component-preview.tsx` — Preview container
+- [x] `web/components/component-source.tsx` — Source code display
+- [x] `web/components/code-block.tsx` — Bloco de código com copy
+- [x] `web/components/copy-button.tsx` — Botão copiar com feedback
 
 ### MDX Components
-- [ ] `web/mdx-components.tsx` — Override de elementos MDX + custom components
+- [x] `web/mdx-components.tsx` — Override de elementos MDX + custom components
 
 ### Registry de Exemplos
-- [ ] `web/lib/registry.ts` — Lookup de componentes/exemplos
-- [ ] `web/registry/__index__.tsx` — Auto-generated index com lazy imports
-- [ ] `web/examples/status-badge-demo.tsx` — Primeiro exemplo para validação
-- [ ] Validar: ComponentPreview renderiza preview + código
+- [x] `web/lib/registry.ts` — Lookup de componentes/exemplos
+- [x] `web/registry/__index__.tsx` — Auto-generated index com lazy imports
+- [x] `web/examples/status-badge-demo.tsx` — Primeiro exemplo para validação
+- [x] Validar: ComponentPreview renderiza preview + código
 
 ---
 
 ## Fase 3 — Páginas de Fundação
 
 ### Conteúdo Base
-- [ ] `content/docs/index.mdx` — Introdução ao design system
-- [ ] `content/docs/installation.mdx` — Como instalar o CLI
-- [ ] `content/docs/cli.mdx` — Comandos (init, add, update, list, diff)
-- [ ] `content/docs/architecture.mdx` — Modelo de 3 camadas
+- [x] `content/docs/index.mdx` — Introdução ao design system
+- [x] `content/docs/installation.mdx` — Como instalar o CLI
+- [x] `content/docs/cli.mdx` — Comandos (init, add, update, list, diff)
+- [x] `content/docs/architecture.mdx` — Modelo de 3 camadas
 
 ### Tokens
-- [ ] `content/docs/tokens/colors.mdx` — Paleta de cores semânticas
-- [ ] `content/docs/tokens/spacing.mdx` — Escala de espaçamento
-- [ ] `content/docs/tokens/typography.mdx` — Tipografia
+- [x] `content/docs/tokens/colors.mdx` — Paleta de cores semânticas
+- [x] `content/docs/tokens/spacing.mdx` — Escala de espaçamento
+- [x] `content/docs/tokens/typography.mdx` — Tipografia
 
 ---
 
 ## Fase 4 — Documentação dos Composites — Grupo 1
 
 ### Exemplos
-- [ ] `examples/data-table-demo.tsx`
-- [ ] `examples/page-header-demo.tsx`
-- [ ] `examples/filter-bar-demo.tsx`
-- [ ] `examples/form-section-demo.tsx`
-- [ ] `examples/status-badge-variants.tsx`
-- [ ] `examples/confirm-dialog-demo.tsx`
-- [ ] `examples/empty-state-demo.tsx`
-- [ ] `examples/copy-cell-demo.tsx`
-- [ ] `examples/currency-input-demo.tsx`
+- [x] `examples/data-table-demo.tsx`
+- [x] `examples/page-header-demo.tsx`
+- [x] `examples/filter-bar-demo.tsx`
+- [x] `examples/form-section-demo.tsx`
+- [x] `examples/status-badge-variants.tsx`
+- [x] `examples/confirm-dialog-demo.tsx`
+- [x] `examples/empty-state-demo.tsx`
+- [x] `examples/copy-cell-demo.tsx`
+- [x] `examples/currency-input-demo.tsx`
 
 ### MDX Pages
-- [ ] `content/docs/components/data-table.mdx`
-- [ ] `content/docs/components/page-header.mdx`
-- [ ] `content/docs/components/filter-bar.mdx`
-- [ ] `content/docs/components/form-section.mdx`
-- [ ] `content/docs/components/status-badge.mdx`
-- [ ] `content/docs/components/confirm-dialog.mdx`
-- [ ] `content/docs/components/empty-state.mdx`
-- [ ] `content/docs/components/copy-cell.mdx`
-- [ ] `content/docs/components/currency-input.mdx`
-- [ ] Atualizar `meta.json` com grupo Components
+- [x] `content/docs/components/data-table.mdx`
+- [x] `content/docs/components/page-header.mdx`
+- [x] `content/docs/components/filter-bar.mdx`
+- [x] `content/docs/components/form-section.mdx`
+- [x] `content/docs/components/status-badge.mdx`
+- [x] `content/docs/components/confirm-dialog.mdx`
+- [x] `content/docs/components/empty-state.mdx`
+- [x] `content/docs/components/copy-cell.mdx`
+- [x] `content/docs/components/currency-input.mdx`
+- [x] Atualizar `meta.json` com grupo Components
 
 ---
 
 ## Fase 5 — Documentação dos Composites — Grupo 2
 
 ### Exemplos
-- [ ] `examples/number-input-demo.tsx`
-- [ ] `examples/entity-combobox-demo.tsx`
-- [ ] `examples/address-form-fields-demo.tsx`
-- [ ] `examples/app-layout-demo.tsx`
-- [ ] `examples/app-header-demo.tsx`
-- [ ] `examples/app-sidebar-demo.tsx`
-- [ ] `examples/theme-toggle-demo.tsx`
-- [ ] `examples/locale-toggle-demo.tsx`
-- [ ] `examples/require-permission-demo.tsx`
-- [ ] `examples/export-modal-demo.tsx`
-- [ ] `examples/header-notifications-demo.tsx`
+- [x] `examples/number-input-demo.tsx`
+- [x] `examples/entity-combobox-demo.tsx`
+- [x] `examples/address-form-fields-demo.tsx`
+- [x] `examples/app-layout-demo.tsx`
+- [x] `examples/app-header-demo.tsx`
+- [x] `examples/app-sidebar-demo.tsx`
+- [x] `examples/theme-toggle-demo.tsx`
+- [x] `examples/locale-toggle-demo.tsx`
+- [x] `examples/require-permission-demo.tsx`
+- [x] `examples/export-modal-demo.tsx`
+- [x] `examples/header-notifications-demo.tsx`
 
 ### MDX Pages
-- [ ] `content/docs/components/number-input.mdx`
-- [ ] `content/docs/components/entity-combobox.mdx`
-- [ ] `content/docs/components/address-form-fields.mdx`
-- [ ] `content/docs/components/app-layout.mdx`
-- [ ] `content/docs/components/app-header.mdx`
-- [ ] `content/docs/components/app-sidebar.mdx`
-- [ ] `content/docs/components/theme-toggle.mdx`
-- [ ] `content/docs/components/locale-toggle.mdx`
-- [ ] `content/docs/components/require-permission.mdx`
-- [ ] `content/docs/components/export-modal.mdx`
-- [ ] `content/docs/components/header-notifications.mdx`
-- [ ] Atualizar `meta.json`
+- [x] `content/docs/components/number-input.mdx`
+- [x] `content/docs/components/entity-combobox.mdx`
+- [x] `content/docs/components/address-form-fields.mdx`
+- [x] `content/docs/components/app-layout.mdx`
+- [x] `content/docs/components/app-header.mdx`
+- [x] `content/docs/components/app-sidebar.mdx`
+- [x] `content/docs/components/theme-toggle.mdx`
+- [x] `content/docs/components/locale-toggle.mdx`
+- [x] `content/docs/components/require-permission.mdx`
+- [x] `content/docs/components/export-modal.mdx`
+- [x] `content/docs/components/header-notifications.mdx`
+- [x] Atualizar `meta.json`
 
 ---
 
 ## Fase 6 — Templates e Hooks
 
 ### Exemplos
-- [ ] `examples/list-page-demo.tsx`
-- [ ] `examples/detail-page-demo.tsx`
-- [ ] `examples/form-page-demo.tsx`
+- [x] `examples/list-page-demo.tsx`
+- [x] `examples/detail-page-demo.tsx`
+- [x] `examples/form-page-demo.tsx`
 
 ### MDX Pages
-- [ ] `content/docs/templates/list-page.mdx`
-- [ ] `content/docs/templates/detail-page.mdx`
-- [ ] `content/docs/templates/form-page.mdx`
-- [ ] `content/docs/hooks/use-data-table.mdx`
-- [ ] `content/docs/hooks/use-filters.mdx`
-- [ ] `content/docs/hooks/use-pagination.mdx`
-- [ ] `content/docs/hooks/use-debounce.mdx`
-- [ ] Atualizar `meta.json` com Templates e Hooks
+- [x] `content/docs/templates/list-page.mdx`
+- [x] `content/docs/templates/detail-page.mdx`
+- [x] `content/docs/templates/form-page.mdx`
+- [x] `content/docs/hooks/use-data-table.mdx`
+- [x] `content/docs/hooks/use-filters.mdx`
+- [x] `content/docs/hooks/use-pagination.mdx`
+- [x] `content/docs/hooks/use-debounce.mdx`
+- [x] Atualizar `meta.json` com Templates e Hooks
 
 ---
 
 ## Fase 7 — Homepage e Polish
 
 ### Landing Page
-- [ ] Homepage final com hero, features, grid de componentes
-- [ ] 404 page
+- [x] Homepage final com hero, features, grid de componentes
+- [x] 404 page
 
 ### SEO e Meta
-- [ ] Meta tags, Open Graph, sitemap
+- [x] Meta tags, Open Graph, sitemap
 - [ ] Favicon
 
 ### Responsiveness
-- [ ] Mobile responsiveness review
+- [x] Mobile responsiveness review
