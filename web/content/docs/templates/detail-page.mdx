@@ -1,0 +1,61 @@
+---
+title: DetailPage
+description: Template de página de detalhe com tabs e loading skeleton.
+---
+
+<ComponentPreview name="detail-page-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add detail-page
+```
+
+**Dependências:** `page-header` (Kobana), `tabs`, `separator`, `skeleton` (shadcn/ui)
+
+## Importação
+
+```tsx
+import { DetailPage, DetailSection } from "@/components/kobana/templates/detail-page"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `title` | `string` | — | Título da página |
+| `description` | `string` | — | Descrição |
+| `breadcrumbs` | `BreadcrumbItem[]` | — | Trail |
+| `actions` | `ReactNode` | — | Ações |
+| `backHref` | `string` | — | URL do botão voltar |
+| `tabs` | `DetailPageTab[]` | — | Tabs opcionais |
+| `children` | `ReactNode` | — | Conteúdo (sem tabs) |
+| `isLoading` | `boolean` | — | Skeleton loading |
+| `className` | `string` | — | Classes adicionais |
+
+### DetailPageTab
+
+```tsx
+interface DetailPageTab {
+  value: string
+  label: string
+  content: ReactNode
+}
+```
+
+## Uso
+
+```tsx
+<DetailPage
+  title="Cobrança #001"
+  breadcrumbs={[
+    { label: "Cobranças", href: "/charges" },
+    { label: "#001" },
+  ]}
+  actions={<Button variant="outline">Editar</Button>}
+  tabs={[
+    { value: "info", label: "Informações", content: <InfoTab /> },
+    { value: "history", label: "Histórico", content: <HistoryTab /> },
+  ]}
+/>
+```

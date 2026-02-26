@@ -1,0 +1,56 @@
+---
+title: usePagination
+description: Hook para paginação server-side.
+---
+
+## Instalação
+
+```bash
+npx @kobana/ui add use-pagination
+```
+
+## Importação
+
+```tsx
+import { usePagination } from "@/hooks/use-pagination"
+```
+
+## API
+
+```tsx
+const { page, perPage, setPage, setPerPage, offset } = usePagination({
+  defaultPage: 1,
+  defaultPerPage: 20,
+})
+```
+
+### Options
+
+| Opção | Tipo | Default | Descrição |
+|-------|------|---------|-----------|
+| `defaultPage` | `number` | `1` | Página inicial |
+| `defaultPerPage` | `number` | `20` | Itens por página |
+
+### Return
+
+| Propriedade | Tipo | Descrição |
+|-------------|------|-----------|
+| `page` | `number` | Página atual (1-indexed) |
+| `perPage` | `number` | Itens por página |
+| `setPage` | `(page) => void` | Muda a página |
+| `setPerPage` | `(perPage) => void` | Muda items/página (reseta page=1) |
+| `offset` | `number` | Offset calculado: `(page - 1) * perPage` |
+
+## Uso
+
+```tsx
+const pagination = usePagination({ defaultPerPage: 10 })
+
+const { data } = useQuery({
+  queryKey: ["charges", pagination.page, pagination.perPage],
+  queryFn: () => api.charges.list({
+    page: pagination.page,
+    per_page: pagination.perPage,
+  }),
+})
+```

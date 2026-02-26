@@ -1,0 +1,62 @@
+---
+title: ListPage
+description: Template de página de listagem completa com PageHeader + DataTable + EmptyState.
+---
+
+<ComponentPreview name="list-page-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add list-page
+```
+
+**Dependências Kobana:** `data-table`, `page-header`, `empty-state`
+
+## Importação
+
+```tsx
+import { ListPage } from "@/components/kobana/templates/list-page"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `title` | `string` | — | Título da página |
+| `description` | `string` | — | Descrição |
+| `breadcrumbs` | `BreadcrumbItem[]` | — | Trail de navegação |
+| `primaryAction` | `{ label, onClick, icon? }` | — | Botão principal |
+| `columns` | `ColumnDef<TData>[]` | — | Colunas da tabela |
+| `data` | `TData[]` | — | Dados |
+| `filters` | `FilterConfig[]` | — | Configuração de filtros |
+| `filterComponent` | `ReactNode` | — | Componente de filtro customizado |
+| `searchKey` | `string` | — | Coluna de busca |
+| `pagination` | `PaginationConfig` | — | Paginação server-side |
+| `selectable` | `boolean` | `false` | Seleção de linhas |
+| `bulkActions` | `BulkAction<TData>[]` | — | Ações em lote |
+| `rowActions` | `RowAction<TData>[]` | — | Ações por linha |
+| `isLoading` | `boolean` | — | Loading |
+| `emptyState` | `EmptyStateProps` | — | Estado vazio customizado |
+
+## Uso
+
+```tsx
+<ListPage
+  title="Cobranças"
+  description="Gerencie suas cobranças"
+  breadcrumbs={[{ label: "Dashboard", href: "/" }, { label: "Cobranças" }]}
+  primaryAction={{ label: "Nova Cobrança", onClick: () => navigate("/new") }}
+  columns={columns}
+  data={charges}
+  searchKey="name"
+  selectable
+  pagination={{ page, perPage, total, totalPages }}
+  onPageChange={setPage}
+  emptyState={{
+    title: "Nenhuma cobrança",
+    description: "Crie sua primeira cobrança",
+    action: { label: "Criar", onClick: () => navigate("/new") },
+  }}
+/>
+```

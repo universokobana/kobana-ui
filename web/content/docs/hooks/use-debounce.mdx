@@ -1,0 +1,45 @@
+---
+title: useDebounce
+description: Hook de debounce genérico.
+---
+
+## Instalação
+
+```bash
+npx @kobana/ui add use-debounce
+```
+
+## Importação
+
+```tsx
+import { useDebounce } from "@/hooks/use-debounce"
+```
+
+## API
+
+```tsx
+const debouncedValue = useDebounce(value, delay)
+```
+
+### Parâmetros
+
+| Parâmetro | Tipo | Default | Descrição |
+|-----------|------|---------|-----------|
+| `value` | `T` | — | Valor a ser debounced |
+| `delay` | `number` | `300` | Delay em ms |
+
+### Return
+
+Retorna o valor debounced do tipo `T`.
+
+## Uso
+
+```tsx
+const [search, setSearch] = useState("")
+const debouncedSearch = useDebounce(search, 300)
+
+useEffect(() => {
+  // Chamado apenas após 300ms sem digitação
+  fetchResults(debouncedSearch)
+}, [debouncedSearch])
+```

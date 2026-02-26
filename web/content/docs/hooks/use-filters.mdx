@@ -1,0 +1,66 @@
+---
+title: useFilters
+description: Hook para gerenciar estado de filtros com URL sync.
+---
+
+## Instalação
+
+```bash
+npx @kobana/ui add use-filters
+```
+
+## Importação
+
+```tsx
+import { useFilters } from "@/hooks/use-filters"
+```
+
+## API
+
+```tsx
+const { values, setFilter, clearAll, activeCount, toSearchParams, fromSearchParams } = useFilters(config)
+```
+
+### Options
+
+Recebe um array de `FilterConfig[]` (mesmo do FilterBar).
+
+### Return
+
+| Propriedade | Tipo | Descrição |
+|-------------|------|-----------|
+| `values` | `Record<string, unknown>` | Valores atuais |
+| `setFilter` | `(key, value) => void` | Define um filtro |
+| `clearAll` | `() => void` | Limpa todos |
+| `activeCount` | `number` | Total de filtros ativos |
+| `toSearchParams` | `() => URLSearchParams` | Serializa para URL |
+| `fromSearchParams` | `(params) => void` | Restaura da URL |
+
+## Uso
+
+```tsx
+const filters = useFilters([
+  { key: "search", label: "Buscar", type: "text" },
+  { key: "status", label: "Status", type: "select", options: [...] },
+])
+
+<FilterBar
+  filters={filterConfig}
+  values={filters.values}
+  onChange={(v) => Object.entries(v).forEach(([k, v]) => filters.setFilter(k, v))}
+  onClear={filters.clearAll}
+/>
+```
+
+### URL Sync
+
+```tsx
+// Salvar na URL
+const params = filters.toSearchParams()
+router.push(`?${params.toString()}`)
+
+// Restaurar da URL
+useEffect(() => {
+  filters.fromSearchParams(new URLSearchParams(window.location.search))
+}, [])
+```

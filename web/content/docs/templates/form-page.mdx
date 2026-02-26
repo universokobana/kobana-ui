@@ -1,0 +1,62 @@
+---
+title: FormPage
+description: Template de página de formulário com barra sticky e guard de navegação.
+---
+
+<ComponentPreview name="form-page-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add form-page
+```
+
+**Dependências Kobana:** `page-header`, `confirm-dialog`
+
+## Importação
+
+```tsx
+import { FormPage } from "@/components/kobana/templates/form-page"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `title` | `string` | — | Título da página |
+| `description` | `string` | — | Descrição |
+| `breadcrumbs` | `BreadcrumbItem[]` | — | Trail |
+| `backHref` | `string` | — | URL do botão voltar |
+| `onSubmit` | `() => void \| Promise<void>` | — | Submit async |
+| `onCancel` | `() => void` | — | Callback cancelar |
+| `submitLabel` | `string` | `"Salvar"` | Label do botão submit |
+| `cancelLabel` | `string` | `"Cancelar"` | Label do botão cancelar |
+| `isSubmitting` | `boolean` | `false` | Estado de submissão |
+| `isDirty` | `boolean` | `false` | Formulário modificado |
+| `children` | `ReactNode` | — | Campos do formulário |
+| `className` | `string` | — | Classes adicionais |
+
+## Dirty Guard
+
+Quando `isDirty=true` e o usuário tenta sair, um `ConfirmDialog` é exibido pedindo confirmação.
+
+## Uso
+
+```tsx
+<FormPage
+  title="Nova Cobrança"
+  breadcrumbs={[
+    { label: "Cobranças", href: "/charges" },
+    { label: "Nova" },
+  ]}
+  onSubmit={handleSubmit(onSubmit)}
+  onCancel={() => router.back()}
+  isSubmitting={isSubmitting}
+  isDirty={formState.isDirty}
+>
+  <FormSection title="Dados" columns={2}>
+    <FormField name="customer" label="Cliente" />
+    <FormField name="amount" label="Valor" />
+  </FormSection>
+</FormPage>
+```

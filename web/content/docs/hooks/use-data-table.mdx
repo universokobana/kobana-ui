@@ -1,0 +1,76 @@
+---
+title: useDataTable
+description: Hook para gerenciar estado do DataTable com TanStack Table.
+---
+
+## Instalação
+
+```bash
+npx @kobana/ui add use-data-table
+```
+
+**Dependências npm:** `@tanstack/react-table`
+
+## Importação
+
+```tsx
+import { useDataTable } from "@/hooks/use-data-table"
+```
+
+## API
+
+```tsx
+const { table, sorting, filtering, pagination, rowSelection } = useDataTable({
+  data,
+  columns,
+  serverSide: false,
+  defaultPageSize: 20,
+})
+```
+
+### Options
+
+| Opção | Tipo | Default | Descrição |
+|-------|------|---------|-----------|
+| `data` | `TData[]` | — | Dados da tabela |
+| `columns` | `ColumnDef<TData>[]` | — | Definição das colunas |
+| `serverSide` | `boolean` | `false` | Modo server-side |
+| `defaultPageSize` | `number` | `20` | Tamanho da página padrão |
+
+### Return
+
+| Propriedade | Tipo | Descrição |
+|-------------|------|-----------|
+| `table` | `Table<TData>` | Instância TanStack Table |
+| `sorting` | `SortingState` | Estado de ordenação |
+| `filtering` | `ColumnFiltersState` | Estado de filtros |
+| `pagination` | `PaginationState` | Estado de paginação |
+| `rowSelection` | `RowSelectionState` | Linhas selecionadas |
+
+## Uso
+
+```tsx
+function ChargesTable({ charges }: { charges: Charge[] }) {
+  const { table } = useDataTable({
+    data: charges,
+    columns: chargeColumns,
+  })
+
+  return <DataTable table={table} />
+}
+```
+
+### Server-side
+
+```tsx
+const { table, sorting, pagination } = useDataTable({
+  data: serverData,
+  columns,
+  serverSide: true,
+})
+
+// Use sorting e pagination para fazer fetch server-side
+useEffect(() => {
+  fetchCharges({ page: pagination.pageIndex, sort: sorting })
+}, [sorting, pagination])
+```
