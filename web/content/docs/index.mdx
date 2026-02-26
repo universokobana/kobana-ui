@@ -5,4 +5,22 @@ description: Design System para produtos Kobana
 
 # Kobana UI
 
-Bem-vindo à documentação do Kobana UI Design System.
+Design System composto por componentes reutilizáveis e acessíveis, construído sobre [shadcn/ui](https://ui.shadcn.com).
+
+## Princípios
+
+- **Copy, don't install** — Componentes são copiados para o projeto, não importados como dependência
+- **3 camadas** — Primitivos (shadcn/ui) → Compostos (Kobana) → Templates (páginas completas)
+- **TypeScript-first** — Tipagem completa para todos os componentes e hooks
+- **CLI-driven** — Instale e atualize via `npx @kobana/ui add`
+
+## Quick Start
+
+```bash
+npx @kobana/ui init
+npx @kobana/ui add status-badge
+```
+
+## Preview
+
+<ComponentPreview name="status-badge-demo" />
