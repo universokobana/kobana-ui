@@ -1,0 +1,73 @@
+---
+title: CLI
+description: Referência completa dos comandos do Kobana UI CLI
+---
+
+## init
+
+Inicializa o Kobana UI no projeto. Detecta shadcn/ui, valida dependências e cria a configuração.
+
+```bash
+npx @kobana/ui init
+```
+
+Cria:
+- `kobana.json` — arquivo de configuração
+- Diretórios para componentes, hooks e tokens
+
+## add
+
+Adiciona um ou mais componentes ao projeto. Resolve dependências transitivas automaticamente.
+
+```bash
+npx @kobana/ui add <componente>
+npx @kobana/ui add status-badge data-table page-header
+```
+
+O que acontece:
+1. Resolve a árvore de dependências (Kobana → shadcn → npm)
+2. Instala primitivos shadcn necessários
+3. Instala pacotes npm necessários
+4. Copia os arquivos do componente
+5. Reescreve imports para os paths do projeto
+6. Atualiza `kobana.json` com versão e hash
+
+## list
+
+Lista todos os componentes disponíveis no registry, agrupados por categoria.
+
+```bash
+npx @kobana/ui list
+```
+
+Mostra o status de instalação de cada componente (instalado/não instalado).
+
+## diff
+
+Mostra as diferenças entre a versão local e a versão do registry.
+
+```bash
+npx @kobana/ui diff <componente>
+npx @kobana/ui diff --all
+```
+
+Output colorido com adições (verde), remoções (vermelho) e hunks (cyan).
+
+## update
+
+Atualiza componentes para a versão mais recente do registry.
+
+```bash
+npx @kobana/ui update <componente>
+npx @kobana/ui update --all
+npx @kobana/ui update --all --force
+npx @kobana/ui update --all --dry-run
+```
+
+| Flag | Descrição |
+|------|-----------|
+| `--all` | Atualiza todos os componentes instalados |
+| `--force` | Pula confirmação |
+| `--dry-run` | Mostra mudanças sem aplicar |
+
+O update detecta modificações locais (via hash SHA-256) e pede confirmação antes de sobrescrever.

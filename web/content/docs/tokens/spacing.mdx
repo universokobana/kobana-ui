@@ -1,0 +1,31 @@
+---
+title: Espaçamento
+description: Escala de espaçamento do Kobana UI
+---
+
+## Escala
+
+Baseada em incrementos de 4px, alinhada com as classes do Tailwind CSS.
+
+| Token | Valor | Tailwind | Uso |
+|-------|-------|----------|-----|
+| `xs` | 4px | `p-1`, `gap-1` | Entre ícone e texto |
+| `sm` | 8px | `p-2`, `gap-2` | Padding de badges |
+| `md` | 16px | `p-4`, `gap-4` | Padding de cards |
+| `lg` | 24px | `p-6`, `gap-6` | Entre seções |
+| `xl` | 32px | `p-8`, `gap-8` | Margens de página |
+| `2xl` | 48px | `p-12`, `gap-12` | Gaps de seções grandes |
+
+## Uso
+
+Os tokens de espaçamento são mapeados para classes Tailwind. Prefira usar as classes diretamente:
+
+```tsx
+<div className="p-4 gap-4">   {/* md = 16px */}
+  <div className="p-2 gap-2"> {/* sm = 8px */}
+    <span className="gap-1">  {/* xs = 4px */}
+      Conteúdo
+    </span>
+  </div>
+</div>
+```

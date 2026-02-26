@@ -1,0 +1,73 @@
+---
+title: Instalação
+description: Como instalar e configurar o Kobana UI no seu projeto
+---
+
+## Pré-requisitos
+
+O Kobana UI é uma camada acima do [shadcn/ui](https://ui.shadcn.com). Você precisa de:
+
+- **React 18+** e **Next.js 14+** (ou outro framework com suporte a RSC)
+- **Tailwind CSS v4** configurado
+- **shadcn/ui** já inicializado no projeto (`npx shadcn@latest init`)
+
+## Inicializar
+
+Execute o comando `init` na raiz do seu projeto:
+
+```bash
+npx @kobana/ui init
+```
+
+O comando irá:
+
+1. Detectar se shadcn/ui está configurado
+2. Validar dependências base (react, tailwindcss)
+3. Criar o arquivo `kobana.json` com a configuração
+4. Criar a estrutura de diretórios para componentes Kobana
+
+### Estrutura criada
+
+```
+seu-projeto/
+├── components/
+│   ├── ui/          # Primitivos shadcn/ui (já existente)
+│   └── kobana/      # Compostos Kobana UI ← novo
+├── hooks/           # Hooks Kobana UI ← novo
+├── tokens/          # Design tokens ← novo
+└── kobana.json      # Configuração ← novo
+```
+
+## Adicionar componentes
+
+Instale componentes individualmente:
+
+```bash
+npx @kobana/ui add status-badge
+npx @kobana/ui add data-table
+npx @kobana/ui add page-header
+```
+
+O CLI resolve dependências automaticamente. Por exemplo, `data-table` instala:
+
+- Componentes Kobana: `filter-bar`, `status-badge`
+- Primitivos shadcn: `table`, `checkbox`, `dropdown-menu`, `skeleton`, `button`, `select`
+- Pacotes npm: `@tanstack/react-table`
+
+## Listar componentes
+
+Veja todos os componentes disponíveis:
+
+```bash
+npx @kobana/ui list
+```
+
+## Uso
+
+Após instalar, importe diretamente do seu projeto:
+
+```tsx
+import { StatusBadge } from "@/components/kobana/status-badge"
+import { DataTable } from "@/components/kobana/data-table"
+import { PageHeader } from "@/components/kobana/page-header"
+```

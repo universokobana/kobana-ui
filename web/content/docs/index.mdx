@@ -3,8 +3,6 @@ title: Introdução
 description: Design System para produtos Kobana
 ---
 
-# Kobana UI
-
 Design System composto por componentes reutilizáveis e acessíveis, construído sobre [shadcn/ui](https://ui.shadcn.com).
 
 ## Princípios
@@ -12,7 +10,7 @@ Design System composto por componentes reutilizáveis e acessíveis, construído
 - **Copy, don't install** — Componentes são copiados para o projeto, não importados como dependência
 - **3 camadas** — Primitivos (shadcn/ui) → Compostos (Kobana) → Templates (páginas completas)
 - **TypeScript-first** — Tipagem completa para todos os componentes e hooks
-- **CLI-driven** — Instale e atualize via `npx @kobana/ui add`
+- **CLI-driven** — Instale e atualize via CLI
 
 ## Quick Start
 
@@ -21,6 +19,52 @@ npx @kobana/ui init
 npx @kobana/ui add status-badge
 ```
 
-## Preview
+```tsx
+import { StatusBadge } from "@/components/kobana/status-badge"
 
-<ComponentPreview name="status-badge-demo" />
+export function Example() {
+  return <StatusBadge status="active" label="Ativo" />
+}
+```
+
+## Componentes Disponíveis
+
+### Compostos
+
+| Componente | Descrição |
+|-----------|-----------|
+| StatusBadge | Badge semântico com cores e ícones por status |
+| ConfirmDialog | Dialog de confirmação com variantes |
+| PageHeader | Cabeçalho de página com breadcrumbs e ações |
+| FilterBar | Barra de filtros com múltiplos tipos |
+| FormSection | Seção de formulário com grid responsivo |
+| DataTable | Tabela de dados completa com TanStack Table |
+| CopyCell | Célula com copy-to-clipboard e truncamento |
+| CurrencyInput | Input com formatação de moeda |
+| NumberInput | Input numérico com formatação |
+| EntityCombobox | Combobox genérico com busca async |
+| AddressFormFields | Campos de endereço brasileiro |
+| EmptyState | Estado vazio com ação |
+| AppLayout | Layout de aplicação responsivo |
+| ThemeToggle | Toggle de tema light/dark |
+| LocaleToggle | Seletor de idioma |
+| RequirePermission | Gate de permissão |
+| ExportModal | Modal de exportação com progresso |
+| HeaderNotifications | Dropdown de notificações |
+
+### Templates
+
+| Template | Descrição |
+|---------|-----------|
+| ListPage | Página de listagem completa |
+| DetailPage | Página de detalhe com tabs |
+| FormPage | Página de formulário com guard |
+
+### Hooks
+
+| Hook | Descrição |
+|------|-----------|
+| useDataTable | Estado do DataTable |
+| useFilters | Filtros com URL sync |
+| usePagination | Paginação server-side |
+| useDebounce | Debounce genérico |

@@ -1,0 +1,58 @@
+---
+title: Arquitetura
+description: Modelo de 3 camadas do Kobana UI Design System
+---
+
+## Filosofia: Copy, Don't Install
+
+Diferente de bibliotecas de componentes tradicionais, o Kobana UI **copia** os componentes para o seu projeto. Isso significa:
+
+- **Controle total** — Você pode modificar qualquer componente
+- **Zero breaking changes** — Atualizações são opt-in via CLI
+- **Sem acoplamento** — Nenhuma dependência runtime do Kobana
+- **Diff** — Você pode comparar sua versão local com o registry
+
+## Modelo de 3 Camadas
+
+```
+┌─────────────────────────────────────────┐
+│           Templates (Kobana)            │
+│   ListPage · DetailPage · FormPage      │
+├─────────────────────────────────────────┤
+│           Compostos (Kobana)            │
+│  DataTable · PageHeader · FilterBar     │
+│  StatusBadge · ConfirmDialog · ...      │
+├─────────────────────────────────────────┤
+│          Primitivos (shadcn/ui)         │
+│  Button · Input · Select · Table · ...  │
+└─────────────────────────────────────────┘
+```
+
+### Camada 1 — Primitivos (shadcn/ui)
+
+Componentes atômicos sem lógica de negócio. São instalados automaticamente como dependências quando você adiciona um composto Kobana.
+
+### Camada 2 — Compostos (Kobana)
+
+Componentes que combinam múltiplos primitivos para resolver padrões recorrentes nos produtos Kobana. Exemplos:
+
+- **DataTable** — Combina Table + Checkbox + DropdownMenu + Skeleton + Select
+- **FilterBar** — Combina Input + Select + Popover + Calendar + Badge
+- **PageHeader** — Combina Breadcrumb + Button
+
+### Camada 3 — Templates (Kobana)
+
+Páginas completas que compõem múltiplos compostos. São o ponto de partida para novas funcionalidades:
+
+- **ListPage** — PageHeader + DataTable + EmptyState
+- **DetailPage** — PageHeader + Tabs + Sections
+- **FormPage** — PageHeader + Form + ConfirmDialog
+
+## Registry
+
+Todos os componentes vivem em um registry JSON centralizado. Cada entrada define:
+
+- **Arquivos** — Quais arquivos compõem o componente
+- **Dependências** — shadcn, kobana e npm
+- **Versão** — Para controle de atualizações
+- **Categoria** — composite, template, hook ou token
