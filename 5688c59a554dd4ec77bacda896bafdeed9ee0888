@@ -1,0 +1,33 @@
+web/content/docs/hooks/use-data-table.mdx
+  2c0b7e054db5c261 54,59,61-71,73
+web/content/docs/templates/list-page.mdx
+  2c0b7e054db5c261 53-62,64-67,70-71,75-76
+web/examples/list-page-demo.tsx
+  2c0b7e054db5c261 3-213,215-239,242-264,267-289,291-292,294-299,303-304,308-359,361-402,405-412,414-423,426-432,436,438-472
+web/content/docs/architecture.mdx
+  2c0b7e054db5c261 39
+web/examples/data-table-demo.tsx
+  2c0b7e054db5c261 361-362,393,411
+src/components/composites/data-table/data-table.tsx
+  2c0b7e054db5c261 181,183,187-189,192
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "5688c59a554dd4ec77bacda896bafdeed9ee0888",
+  "prompts": {
+    "2c0b7e054db5c261": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4b6b4e9a-31df-47f8-8161-d2b8aaae2c7a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 531,
+      "total_deletions": 90,
+      "accepted_lines": 492,
+      "overriden_lines": 1
+    }
+  }
+}
