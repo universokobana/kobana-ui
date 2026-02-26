@@ -43,6 +43,7 @@ const registry: Record<string, RegistryEntry> = Object.fromEntries([
   entry("locale-toggle-demo", () => import("@/examples/locale-toggle-demo")),
   entry("require-permission-demo", () => import("@/examples/require-permission-demo")),
   entry("export-modal-demo", () => import("@/examples/export-modal-demo")),
+  entry("import-modal-demo", () => import("@/examples/import-modal-demo")),
   entry("header-notifications-demo", () => import("@/examples/header-notifications-demo")),
   // Templates
   entry("list-page-demo", () => import("@/examples/list-page-demo")),

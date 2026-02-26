@@ -1,0 +1,104 @@
+---
+title: ImportModal
+description: Modal de importação de dados CSV com drag-and-drop, progresso e tratamento de erros.
+---
+
+<ComponentPreview name="import-modal-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add import-modal
+```
+
+## Importação
+
+```tsx
+import { ImportModal } from "@/components/kobana/import-modal"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `open` | `boolean` | — | Controlado externamente |
+| `onOpenChange` | `(open: boolean) => void` | — | Callback de abertura |
+| `onImport` | `(file: File) => Promise<ImportData>` | — | Função que faz upload do arquivo |
+| `onPollStatus` | `(importId: string) => Promise<ImportData>` | — | Função que consulta status da importação |
+| `onComplete` | `() => void` | — | Callback ao concluir importação |
+| `accept` | `string` | `".csv"` | Tipos de arquivo aceitos |
+| `pollIntervalMs` | `number` | `2000` | Intervalo de polling em ms |
+| `labels` | `{ title?, description?, ... }` | — | Labels customizáveis |
+| `className` | `string` | — | Classes adicionais |
+
+### ImportData
+
+```tsx
+interface ImportData {
+  id: string
+  status: ImportStatus
+  fileName?: string | null
+  totalRows?: number | null
+  processedRows?: number | null
+  successCount?: number | null
+  errorCount?: number | null
+  errors?: ImportError[]
+  errorMessage?: string | null
+}
+```
+
+### ImportError
+
+```tsx
+interface ImportError {
+  row: number
+  error: string
+}
+```
+
+### ImportStatus
+
+```tsx
+type ImportStatus =
+  | "idle"
+  | "pending"
+  | "processing"
+  | "completed"
+  | "completed_with_errors"
+  | "failed"
+```
+
+## Estados
+
+O modal passa por 6 estados internos:
+
+1. **idle** — Seleção de arquivo com drag-and-drop
+2. **pending** — Enviando arquivo ao servidor
+3. **processing** — Processando com barra de progresso
+4. **completed** — Sucesso com total importado
+5. **completed_with_errors** — Parcial com lista de erros por linha
+6. **failed** — Erro com opção de tentar novamente
+
+## Uso
+
+```tsx
+<ImportModal
+  open={importOpen}
+  onOpenChange={setImportOpen}
+  onImport={async (file) => {
+    const formData = new FormData()
+    formData.append("file", file)
+    formData.append("resourceType", "products")
+    const res = await fetch("/api/imports", {
+      method: "POST",
+      body: formData,
+    })
+    return (await res.json()).data
+  }}
+  onPollStatus={async (id) => {
+    const res = await fetch(`/api/imports/${id}`)
+    return (await res.json()).data
+  }}
+  onComplete={() => router.refresh()}
+/>
+```
