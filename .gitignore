@@ -5,3 +5,6 @@ coverage/
 storybook-static/
 *.tsbuildinfo
 .DS_Store
+web/.next/
+web/node_modules/
+web/.source/
