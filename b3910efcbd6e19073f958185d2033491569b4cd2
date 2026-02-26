@@ -1,0 +1,36 @@
+web/styles/globals.css
+  9c0e39e82b8ef8fd 2-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "b3910efcbd6e19073f958185d2033491569b4cd2",
+  "prompts": {
+    "021bc40f990d914e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "055289c7-8986-4151-b337-061f42b7f01a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 495,
+      "overriden_lines": 0
+    },
+    "9c0e39e82b8ef8fd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f7db3c91-dffb-4e9d-a3d3-75d4d4d45767",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 3,
+      "total_deletions": 13,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
