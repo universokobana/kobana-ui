@@ -1,0 +1,38 @@
+docs/web/todo.md
+  9c0e39e82b8ef8fd 8-19,26-28,31-33,36,39-43,50,53-56,59,62-65,72-75,78-80,87-95,98-107,114-124,127-138,145-147,150-157,164-165,168,172
+docs/web/implemented.md
+  9c0e39e82b8ef8fd 1-138
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "be8ba66bad64b28af215308fe92dce5fc1497c4b",
+  "prompts": {
+    "021bc40f990d914e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "055289c7-8986-4151-b337-061f42b7f01a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 495,
+      "overriden_lines": 0
+    },
+    "9c0e39e82b8ef8fd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f7db3c91-dffb-4e9d-a3d3-75d4d4d45767",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 80,
+      "total_deletions": 4,
+      "accepted_lines": 236,
+      "overriden_lines": 0
+    }
+  }
+}
