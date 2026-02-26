@@ -48,7 +48,7 @@ export default function HomePage() {
             Get Started
           </Link>
           <Link
-            href="/docs/components/data-table"
+            href="/docs/components"
             className="inline-flex h-10 items-center justify-center rounded-md border px-8 text-sm font-medium transition-colors hover:bg-accent"
           >
             Components

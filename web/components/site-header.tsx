@@ -17,7 +17,7 @@ export function SiteHeader() {
             Docs
           </Link>
           <Link
-            href="/docs/components/status-badge"
+            href="/docs/components"
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             Components
@@ -25,7 +25,7 @@ export function SiteHeader() {
         </nav>
         <div className="ml-auto flex items-center gap-2">
           <a
-            href="https://github.com/kobana"
+            href="https://github.com/universokobana/kobana-ui"
             target="_blank"
             rel="noreferrer"
             className="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
