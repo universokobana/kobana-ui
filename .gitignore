@@ -8,3 +8,4 @@ storybook-static/
 web/.next/
 web/node_modules/
 web/.source/
+shadcn-ui/
