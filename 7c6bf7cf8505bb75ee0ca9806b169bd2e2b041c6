@@ -1,0 +1,33 @@
+web/content/docs/tokens/typography.mdx
+  2c0b7e054db5c261 3,6-30,37,43,62,65-67,69-75,77
+src/tokens/typography.ts
+  2c0b7e054db5c261 2-6,8-16,18,24,27,36-37
+web/styles/globals.css
+  2c0b7e054db5c261 1-2,35-45,53-61,120-132
+web/app/layout.tsx
+  2c0b7e054db5c261 2,6,11-12,47
+web/content/docs/tokens/colors.mdx
+  2c0b7e054db5c261 3,12-59
+src/tokens/colors.ts
+  2c0b7e054db5c261 1-46,62-69,92-104
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "7c6bf7cf8505bb75ee0ca9806b169bd2e2b041c6",
+  "prompts": {
+    "2c0b7e054db5c261": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4b6b4e9a-31df-47f8-8161-d2b8aaae2c7a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 227,
+      "total_deletions": 60,
+      "accepted_lines": 218,
+      "overriden_lines": 0
+    }
+  }
+}
