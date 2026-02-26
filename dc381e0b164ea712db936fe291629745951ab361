@@ -1,0 +1,31 @@
+web/lib/registry.ts
+  2c0b7e054db5c261 52
+web/examples/dashboard-login-page-demo.tsx
+  2c0b7e054db5c261 1-218
+src/components/templates/dashboard-login-page/index.ts
+  2c0b7e054db5c261 1-2
+src/components/templates/dashboard-login-page/dashboard-login-page.tsx
+  2c0b7e054db5c261 1-311
+web/content/docs/templates/dashboard-login-page.mdx
+  2c0b7e054db5c261 1-97
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "dc381e0b164ea712db936fe291629745951ab361",
+  "prompts": {
+    "2c0b7e054db5c261": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4b6b4e9a-31df-47f8-8161-d2b8aaae2c7a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 1195,
+      "total_deletions": 566,
+      "accepted_lines": 629,
+      "overriden_lines": 0
+    }
+  }
+}
