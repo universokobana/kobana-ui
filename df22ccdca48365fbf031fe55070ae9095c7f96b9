@@ -1,0 +1,59 @@
+src/components/composites/locale-toggle/index.ts
+  c26c7850efc047a7 1-2
+src/components/composites/app-header/app-header.tsx
+  c26c7850efc047a7 1-218
+src/components/composites/app-layout/index.ts
+  c26c7850efc047a7 1-2
+src/components/composites/require-permission/require-permission.tsx
+  c26c7850efc047a7 1-136
+src/components/composites/number-input/index.ts
+  c26c7850efc047a7 1-2
+src/components/composites/locale-toggle/locale-toggle.tsx
+  c26c7850efc047a7 1-60
+src/components/composites/app-sidebar/app-sidebar.tsx
+  c26c7850efc047a7 1-166
+src/components/composites/header-notifications/header-notifications.tsx
+  c26c7850efc047a7 1-257
+src/components/composites/theme-toggle/index.ts
+  c26c7850efc047a7 1-2
+src/components/composites/app-layout/app-layout.tsx
+  c26c7850efc047a7 1-58
+src/components/composites/header-notifications/index.ts
+  c26c7850efc047a7 1-2
+registry/registry.json
+  c26c7850efc047a7 297-431
+src/components/composites/export-modal/export-modal.tsx
+  c26c7850efc047a7 1-327
+src/components/composites/app-header/index.ts
+  c26c7850efc047a7 1-2
+src/components/composites/number-input/number-input.tsx
+  c26c7850efc047a7 1-54
+src/components/composites/theme-toggle/theme-toggle.tsx
+  c26c7850efc047a7 1-62
+src/components/composites/export-modal/index.ts
+  c26c7850efc047a7 1-2
+src/components/composites/require-permission/index.ts
+  c26c7850efc047a7 1-2
+src/components/composites/app-sidebar/index.ts
+  c26c7850efc047a7 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "df22ccdca48365fbf031fe55070ae9095c7f96b9",
+  "prompts": {
+    "c26c7850efc047a7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a009b065-b494-4655-bfff-ce3101841f77",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 1491,
+      "total_deletions": 0,
+      "accepted_lines": 1491,
+      "overriden_lines": 0
+    }
+  }
+}
