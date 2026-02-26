@@ -18,7 +18,21 @@ export const metadata: Metadata = {
     default: "Kobana UI",
     template: "%s — Kobana UI",
   },
-  description: "Design System para produtos Kobana",
+  description:
+    "Design System para produtos Kobana. Componentes compostos, reutilizáveis e acessíveis construídos com shadcn/ui.",
+  openGraph: {
+    title: "Kobana UI",
+    description:
+      "Design System para produtos Kobana. Componentes compostos, reutilizáveis e acessíveis construídos com shadcn/ui.",
+    type: "website",
+    siteName: "Kobana UI",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kobana UI",
+    description:
+      "Design System para produtos Kobana. Componentes compostos, reutilizáveis e acessíveis construídos com shadcn/ui.",
+  },
 }
 
 export default function RootLayout({
