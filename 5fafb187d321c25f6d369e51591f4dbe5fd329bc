@@ -1,0 +1,48 @@
+web/content/docs/index.mdx
+  9c0e39e82b8ef8fd 13,22-27,29-61,63,65-70
+web/content/docs/cli.mdx
+  9c0e39e82b8ef8fd 1-73
+web/content/docs/architecture.mdx
+  9c0e39e82b8ef8fd 1-58
+web/content/docs/installation.mdx
+  9c0e39e82b8ef8fd 1-73
+web/content/docs/tokens/typography.mdx
+  9c0e39e82b8ef8fd 1-46
+web/content/docs/tokens/colors.mdx
+  9c0e39e82b8ef8fd 1-69
+web/content/docs/tokens/spacing.mdx
+  9c0e39e82b8ef8fd 1-31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "5fafb187d321c25f6d369e51591f4dbe5fd329bc",
+  "prompts": {
+    "021bc40f990d914e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "055289c7-8986-4151-b337-061f42b7f01a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 495,
+      "overriden_lines": 0
+    },
+    "9c0e39e82b8ef8fd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f7db3c91-dffb-4e9d-a3d3-75d4d4d45767",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 427,
+      "total_deletions": 15,
+      "accepted_lines": 495,
+      "overriden_lines": 0
+    }
+  }
+}
