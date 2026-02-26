@@ -1,0 +1,86 @@
+web/content/docs/components/number-input.mdx
+  9c0e39e82b8ef8fd 1-42
+web/examples/export-modal-demo.tsx
+  9c0e39e82b8ef8fd 1-93
+web/examples/detail-page-demo.tsx
+  9c0e39e82b8ef8fd 1-54
+web/examples/form-page-demo.tsx
+  9c0e39e82b8ef8fd 1-64
+web/examples/header-notifications-demo.tsx
+  9c0e39e82b8ef8fd 1-74
+web/content/docs/components/header-notifications.mdx
+  9c0e39e82b8ef8fd 1-56
+web/examples/app-header-demo.tsx
+  9c0e39e82b8ef8fd 1-36
+web/content/docs/components/export-modal.mdx
+  9c0e39e82b8ef8fd 1-70
+web/content/docs/components/address-form-fields.mdx
+  9c0e39e82b8ef8fd 1-57
+web/content/docs/components/theme-toggle.mdx
+  9c0e39e82b8ef8fd 1-35
+web/examples/theme-toggle-demo.tsx
+  9c0e39e82b8ef8fd 1-16
+web/examples/address-form-fields-demo.tsx
+  9c0e39e82b8ef8fd 1-93
+web/examples/app-sidebar-demo.tsx
+  9c0e39e82b8ef8fd 1-52
+web/content/docs/components/app-header.mdx
+  9c0e39e82b8ef8fd 1-47
+web/content/docs/components/app-sidebar.mdx
+  9c0e39e82b8ef8fd 1-60
+web/examples/list-page-demo.tsx
+  9c0e39e82b8ef8fd 1-53
+web/examples/app-layout-demo.tsx
+  9c0e39e82b8ef8fd 1-44
+web/lib/registry.ts
+  9c0e39e82b8ef8fd 35-50
+web/examples/number-input-demo.tsx
+  9c0e39e82b8ef8fd 1-33
+web/content/docs/components/require-permission.mdx
+  9c0e39e82b8ef8fd 1-55
+web/content/docs/components/app-layout.mdx
+  9c0e39e82b8ef8fd 1-45
+web/content/docs/components/locale-toggle.mdx
+  9c0e39e82b8ef8fd 1-44
+web/content/docs/components/entity-combobox.mdx
+  9c0e39e82b8ef8fd 1-58
+web/examples/locale-toggle-demo.tsx
+  9c0e39e82b8ef8fd 1-41
+web/examples/entity-combobox-demo.tsx
+  9c0e39e82b8ef8fd 1-78
+web/examples/require-permission-demo.tsx
+  9c0e39e82b8ef8fd 1-71
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "2de1e3c2b0600375390034556416c54d30d5aa44",
+  "prompts": {
+    "021bc40f990d914e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "055289c7-8986-4151-b337-061f42b7f01a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 495,
+      "overriden_lines": 0
+    },
+    "9c0e39e82b8ef8fd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f7db3c91-dffb-4e9d-a3d3-75d4d4d45767",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 1406,
+      "total_deletions": 19,
+      "accepted_lines": 1509,
+      "overriden_lines": 0
+    }
+  }
+}
