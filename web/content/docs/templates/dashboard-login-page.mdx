@@ -1,0 +1,97 @@
+---
+title: DashboardLoginPage
+description: Template de página de login do dashboard com botão OAuth e magic link. Tema escuro com branding Kobana.
+---
+
+<ComponentPreview name="dashboard-login-page-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add dashboard-login-page
+```
+
+## Importação
+
+```tsx
+import { DashboardLoginPage } from "@/components/kobana/templates/dashboard-login-page"
+```
+
+## Fluxo de Login
+
+O template implementa o mesmo fluxo do dashboard Kobana Billing:
+
+1. **Botão OAuth** — Login via provedor externo (ex: Kobana, Google).
+2. **Magic Link** — Alternativa: envio de link de acesso por e-mail.
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `logo` | `ReactNode` | — | Logo exibido acima do card |
+| `labels` | `DashboardLoginPageLabels` | pt-BR | Labels para i18n |
+| `onLogin` | `() => void \| Promise<void>` | — | Callback do botão principal (OAuth) |
+| `onSendMagicLink` | `(email) => Promise<void>` | — | Envio de magic link. Omita para esconder a seção. |
+| `error` | `string \| null` | — | Mensagem de erro externa |
+| `termsHref` | `string` | `"#"` | Link dos Termos de Uso |
+| `privacyHref` | `string` | `"#"` | Link da Política de Privacidade |
+| `className` | `string` | — | Classes CSS adicionais |
+
+## Uso
+
+```tsx
+<DashboardLoginPage
+  logo={<Logo className="h-12 w-auto" variant="dark" />}
+  onLogin={() => loginWithKobana("/dashboard")}
+  onSendMagicLink={async (email) => {
+    await fetch("/api/dashboard/magic-link/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    })
+  }}
+  error={searchParams.get("error") ? "Erro ao fazer login." : null}
+/>
+```
+
+## Sem Magic Link
+
+Omita `onSendMagicLink` para renderizar apenas o botão OAuth:
+
+```tsx
+<DashboardLoginPage
+  logo={<Logo className="h-12 w-auto" variant="dark" />}
+  onLogin={() => signIn("google")}
+  labels={{ loginWithProvider: "Entrar com Google" }}
+/>
+```
+
+## Labels (i18n)
+
+Todas as strings são customizáveis via prop `labels`:
+
+```tsx
+<DashboardLoginPage
+  labels={{
+    title: "Billing",
+    login: "Sign In",
+    loginDescription: "Access the billing management panel.",
+    loginWithProvider: "Sign in with Kobana",
+    loggingIn: "Signing in...",
+    or: "or",
+    magicLinkEmailLabel: "Sign in with magic link",
+    magicLinkEmailPlaceholder: "name@company.com",
+    magicLinkSend: "Send magic link",
+    magicLinkSending: "Sending...",
+    magicLinkSent: "Link sent!",
+    magicLinkSentDescription: "Check your inbox. We sent an access link to your email.",
+    magicLinkSendAnother: "Send another",
+    termsPrefix: "By continuing, you agree to the",
+    termsOfUse: "Terms of Use",
+    and: "and",
+    privacyPolicy: "Privacy Policy",
+  }}
+  onLogin={handleLogin}
+  onSendMagicLink={handleSendMagicLink}
+/>
+```
