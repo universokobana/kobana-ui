@@ -1,0 +1,39 @@
+web/components/site-header.tsx
+  2c0b7e054db5c261 20,28
+web/content/docs/components/meta.json
+  2c0b7e054db5c261 1-25
+web/app/docs/components/page.tsx
+  2c0b7e054db5c261 1-13
+web/app/docs/layout.tsx
+  2c0b7e054db5c261 4,8-10,12,15-16
+web/components/components-list.tsx
+  2c0b7e054db5c261 1-36
+web/mdx-components.tsx
+  2c0b7e054db5c261 5,12-13
+web/app/(app)/(root)/page.tsx
+  2c0b7e054db5c261 51
+web/content/docs/meta.json
+  2c0b7e054db5c261 9-10
+web/app/docs/templates/page.tsx
+  2c0b7e054db5c261 1-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "d24af2d0b8a489458cdbe979d7183fb53e4860e5",
+  "prompts": {
+    "2c0b7e054db5c261": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4b6b4e9a-31df-47f8-8161-d2b8aaae2c7a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 174,
+      "total_deletions": 69,
+      "accepted_lines": 108,
+      "overriden_lines": 0
+    }
+  }
+}
