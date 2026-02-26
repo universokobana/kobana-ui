@@ -1,0 +1,35 @@
+---
+title: ThemeToggle
+description: Toggle de tema claro/escuro/sistema com dropdown.
+---
+
+<ComponentPreview name="theme-toggle-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add theme-toggle
+```
+
+**Dependências:** `button`, `dropdown-menu` (shadcn/ui), `next-themes` (npm)
+
+## Importação
+
+```tsx
+import { ThemeToggle } from "@/components/kobana/theme-toggle"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `labels` | `{ light?, dark?, system?, srOnly? }` | `"Claro"/"Escuro"/"Sistema"` | Labels customizáveis |
+| `className` | `string` | — | Classes adicionais |
+
+Requer `ThemeProvider` do `next-themes` na árvore de componentes.
+
+## Uso
+
+```tsx
+<ThemeToggle />
+```

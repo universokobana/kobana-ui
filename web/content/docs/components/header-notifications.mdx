@@ -1,0 +1,56 @@
+---
+title: HeaderNotifications
+description: Dropdown de notificações com badge, lista e time-ago.
+---
+
+<ComponentPreview name="header-notifications-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add header-notifications
+```
+
+## Importação
+
+```tsx
+import { HeaderNotifications } from "@/components/kobana/header-notifications"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `notifications` | `NotificationItem[]` | — | Lista de notificações |
+| `unreadCount` | `number` | Auto-computado | Total não lidas |
+| `isLoading` | `boolean` | — | Estado de loading |
+| `onNotificationClick` | `(notification) => void` | — | Click na notificação |
+| `viewAllHref` | `string` | — | URL do "Ver todas" |
+| `onViewAll` | `() => void` | — | Callback "Ver todas" |
+| `renderLink` | `(props) => ReactNode` | — | Render function para links |
+| `labels` | `{ title?, empty?, loading?, viewAll?, srLabel? }` | — | Labels customizáveis |
+| `className` | `string` | — | Classes adicionais |
+
+### NotificationItem
+
+```tsx
+interface NotificationItem {
+  id: string
+  title: string
+  description?: string
+  severity?: "info" | "warning" | "error" | "critical"
+  timestamp: string  // ISO format
+  read?: boolean
+  href?: string
+}
+```
+
+## Uso
+
+```tsx
+<HeaderNotifications
+  notifications={notifications}
+  onNotificationClick={(n) => router.push(n.href!)}
+  viewAllHref="/notifications"
+/>
+```

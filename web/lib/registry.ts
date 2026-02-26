@@ -32,6 +32,22 @@ const registry: Record<string, RegistryEntry> = Object.fromEntries([
   entry("empty-state-demo", () => import("@/examples/empty-state-demo")),
   entry("copy-cell-demo", () => import("@/examples/copy-cell-demo")),
   entry("currency-input-demo", () => import("@/examples/currency-input-demo")),
+  // Grupo 2 — Extended composites
+  entry("number-input-demo", () => import("@/examples/number-input-demo")),
+  entry("entity-combobox-demo", () => import("@/examples/entity-combobox-demo")),
+  entry("address-form-fields-demo", () => import("@/examples/address-form-fields-demo")),
+  entry("app-layout-demo", () => import("@/examples/app-layout-demo")),
+  entry("app-header-demo", () => import("@/examples/app-header-demo")),
+  entry("app-sidebar-demo", () => import("@/examples/app-sidebar-demo")),
+  entry("theme-toggle-demo", () => import("@/examples/theme-toggle-demo")),
+  entry("locale-toggle-demo", () => import("@/examples/locale-toggle-demo")),
+  entry("require-permission-demo", () => import("@/examples/require-permission-demo")),
+  entry("export-modal-demo", () => import("@/examples/export-modal-demo")),
+  entry("header-notifications-demo", () => import("@/examples/header-notifications-demo")),
+  // Templates
+  entry("list-page-demo", () => import("@/examples/list-page-demo")),
+  entry("detail-page-demo", () => import("@/examples/detail-page-demo")),
+  entry("form-page-demo", () => import("@/examples/form-page-demo")),
 ])
 
 export function getRegistryEntry(name: string): RegistryEntry | undefined {

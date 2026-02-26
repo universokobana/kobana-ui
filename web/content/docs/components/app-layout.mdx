@@ -1,0 +1,45 @@
+---
+title: AppLayout
+description: Layout de aplicação responsivo com sidebar, header e conteúdo.
+---
+
+<ComponentPreview name="app-layout-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add app-layout
+```
+
+**Dependências Kobana:** `app-sidebar`, `app-header`
+
+## Importação
+
+```tsx
+import { AppLayout } from "@/components/kobana/app-layout"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `sidebar` | `ReactNode` | — | Elemento sidebar |
+| `header` | `ReactNode` | — | Elemento header |
+| `children` | `ReactNode` | — | Conteúdo principal |
+| `mobileMenuOpen` | `boolean` | — | Estado do menu mobile |
+| `onMobileMenuOpenChange` | `(open: boolean) => void` | — | Callback do menu mobile |
+| `mobileMenuLabel` | `string` | `"Menu de navegação"` | Label acessível |
+| `className` | `string` | — | Classes adicionais |
+
+## Uso
+
+```tsx
+<AppLayout
+  sidebar={<AppSidebar navItems={navItems} />}
+  header={<AppHeader user={user} onSignOut={handleSignOut} />}
+  mobileMenuOpen={mobileMenuOpen}
+  onMobileMenuOpenChange={setMobileMenuOpen}
+>
+  {children}
+</AppLayout>
+```

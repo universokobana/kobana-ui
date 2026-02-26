@@ -1,0 +1,44 @@
+---
+title: LocaleToggle
+description: Seletor de idioma/locale com dropdown.
+---
+
+<ComponentPreview name="locale-toggle-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add locale-toggle
+```
+
+**Dependências shadcn/ui:** `button`, `dropdown-menu`
+
+## Importação
+
+```tsx
+import { LocaleToggle } from "@/components/kobana/locale-toggle"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `locale` | `string` | — | Locale ativo (obrigatório) |
+| `locales` | `{ value: string; label: string }[]` | `[pt-BR, en]` | Locales disponíveis |
+| `onLocaleChange` | `(locale: string) => void` | — | Callback de mudança (obrigatório) |
+| `srLabel` | `string` | `"Alterar idioma"` | Label acessível |
+| `className` | `string` | — | Classes adicionais |
+
+## Uso
+
+```tsx
+<LocaleToggle
+  locale={locale}
+  onLocaleChange={setLocale}
+  locales={[
+    { value: "pt-BR", label: "Português (BR)" },
+    { value: "en", label: "English" },
+    { value: "es", label: "Español" },
+  ]}
+/>
+```

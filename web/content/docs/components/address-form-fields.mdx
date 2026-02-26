@@ -1,0 +1,57 @@
+---
+title: AddressFormFields
+description: Campos de endereço brasileiro com auto-lookup de CEP.
+---
+
+<ComponentPreview name="address-form-fields-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add address-form-fields
+```
+
+**Dependências shadcn/ui:** `form`, `input`, `popover`, `command`, `button`
+
+## Importação
+
+```tsx
+import { AddressFormFields } from "@/components/kobana/address-form-fields"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `form` | `UseFormReturn` | — | Instância do react-hook-form |
+| `baseName` | `string` | — | Prefixo para campos aninhados (ex: `"address"`) |
+| `disabled` | `boolean` | — | Desabilita todos os campos |
+| `cepApiUrl` | `string` | ViaCEP | URL da API de CEP |
+| `citiesApiUrl` | `string` | — | URL da API de cidades |
+| `fieldNames` | `FieldNames` | — | Override dos nomes dos campos |
+| `className` | `string` | — | Classes adicionais |
+
+## Campos
+
+| Campo | Auto-preenchido via CEP |
+|-------|------------------------|
+| CEP | — |
+| Estado | ✓ |
+| Cidade | ✓ |
+| Rua | ✓ |
+| Número | — |
+| Complemento | — |
+| Bairro | ✓ |
+
+## Uso
+
+```tsx
+const form = useForm<FormData>()
+
+<AddressFormFields
+  form={form}
+  baseName="address"
+/>
+```
+
+Com `baseName="address"`, os campos serão: `address.zipCode`, `address.street`, etc.

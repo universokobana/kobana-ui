@@ -1,0 +1,42 @@
+---
+title: NumberInput
+description: Input numérico com formatação de milhar e decimal configurável.
+---
+
+<ComponentPreview name="number-input-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add number-input
+```
+
+**Dependências npm:** `react-number-format`
+
+## Importação
+
+```tsx
+import { NumberInput } from "@/components/kobana/number-input"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `value` | `number` | — | Valor numérico |
+| `onValueChange` | `(value: number) => void` | — | Callback de mudança |
+| `thousandSeparator` | `string` | `"."` | Separador de milhar |
+| `decimalSeparator` | `string` | `","` | Separador decimal |
+| `decimalScale` | `number` | `0` | Casas decimais |
+
+Estende todas as props de `NumericFormatProps` (react-number-format).
+
+## Uso
+
+```tsx
+<NumberInput
+  value={quantity}
+  onValueChange={setQuantity}
+  decimalScale={2}
+/>
+```

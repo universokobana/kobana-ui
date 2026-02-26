@@ -1,0 +1,70 @@
+---
+title: ExportModal
+description: Modal de exportação de dados com estados de progresso e download.
+---
+
+<ComponentPreview name="export-modal-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add export-modal
+```
+
+## Importação
+
+```tsx
+import { ExportModal } from "@/components/kobana/export-modal"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `open` | `boolean` | — | Controlado externamente |
+| `onOpenChange` | `(open: boolean) => void` | — | Callback de abertura |
+| `entityLabel` | `string` | — | Label da entidade (ex: "Cobranças") |
+| `totalCount` | `number` | `0` | Total de registros |
+| `onExport` | `() => Promise<ExportResult>` | — | Função de exportação async |
+| `labels` | `{ title?, description?, ... }` | — | Labels customizáveis |
+| `className` | `string` | — | Classes adicionais |
+
+### ExportResult
+
+```tsx
+interface ExportResult {
+  totalRecords?: number
+  fileSize?: number    // em bytes
+  fileUrl?: string     // URL para download
+  fileName?: string
+}
+```
+
+## Estados
+
+O modal passa por 4 estados internos:
+
+1. **confirm** — Confirmação com total de registros
+2. **processing** — Spinner durante exportação
+3. **completed** — Sucesso com botão de download
+4. **error** — Mensagem de erro
+
+## Uso
+
+```tsx
+<ExportModal
+  open={exportOpen}
+  onOpenChange={setExportOpen}
+  entityLabel="Cobranças"
+  totalCount={1234}
+  onExport={async () => {
+    const blob = await api.charges.export()
+    return {
+      totalRecords: 1234,
+      fileSize: blob.size,
+      fileUrl: URL.createObjectURL(blob),
+      fileName: "cobrancas.csv",
+    }
+  }}
+/>
+```

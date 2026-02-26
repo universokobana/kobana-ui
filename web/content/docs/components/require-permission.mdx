@@ -1,0 +1,55 @@
+---
+title: RequirePermission
+description: Gate de permissão com suporte a single/all/any e fallback AccessDenied.
+---
+
+<ComponentPreview name="require-permission-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add require-permission
+```
+
+## Importação
+
+```tsx
+import { RequirePermission, AccessDenied } from "@/components/kobana/require-permission"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `permission` | `string` | — | Permissão única |
+| `allPermissions` | `string[]` | — | Todas devem passar (AND) |
+| `anyPermissions` | `string[]` | — | Qualquer uma (OR) |
+| `can` | `(permission: string) => boolean` | — | Função de verificação (obrigatório) |
+| `isLoading` | `boolean` | — | Renderiza null enquanto carrega |
+| `children` | `ReactNode` | — | Conteúdo protegido |
+| `fallback` | `ReactNode` | `null` | Conteúdo quando negado |
+| `className` | `string` | — | Classes adicionais |
+
+## Uso
+
+```tsx
+<RequirePermission permission="charges:create" can={can}>
+  <Button>Nova Cobrança</Button>
+</RequirePermission>
+
+<RequirePermission
+  allPermissions={["charges:read", "charges:delete"]}
+  can={can}
+  fallback={<AccessDenied onBack={() => router.back()} />}
+>
+  <DangerZone />
+</RequirePermission>
+```
+
+### HOC
+
+```tsx
+const ProtectedPage = withRequirePermission(MyPage, {
+  permission: "admin",
+})
+```

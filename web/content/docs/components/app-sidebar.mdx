@@ -1,0 +1,60 @@
+---
+title: AppSidebar
+description: Sidebar de navegação colapsável com ícones, badges e toggle.
+---
+
+<ComponentPreview name="app-sidebar-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add app-sidebar
+```
+
+## Importação
+
+```tsx
+import { AppSidebar } from "@/components/kobana/app-sidebar"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `navItems` | `NavItem[]` | — | Itens de navegação |
+| `logo` | `ReactNode` | — | Logo expandido |
+| `collapsedLogo` | `ReactNode` | — | Logo colapsado |
+| `defaultCollapsed` | `boolean` | `false` | Estado inicial |
+| `collapsed` | `boolean` | — | Modo controlado |
+| `onCollapsedChange` | `(collapsed: boolean) => void` | — | Callback de collapse |
+| `isActive` | `(href: string) => boolean` | — | Função de ativo |
+| `renderLink` | `(props) => ReactNode` | — | Render function para links |
+| `footer` | `ReactNode` | — | Conteúdo do footer |
+| `className` | `string` | — | Classes adicionais |
+
+### NavItem
+
+```tsx
+interface NavItem {
+  title: string
+  href: string
+  icon?: React.ComponentType<{ className?: string }>
+  badge?: number
+  active?: boolean
+}
+```
+
+## Uso
+
+```tsx
+<AppSidebar
+  navItems={[
+    { title: "Dashboard", href: "/", icon: LayoutDashboard },
+    { title: "Cobranças", href: "/charges", icon: CreditCard, badge: 3 },
+    { title: "Clientes", href: "/customers", icon: Users },
+  ]}
+  logo={<span className="font-bold">Kobana</span>}
+  collapsedLogo={<span className="font-bold">K</span>}
+  isActive={(href) => pathname === href}
+/>
+```

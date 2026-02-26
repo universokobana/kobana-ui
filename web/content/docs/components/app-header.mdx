@@ -1,0 +1,47 @@
+---
+title: AppHeader
+description: Header de aplicação com menu mobile, avatar e menu do usuário.
+---
+
+<ComponentPreview name="app-header-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add app-header
+```
+
+## Importação
+
+```tsx
+import { AppHeader } from "@/components/kobana/app-header"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `user` | `{ name?, email?, image? }` | — | Dados do usuário |
+| `onMenuClick` | `() => void` | — | Abre menu mobile |
+| `onSignOut` | `() => void` | — | Callback de logout |
+| `menuItems` | `Array<{ label, href?, icon?, onClick? }>` | — | Itens do dropdown |
+| `actions` | `ReactNode` | — | Slot direito (ThemeToggle, etc.) |
+| `leftContent` | `ReactNode` | — | Slot esquerdo (breadcrumbs, etc.) |
+| `renderLink` | `(props) => ReactNode` | — | Render function para links |
+| `labels` | `{ menu?, signOut?, profile? }` | — | Labels customizáveis |
+| `className` | `string` | — | Classes adicionais |
+
+## Uso
+
+```tsx
+<AppHeader
+  user={{ name: "João Silva", email: "joao@kobana.com" }}
+  onMenuClick={() => setMobileMenuOpen(true)}
+  onSignOut={handleSignOut}
+  menuItems={[
+    { label: "Perfil", href: "/profile" },
+    { label: "Configurações", href: "/settings" },
+  ]}
+  actions={<ThemeToggle />}
+/>
+```
