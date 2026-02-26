@@ -1,6 +1,6 @@
 ---
 title: DataTable
-description: Tabela de dados completa com filtros, paginação, sorting, seleção e ações.
+description: Tabela de dados com busca, filtros, paginação, sorting, seleção, ações e visibilidade de colunas. Baseada no dashboard Kobana Billing.
 ---
 
 <ComponentPreview name="data-table-demo" />
@@ -12,15 +12,23 @@ npx @kobana/ui add data-table
 ```
 
 **Dependências instaladas automaticamente:**
-- shadcn/ui: `table`, `checkbox`, `dropdown-menu`, `skeleton`, `button`, `select`
-- Kobana: `filter-bar`, `status-badge`
 - npm: `@tanstack/react-table`
 
 ## Importação
 
 ```tsx
 import { DataTable } from "@/components/kobana/data-table"
+import { DataTableColumnHeader } from "@/components/kobana/data-table"
 ```
+
+## Layout
+
+O layout segue o padrão do dashboard Kobana Billing:
+
+1. **Busca** — Input com ícone de lupa no topo, debounce de 300ms
+2. **Filtros + Refresh** — Linha abaixo da busca com filtros à esquerda e botão de refresh à direita
+3. **Tabela** — Colunas com sorting por clique no header. Ícone de visibilidade de colunas no header da última coluna
+4. **Paginação** — "Mostrando X a Y de Z resultados", seletor de por página, navegação first/prev/next/last
 
 ## Props
 
@@ -30,64 +38,151 @@ import { DataTable } from "@/components/kobana/data-table"
 | `data` | `TData[]` | — | Dados da tabela |
 | `searchKey` | `string` | — | Coluna para busca |
 | `searchPlaceholder` | `string` | — | Placeholder da busca |
-| `onSearch` | `(query: string) => void` | — | Busca server-side |
+| `onSearch` | `(query: string) => void` | — | Busca server-side (debounce 300ms) |
+| `isSearching` | `boolean` | — | Spinner de busca |
 | `filterComponent` | `ReactNode` | — | Componente de filtros customizado |
 | `pagination` | `PaginationConfig` | — | Paginação server-side |
 | `onPageChange` | `(page: number) => void` | — | Callback de mudança de página |
 | `onPerPageChange` | `(perPage: number) => void` | — | Callback de items por página |
 | `selectable` | `boolean` | `false` | Habilita seleção de linhas |
 | `bulkActions` | `BulkAction<TData>[]` | — | Ações em lote |
-| `rowActions` | `RowAction<TData>[]` | — | Ações por linha |
-| `isLoading` | `boolean` | `false` | Estado de loading |
+| `rowActions` | `RowAction<TData>[]` | — | Ações por linha (menu ⋯) |
+| `isLoading` | `boolean` | `false` | Estado de loading (skeleton) |
 | `emptyState` | `ReactNode` | — | Estado vazio customizado |
 | `onRowClick` | `(row: TData) => void` | — | Click na linha |
-| `onRefresh` | `() => void` | — | Refresh dos dados |
-| `columnLabels` | `Record<string, string>` | — | Labels de colunas |
+| `onRefresh` | `() => void` | — | Botão de refresh |
+| `isRefreshing` | `boolean` | — | Spinner no botão de refresh |
+| `columnLabels` | `Record<string, string>` | — | Labels das colunas no dropdown de visibilidade |
+| `labels` | `DataTableLabels` | pt-BR | Labels para i18n |
 | `className` | `string` | — | Classes adicionais |
 
 ## Sub-componentes
 
-O DataTable é composto por 8 sub-componentes internos:
-
 | Componente | Responsabilidade |
 |-----------|-----------------|
-| `DataTableToolbar` | Search, refresh, column visibility |
-| `DataTablePagination` | Navegação de páginas, per-page selector |
-| `DataTableActions` | Dropdown de ações por linha |
+| `DataTableToolbar` | Busca com debounce, filtros, refresh |
+| `DataTableColumnVisibility` | Ícone no header da última coluna para mostrar/ocultar colunas |
+| `DataTableColumnHeader` | Header com sorting por clique (chevron ↑↓) |
+| `SimpleSortableHeader` | Header sortável sem contexto TanStack |
+| `DataTablePagination` | "Mostrando X a Y de Z", per-page, navegação |
+| `DataTableActions` | Menu ⋯ de ações por linha |
 | `DataTableBulkActions` | Barra de ações em lote |
-| `DataTableColumnHeader` | Headers sortáveis |
 | `DataTableEmpty` | Estado vazio |
 | `DataTableLoading` | Skeleton loading |
 
-## Uso
+## Sorting
+
+Use `DataTableColumnHeader` nas definições de colunas para habilitar sorting por clique:
 
 ```tsx
-const columns: ColumnDef<Charge>[] = [
-  { accessorKey: "name", header: "Nome" },
+const columns: ColumnDef<Product>[] = [
   {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => (
-      <StatusBadge status={row.getValue("status")} />
+    accessorKey: "name",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Produto" />
     ),
   },
-  { accessorKey: "amount", header: "Valor" },
+  {
+    accessorKey: "status",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Status" />
+    ),
+    cell: ({ row }) => <StatusBadge status={row.getValue("status")} />,
+  },
+  {
+    accessorKey: "amount",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Preço" />
+    ),
+    cell: ({ row }) => formatCurrency(row.getValue("amount")),
+  },
 ]
+```
 
+Para tabelas sem TanStack, use `SimpleSortableHeader`:
+
+```tsx
+import { SimpleSortableHeader } from "@/components/kobana/data-table"
+
+<SimpleSortableHeader
+  title="Nome"
+  sortKey="name"
+  currentSortKey={sortKey}
+  currentSortDirection={sortDir}
+  onSort={handleSort}
+/>
+```
+
+## Visibilidade de Colunas
+
+O ícone de configuração de colunas aparece automaticamente no header da última coluna da tabela. Colunas com `enableHiding: false` não aparecem no dropdown.
+
+Use `columnLabels` para exibir nomes legíveis:
+
+```tsx
 <DataTable
   columns={columns}
-  data={charges}
+  data={products}
+  columnLabels={{
+    name: "Produto",
+    status: "Status",
+    amount: "Preço",
+    createdAt: "Criado em",
+  }}
+/>
+```
+
+## Uso Completo
+
+```tsx
+<DataTable
+  columns={columns}
+  data={products}
   searchKey="name"
-  searchPlaceholder="Buscar cobrança..."
+  searchPlaceholder="Buscar produtos..."
+  onSearch={handleSearch}
+  isSearching={isSearching}
+  filterComponent={
+    <FilterBar
+      filters={[
+        { key: "status", type: "select", label: "Status", options: statusOptions },
+        { key: "type", type: "select", label: "Tipo", options: typeOptions },
+      ]}
+      values={filterValues}
+      onChange={setFilterValues}
+      onClear={() => setFilterValues({})}
+    />
+  }
   selectable
   bulkActions={[
-    { label: "Excluir", variant: "destructive", action: handleBulkDelete },
+    { label: "Arquivar", onClick: handleBulkArchive },
+    { label: "Excluir", variant: "destructive", onClick: handleBulkDelete },
   ]}
   rowActions={[
-    { label: "Editar", action: (row) => navigate(`/edit/${row.id}`) },
-    { label: "Excluir", variant: "destructive", action: handleDelete },
+    { label: "Editar", onClick: (row) => navigate(`/edit/${row.id}`) },
+    { label: "Excluir", variant: "destructive", onClick: handleDelete },
   ]}
-  pagination={{ page: 1, perPage: 10, total: 100, totalPages: 10 }}
+  pagination={{ page, perPage, total, totalPages }}
   onPageChange={setPage}
+  onPerPageChange={setPerPage}
+  onRefresh={refetch}
+  columnLabels={{ name: "Produto", status: "Status", amount: "Preço" }}
+/>
+```
+
+## Labels (i18n)
+
+```tsx
+<DataTable
+  labels={{
+    toolbar: { search: "Search", refresh: "Refresh" },
+    pagination: {
+      showing: "Showing", to: "to", of: "of", results: "results",
+      perPage: "Per page", page: "Page", pageOf: "of",
+    },
+    selectAll: "Select all",
+    selectRow: "Select row",
+  }}
+  // ...
 />
 ```

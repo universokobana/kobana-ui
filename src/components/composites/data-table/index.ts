@@ -1,8 +1,9 @@
 export { DataTable } from './data-table';
-export type { DataTableProps, PaginationConfig } from './data-table';
-export { DataTableColumnHeader } from './data-table-column-header';
+export type { DataTableProps, PaginationConfig, DataTableLabels } from './data-table';
+export { DataTableColumnHeader, SimpleSortableHeader } from './data-table-column-header';
+export type { SortDirection } from './data-table-column-header';
 export { DataTablePagination } from './data-table-pagination';
-export type { DataTablePaginationProps } from './data-table-pagination';
+export type { DataTablePaginationProps, DataTablePaginationLabels } from './data-table-pagination';
 export { DataTableActions } from './data-table-actions';
 export type { RowAction } from './data-table-actions';
 export { DataTableBulkActions } from './data-table-bulk-actions';
@@ -10,3 +11,5 @@ export type { BulkAction } from './data-table-bulk-actions';
 export { DataTableEmpty } from './data-table-empty';
 export { DataTableLoading } from './data-table-loading';
 export { DataTableToolbar } from './data-table-toolbar';
+export type { DataTableToolbarLabels } from './data-table-toolbar';
+export { DataTableColumnVisibility } from './data-table-column-visibility';

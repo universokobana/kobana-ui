@@ -9,28 +9,65 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import { Checkbox } from '@/components/ui/checkbox';
 import { cn } from '@/lib/utils';
 import { DataTableToolbar } from './data-table-toolbar';
+import type { DataTableToolbarLabels } from './data-table-toolbar';
 import { DataTablePagination } from './data-table-pagination';
+import { DataTableColumnVisibility } from './data-table-column-visibility';
+import type { DataTablePaginationLabels } from './data-table-pagination';
 import { DataTableActions, type RowAction } from './data-table-actions';
 import { DataTableBulkActions, type BulkAction } from './data-table-bulk-actions';
 import { DataTableEmpty } from './data-table-empty';
 import { DataTableLoading } from './data-table-loading';
+
+// ─── Inline checkbox (no external dep) ───────────────────────────────────────
+
+function TableCheckbox({
+  checked,
+  indeterminate,
+  onChange,
+  'aria-label': ariaLabel,
+}: {
+  checked: boolean;
+  indeterminate?: boolean;
+  onChange: (checked: boolean) => void;
+  'aria-label'?: string;
+}) {
+  const ref = React.useRef<HTMLInputElement>(null);
+
+  React.useEffect(() => {
+    if (ref.current) {
+      ref.current.indeterminate = !!indeterminate;
+    }
+  }, [indeterminate]);
+
+  return (
+    <input
+      ref={ref}
+      type="checkbox"
+      checked={checked}
+      onChange={(e) => onChange(e.target.checked)}
+      aria-label={ariaLabel}
+      className="size-4 rounded border border-input accent-primary"
+    />
+  );
+}
+
+// ─── Types ───────────────────────────────────────────────────────────────────
 
 export interface PaginationConfig {
   page: number;
   perPage: number;
   total: number;
   totalPages: number;
+}
+
+export interface DataTableLabels {
+  toolbar?: DataTableToolbarLabels;
+  pagination?: DataTablePaginationLabels;
+  selectAll?: string;
+  selectRow?: string;
+  openMenu?: string;
 }
 
 export interface DataTableProps<TData, TValue = unknown> {
@@ -41,6 +78,7 @@ export interface DataTableProps<TData, TValue = unknown> {
   searchKey?: string;
   searchPlaceholder?: string;
   onSearch?: (query: string) => void;
+  isSearching?: boolean;
 
   // Filters
   filterComponent?: React.ReactNode;
@@ -62,12 +100,18 @@ export interface DataTableProps<TData, TValue = unknown> {
   emptyState?: React.ReactNode;
   onRowClick?: (row: TData) => void;
   onRefresh?: () => void;
+  isRefreshing?: boolean;
 
   // Columns
   columnLabels?: Record<string, string>;
 
+  // Labels (i18n)
+  labels?: DataTableLabels;
+
   className?: string;
 }
+
+// ─── Component ───────────────────────────────────────────────────────────────
 
 export function DataTable<TData, TValue = unknown>({
   columns: userColumns,
@@ -75,6 +119,7 @@ export function DataTable<TData, TValue = unknown>({
   searchKey,
   searchPlaceholder,
   onSearch,
+  isSearching,
   filterComponent,
   pagination,
   onPageChange,
@@ -86,13 +131,22 @@ export function DataTable<TData, TValue = unknown>({
   emptyState,
   onRowClick,
   onRefresh,
+  isRefreshing,
   columnLabels,
+  labels,
   className,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
   const [searchValue, setSearchValue] = React.useState('');
+  const searchTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  React.useEffect(() => {
+    return () => {
+      if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
+    };
+  }, []);
 
   // Build columns with optional selection and actions columns
   const columns = React.useMemo(() => {
@@ -102,20 +156,18 @@ export function DataTable<TData, TValue = unknown>({
       cols.push({
         id: 'select',
         header: ({ table }) => (
-          <Checkbox
-            checked={
-              table.getIsAllPageRowsSelected() ||
-              (table.getIsSomePageRowsSelected() && 'indeterminate')
-            }
-            onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-            aria-label="Selecionar todos"
+          <TableCheckbox
+            checked={table.getIsAllPageRowsSelected()}
+            indeterminate={table.getIsSomePageRowsSelected()}
+            onChange={(value) => table.toggleAllPageRowsSelected(value)}
+            aria-label={labels?.selectAll ?? 'Selecionar todos'}
           />
         ),
         cell: ({ row }) => (
-          <Checkbox
+          <TableCheckbox
             checked={row.getIsSelected()}
-            onCheckedChange={(value) => row.toggleSelected(!!value)}
-            aria-label="Selecionar linha"
+            onChange={(value) => row.toggleSelected(value)}
+            aria-label={labels?.selectRow ?? 'Selecionar linha'}
           />
         ),
         enableSorting: false,
@@ -137,8 +189,20 @@ export function DataTable<TData, TValue = unknown>({
       });
     }
 
+    // Column visibility icon in the last column header
+    cols.push({
+      id: '_column_visibility',
+      header: ({ table: t }) => (
+        <DataTableColumnVisibility table={t} columnLabels={columnLabels} />
+      ),
+      cell: () => null,
+      enableSorting: false,
+      enableHiding: false,
+      size: 40,
+    });
+
     return cols;
-  }, [userColumns, selectable, rowActions]);
+  }, [userColumns, selectable, rowActions, labels, columnLabels]);
 
   const table = useReactTable({
     data,
@@ -162,7 +226,10 @@ export function DataTable<TData, TValue = unknown>({
 
   const handleSearch = (value: string) => {
     setSearchValue(value);
-    onSearch?.(value);
+    if (onSearch) {
+      if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
+      searchTimeoutRef.current = setTimeout(() => onSearch(value), 300);
+    }
   };
 
   return (
@@ -172,62 +239,71 @@ export function DataTable<TData, TValue = unknown>({
         searchPlaceholder={searchPlaceholder}
         searchValue={searchValue}
         onSearchChange={onSearch ? handleSearch : undefined}
+        isSearching={isSearching}
         filterComponent={filterComponent}
         onRefresh={onRefresh}
-        columnLabels={columnLabels}
+        isRefreshing={isRefreshing}
+        labels={labels?.toolbar}
       />
 
       {bulkActions && <DataTableBulkActions selectedRows={selectedRows} actions={bulkActions} />}
 
       <div className="rounded-md border">
-        <Table>
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <TableHead
-                    key={header.id}
-                    style={{ width: header.getSize() !== 150 ? header.getSize() : undefined }}
-                    className={cn(
-                      header.id === 'actions' && 'sticky right-0 bg-background',
-                    )}
-                  >
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(header.column.columnDef.header, header.getContext())}
-                  </TableHead>
-                ))}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {isLoading ? (
-              <DataTableLoading colSpan={colSpan} />
-            ) : table.getRowModel().rows.length === 0 ? (
-              <DataTableEmpty colSpan={colSpan}>{emptyState}</DataTableEmpty>
-            ) : (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && 'selected'}
-                  className={cn(onRowClick && 'cursor-pointer')}
-                  onClick={() => onRowClick?.(row.original)}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell
-                      key={cell.id}
+        <div className="overflow-x-auto">
+          <table className="w-full caption-bottom text-sm">
+            <thead className="[&_tr]:border-b">
+              {table.getHeaderGroups().map((headerGroup) => (
+                <tr key={headerGroup.id} className="border-b transition-colors hover:bg-muted/50">
+                  {headerGroup.headers.map((header) => (
+                    <th
+                      key={header.id}
+                      style={{ width: header.getSize() !== 150 ? header.getSize() : undefined }}
                       className={cn(
-                        cell.column.id === 'actions' && 'sticky right-0 bg-background',
+                        'h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0',
+                        header.id === 'actions' && 'sticky right-0 bg-background w-[50px]',
                       )}
                     >
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </TableCell>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(header.column.columnDef.header, header.getContext())}
+                    </th>
                   ))}
-                </TableRow>
-              ))
-            )}
-          </TableBody>
-        </Table>
+                </tr>
+              ))}
+            </thead>
+            <tbody className="[&_tr:last-child]:border-0">
+              {isLoading ? (
+                <DataTableLoading colSpan={colSpan} />
+              ) : table.getRowModel().rows.length === 0 ? (
+                <DataTableEmpty colSpan={colSpan}>{emptyState}</DataTableEmpty>
+              ) : (
+                table.getRowModel().rows.map((row) => (
+                  <tr
+                    key={row.id}
+                    data-state={row.getIsSelected() && 'selected'}
+                    className={cn(
+                      'group border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted',
+                      onRowClick && 'cursor-pointer',
+                    )}
+                    onClick={() => onRowClick?.(row.original)}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <td
+                        key={cell.id}
+                        className={cn(
+                          'p-4 align-middle [&:has([role=checkbox])]:pr-0',
+                          cell.column.id === 'actions' && 'sticky right-0 bg-background w-[50px]',
+                        )}
+                      >
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      </td>
+                    ))}
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {pagination && (
@@ -239,6 +315,7 @@ export function DataTable<TData, TValue = unknown>({
           onPageChange={onPageChange}
           onPerPageChange={onPerPageChange}
           selectedCount={selectable ? selectedRows.length : undefined}
+          labels={labels?.pagination}
         />
       )}
     </div>

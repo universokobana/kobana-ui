@@ -1,14 +1,27 @@
 import * as React from 'react';
 import { Column } from '@tanstack/react-table';
-import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
+
+// ─── Icons ───────────────────────────────────────────────────────────────────
+
+function ChevronDownIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
+function ChevronsUpDownIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="m7 15 5 5 5-5" />
+      <path d="m7 9 5-5 5 5" />
+    </svg>
+  );
+}
+
+// ─── TanStack Column Header ──────────────────────────────────────────────────
 
 interface DataTableColumnHeaderProps<TData, TValue> extends React.HTMLAttributes<HTMLDivElement> {
   column: Column<TData, TValue>;
@@ -25,45 +38,66 @@ export function DataTableColumnHeader<TData, TValue>({
   }
 
   return (
-    <div className={cn('flex items-center space-x-2', className)}>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="sm" className="-ml-3 h-8 data-[state=open]:bg-accent">
-            <span>{title}</span>
-            {column.getIsSorted() === 'desc' ? (
-              <span className="ml-1">↓</span>
-            ) : column.getIsSorted() === 'asc' ? (
-              <span className="ml-1">↑</span>
-            ) : (
-              <span className="ml-1 text-muted-foreground">↕</span>
-            )}
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="start">
-          <DropdownMenuItem onClick={() => column.toggleSorting(false)}>
-            ↑ Asc
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => column.toggleSorting(true)}>
-            ↓ Desc
-          </DropdownMenuItem>
-          {column.getIsSorted() && (
-            <>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => column.clearSorting()}>
-                ✕ Limpar
-              </DropdownMenuItem>
-            </>
-          )}
-          {column.getCanHide() && (
-            <>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
-                Esconder
-              </DropdownMenuItem>
-            </>
-          )}
-        </DropdownMenuContent>
-      </DropdownMenu>
-    </div>
+    <button
+      type="button"
+      className={cn(
+        '-ml-3 inline-flex h-8 items-center gap-1 rounded-md px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground data-[state=open]:bg-accent',
+        className,
+      )}
+      onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+    >
+      <span>{title}</span>
+      {column.getIsSorted() === 'desc' ? (
+        <ChevronDownIcon className="size-4" />
+      ) : column.getIsSorted() === 'asc' ? (
+        <ChevronDownIcon className="size-4 rotate-180" />
+      ) : (
+        <ChevronsUpDownIcon className="size-4 text-muted-foreground" />
+      )}
+    </button>
+  );
+}
+
+// ─── Simple Sortable Header (without TanStack context) ───────────────────────
+
+export type SortDirection = 'asc' | 'desc' | null;
+
+interface SimpleSortableHeaderProps {
+  title: string;
+  sortKey: string;
+  currentSortKey: string | null;
+  currentSortDirection: SortDirection;
+  onSort: (key: string) => void;
+  className?: string;
+}
+
+export function SimpleSortableHeader({
+  title,
+  sortKey,
+  currentSortKey,
+  currentSortDirection,
+  onSort,
+  className,
+}: SimpleSortableHeaderProps) {
+  const isActive = currentSortKey === sortKey;
+
+  return (
+    <button
+      type="button"
+      className={cn(
+        '-ml-3 inline-flex h-8 items-center gap-1 rounded-md px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground',
+        className,
+      )}
+      onClick={() => onSort(sortKey)}
+    >
+      <span>{title}</span>
+      {isActive && currentSortDirection === 'desc' ? (
+        <ChevronDownIcon className="size-4" />
+      ) : isActive && currentSortDirection === 'asc' ? (
+        <ChevronDownIcon className="size-4 rotate-180" />
+      ) : (
+        <ChevronsUpDownIcon className="size-4 text-muted-foreground" />
+      )}
+    </button>
   );
 }
