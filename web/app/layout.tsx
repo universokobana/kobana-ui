@@ -1,8 +1,23 @@
 import type { Metadata } from "next"
+import { Geist, Geist_Mono } from "next/font/google"
+import { RootProvider } from "fumadocs-ui/provider/next"
 import "@/styles/globals.css"
 
+const geistSans = Geist({
+  variable: "--font-sans",
+  subsets: ["latin"],
+})
+
+const geistMono = Geist_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+})
+
 export const metadata: Metadata = {
-  title: "Kobana UI",
+  title: {
+    default: "Kobana UI",
+    template: "%s — Kobana UI",
+  },
   description: "Design System para produtos Kobana",
 }
 
@@ -12,8 +27,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body>{children}</body>
+    <html
+      lang="pt-BR"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable}`}
+    >
+      <body className="min-h-screen bg-background font-sans antialiased">
+        <RootProvider>
+          {children}
+        </RootProvider>
+      </body>
     </html>
   )
 }

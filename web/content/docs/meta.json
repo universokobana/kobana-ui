@@ -1,0 +1,18 @@
+{
+  "title": "Docs",
+  "pages": [
+    "---Introdução---",
+    "index",
+    "installation",
+    "cli",
+    "architecture",
+    "---Tokens---",
+    "...tokens",
+    "---Componentes---",
+    "...components",
+    "---Templates---",
+    "...templates",
+    "---Hooks---",
+    "...hooks"
+  ]
+}
