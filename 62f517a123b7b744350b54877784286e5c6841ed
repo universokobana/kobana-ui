@@ -1,0 +1,29 @@
+web/hooks/use-copy-to-clipboard.ts
+  2c0b7e054db5c261 1-37
+web/components/docs-copy-page.tsx
+  2c0b7e054db5c261 1-108
+web/app/api/docs-md/route.ts
+  2c0b7e054db5c261 1-47
+web/app/docs/[[...slug]]/page.tsx
+  2c0b7e054db5c261 10-12,23-47,50-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "62f517a123b7b744350b54877784286e5c6841ed",
+  "prompts": {
+    "2c0b7e054db5c261": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4b6b4e9a-31df-47f8-8161-d2b8aaae2c7a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 239,
+      "total_deletions": 16,
+      "accepted_lines": 224,
+      "overriden_lines": 0
+    }
+  }
+}
