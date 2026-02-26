@@ -1,0 +1,62 @@
+web/components.json
+  9c0e39e82b8ef8fd 1-21
+web/content/docs/index.mdx
+  9c0e39e82b8ef8fd 1-8
+web/styles/globals.css
+  9c0e39e82b8ef8fd 1-108
+web/postcss.config.mjs
+  9c0e39e82b8ef8fd 1-7
+pnpm-workspace.yaml
+  9c0e39e82b8ef8fd 1-3
+web/tsconfig.json
+  9c0e39e82b8ef8fd 1-17,19-35,38-42
+web/app/layout.tsx
+  9c0e39e82b8ef8fd 1-19
+web/next.config.mjs
+  9c0e39e82b8ef8fd 1-12
+web/lib/utils.ts
+  9c0e39e82b8ef8fd 1-6
+web/source.config.ts
+  9c0e39e82b8ef8fd 1-7
+.gitignore
+  9c0e39e82b8ef8fd 8-10
+docs/web/todo.md
+  9c0e39e82b8ef8fd 1-172
+web/package.json
+  9c0e39e82b8ef8fd 1-34
+web/app/page.tsx
+  9c0e39e82b8ef8fd 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "b4f854cd18a4f773f5f8c896020162799fd91b64",
+  "prompts": {
+    "021bc40f990d914e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "055289c7-8986-4151-b337-061f42b7f01a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 495,
+      "total_deletions": 0,
+      "accepted_lines": 495,
+      "overriden_lines": 0
+    },
+    "9c0e39e82b8ef8fd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f7db3c91-dffb-4e9d-a3d3-75d4d4d45767",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 432,
+      "total_deletions": 1,
+      "accepted_lines": 446,
+      "overriden_lines": 2
+    }
+  }
+}
