@@ -1,0 +1,74 @@
+web/examples/status-badge-variants.tsx
+  9c0e39e82b8ef8fd 1-58
+web/examples/filter-bar-demo.tsx
+  9c0e39e82b8ef8fd 1-60
+web/content/docs/components/data-table.mdx
+  9c0e39e82b8ef8fd 1-93
+web/examples/page-header-demo.tsx
+  9c0e39e82b8ef8fd 1-31
+web/content/docs/components/status-badge.mdx
+  9c0e39e82b8ef8fd 1-66
+web/examples/currency-input-demo.tsx
+  9c0e39e82b8ef8fd 1-52
+web/examples/status-badge-demo.tsx
+  9c0e39e82b8ef8fd 3-10
+web/examples/copy-cell-demo.tsx
+  9c0e39e82b8ef8fd 1-45
+web/lib/registry.ts
+  9c0e39e82b8ef8fd 9-14,16-18,20,23-35
+web/examples/confirm-dialog-demo.tsx
+  9c0e39e82b8ef8fd 1-60
+web/examples/form-section-demo.tsx
+  9c0e39e82b8ef8fd 1-45
+web/content/docs/components/page-header.mdx
+  9c0e39e82b8ef8fd 1-59
+web/examples/data-table-demo.tsx
+  9c0e39e82b8ef8fd 1-95
+web/content/docs/components/filter-bar.mdx
+  9c0e39e82b8ef8fd 1-71
+web/content/docs/components/copy-cell.mdx
+  9c0e39e82b8ef8fd 1-36
+web/content/docs/components/currency-input.mdx
+  9c0e39e82b8ef8fd 1-48
+web/content/docs/components/confirm-dialog.mdx
+  9c0e39e82b8ef8fd 1-66
+web/content/docs/components/form-section.mdx
+  9c0e39e82b8ef8fd 1-47
+web/examples/empty-state-demo.tsx
+  9c0e39e82b8ef8fd 1-14
+web/content/docs/components/empty-state.mdx
+  9c0e39e82b8ef8fd 1-45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "0e78065ea799e58f41fe6dbff167b2e26ecb3129",
+  "prompts": {
+    "021bc40f990d914e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "055289c7-8986-4151-b337-061f42b7f01a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 495,
+      "overriden_lines": 0
+    },
+    "9c0e39e82b8ef8fd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f7db3c91-dffb-4e9d-a3d3-75d4d4d45767",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 1032,
+      "total_deletions": 30,
+      "accepted_lines": 1126,
+      "overriden_lines": 0
+    }
+  }
+}
