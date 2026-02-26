@@ -1,0 +1,56 @@
+web/registry/__index__.tsx
+  9c0e39e82b8ef8fd 1-5
+web/examples/status-badge-demo.tsx
+  9c0e39e82b8ef8fd 1-22
+web/components/component-source.tsx
+  9c0e39e82b8ef8fd 1-39
+web/app/(app)/docs/[[...slug]]/page.tsx
+  9c0e39e82b8ef8fd 9,25
+web/components/copy-button.tsx
+  9c0e39e82b8ef8fd 1-36
+web/lib/highlight-code.ts
+  9c0e39e82b8ef8fd 1-27
+web/content/docs/index.mdx
+  9c0e39e82b8ef8fd 8-26
+web/lib/registry.ts
+  9c0e39e82b8ef8fd 1-35
+web/components/code-block.tsx
+  9c0e39e82b8ef8fd 1-22
+web/components/component-preview.tsx
+  9c0e39e82b8ef8fd 1-64
+web/mdx-components.tsx
+  9c0e39e82b8ef8fd 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "e2ea2198e127a5ccb9c5e37ba42a63509ff03628",
+  "prompts": {
+    "021bc40f990d914e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "055289c7-8986-4151-b337-061f42b7f01a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 495,
+      "overriden_lines": 0
+    },
+    "9c0e39e82b8ef8fd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f7db3c91-dffb-4e9d-a3d3-75d4d4d45767",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 326,
+      "total_deletions": 28,
+      "accepted_lines": 351,
+      "overriden_lines": 0
+    }
+  }
+}
