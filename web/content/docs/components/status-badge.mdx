@@ -1,0 +1,66 @@
+---
+title: StatusBadge
+description: Badge semântico com cores e ícones para indicar status.
+---
+
+<ComponentPreview name="status-badge-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add status-badge
+```
+
+**Dependências instaladas automaticamente:** `badge` (shadcn/ui)
+
+## Importação
+
+```tsx
+import { StatusBadge } from "@/components/kobana/status-badge"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `status` | `"active" \| "inactive" \| "pending" \| "error" \| "processing" \| "success" \| "warning" \| "info" \| string` | — | Status semântico |
+| `label` | `string` | Auto-capitalizado | Texto exibido |
+| `size` | `"sm" \| "md"` | `"md"` | Tamanho do badge |
+| `icon` | `boolean` | `true` | Mostra ícone à esquerda |
+| `statusConfig` | `Record<string, { color, bgColor, icon? }>` | — | Override/extensão de cores |
+| `className` | `string` | — | Classes adicionais |
+
+## Status Built-in
+
+| Status | Cor | Ícone |
+|--------|-----|-------|
+| `active` | Success (verde) | ● |
+| `inactive` | Error (vermelho) | ○ |
+| `pending` | Warning (amarelo) | ◷ |
+| `error` | Error (vermelho) | ✕ |
+| `processing` | Info (azul) + spin | ↻ |
+| `success` | Success (verde) | ✓ |
+| `warning` | Warning (amarelo) | ⚠ |
+| `info` | Info (azul) | ℹ |
+
+## Exemplos
+
+### Todas as variantes
+
+<ComponentPreview name="status-badge-variants" />
+
+### Status customizado
+
+```tsx
+<StatusBadge
+  status="custom"
+  label="Premium"
+  statusConfig={{
+    custom: {
+      color: "var(--color-primary)",
+      bgColor: "var(--color-primary-bg)",
+      icon: "★",
+    },
+  }}
+/>
+```

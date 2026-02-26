@@ -1,0 +1,45 @@
+---
+title: EmptyState
+description: Estado vazio com ícone, título, descrição e ação.
+---
+
+<ComponentPreview name="empty-state-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add empty-state
+```
+
+**Dependências instaladas automaticamente:** `button` (shadcn/ui)
+
+## Importação
+
+```tsx
+import { EmptyState } from "@/components/kobana/empty-state"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `icon` | `ReactNode` | — | Ícone ou emoji |
+| `title` | `string` | — | Título |
+| `description` | `string` | — | Descrição |
+| `action` | `{ label: string; onClick: () => void; icon?: ReactNode }` | — | Botão CTA |
+| `className` | `string` | — | Classes adicionais |
+
+## Uso
+
+```tsx
+<EmptyState
+  icon={<FileX className="h-10 w-10" />}
+  title="Nenhuma cobrança encontrada"
+  description="Crie sua primeira cobrança para começar a receber pagamentos."
+  action={{
+    label: "Nova Cobrança",
+    onClick: () => navigate("/charges/new"),
+    icon: <Plus className="h-4 w-4" />,
+  }}
+/>
+```

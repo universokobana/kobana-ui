@@ -1,0 +1,66 @@
+---
+title: ConfirmDialog
+description: Dialog de confirmação com variantes de severidade e suporte a ação async.
+---
+
+<ComponentPreview name="confirm-dialog-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add confirm-dialog
+```
+
+**Dependências instaladas automaticamente:** `alert-dialog`, `button` (shadcn/ui)
+
+## Importação
+
+```tsx
+import { ConfirmDialog } from "@/components/kobana/confirm-dialog"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `open` | `boolean` | — | Controlado externamente |
+| `onOpenChange` | `(open: boolean) => void` | — | Callback de abertura/fechamento |
+| `variant` | `"danger" \| "warning" \| "info"` | `"danger"` | Variante visual |
+| `title` | `string` | — | Título do dialog |
+| `description` | `string` | — | Descrição/mensagem |
+| `confirmLabel` | `string` | `"Confirmar"` | Label do botão de confirmação |
+| `cancelLabel` | `string` | `"Cancelar"` | Label do botão de cancelar |
+| `onConfirm` | `() => void \| Promise<void>` | — | Ação de confirmação (suporta async) |
+| `isLoading` | `boolean` | `false` | Estado de loading externo |
+| `children` | `ReactNode` | — | Trigger element |
+| `className` | `string` | — | Classes adicionais |
+
+## Uso
+
+### Com trigger
+
+```tsx
+<ConfirmDialog
+  variant="danger"
+  title="Excluir registro?"
+  description="Esta ação não pode ser desfeita."
+  onConfirm={async () => await deleteRecord(id)}
+>
+  <Button variant="destructive">Excluir</Button>
+</ConfirmDialog>
+```
+
+### Controlado
+
+```tsx
+const [open, setOpen] = useState(false)
+
+<ConfirmDialog
+  open={open}
+  onOpenChange={setOpen}
+  variant="warning"
+  title="Arquivar item?"
+  description="O item será movido para o arquivo."
+  onConfirm={handleArchive}
+/>
+```

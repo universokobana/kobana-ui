@@ -1,0 +1,93 @@
+---
+title: DataTable
+description: Tabela de dados completa com filtros, paginação, sorting, seleção e ações.
+---
+
+<ComponentPreview name="data-table-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add data-table
+```
+
+**Dependências instaladas automaticamente:**
+- shadcn/ui: `table`, `checkbox`, `dropdown-menu`, `skeleton`, `button`, `select`
+- Kobana: `filter-bar`, `status-badge`
+- npm: `@tanstack/react-table`
+
+## Importação
+
+```tsx
+import { DataTable } from "@/components/kobana/data-table"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `columns` | `ColumnDef<TData>[]` | — | Definição das colunas (TanStack Table) |
+| `data` | `TData[]` | — | Dados da tabela |
+| `searchKey` | `string` | — | Coluna para busca |
+| `searchPlaceholder` | `string` | — | Placeholder da busca |
+| `onSearch` | `(query: string) => void` | — | Busca server-side |
+| `filterComponent` | `ReactNode` | — | Componente de filtros customizado |
+| `pagination` | `PaginationConfig` | — | Paginação server-side |
+| `onPageChange` | `(page: number) => void` | — | Callback de mudança de página |
+| `onPerPageChange` | `(perPage: number) => void` | — | Callback de items por página |
+| `selectable` | `boolean` | `false` | Habilita seleção de linhas |
+| `bulkActions` | `BulkAction<TData>[]` | — | Ações em lote |
+| `rowActions` | `RowAction<TData>[]` | — | Ações por linha |
+| `isLoading` | `boolean` | `false` | Estado de loading |
+| `emptyState` | `ReactNode` | — | Estado vazio customizado |
+| `onRowClick` | `(row: TData) => void` | — | Click na linha |
+| `onRefresh` | `() => void` | — | Refresh dos dados |
+| `columnLabels` | `Record<string, string>` | — | Labels de colunas |
+| `className` | `string` | — | Classes adicionais |
+
+## Sub-componentes
+
+O DataTable é composto por 8 sub-componentes internos:
+
+| Componente | Responsabilidade |
+|-----------|-----------------|
+| `DataTableToolbar` | Search, refresh, column visibility |
+| `DataTablePagination` | Navegação de páginas, per-page selector |
+| `DataTableActions` | Dropdown de ações por linha |
+| `DataTableBulkActions` | Barra de ações em lote |
+| `DataTableColumnHeader` | Headers sortáveis |
+| `DataTableEmpty` | Estado vazio |
+| `DataTableLoading` | Skeleton loading |
+
+## Uso
+
+```tsx
+const columns: ColumnDef<Charge>[] = [
+  { accessorKey: "name", header: "Nome" },
+  {
+    accessorKey: "status",
+    header: "Status",
+    cell: ({ row }) => (
+      <StatusBadge status={row.getValue("status")} />
+    ),
+  },
+  { accessorKey: "amount", header: "Valor" },
+]
+
+<DataTable
+  columns={columns}
+  data={charges}
+  searchKey="name"
+  searchPlaceholder="Buscar cobrança..."
+  selectable
+  bulkActions={[
+    { label: "Excluir", variant: "destructive", action: handleBulkDelete },
+  ]}
+  rowActions={[
+    { label: "Editar", action: (row) => navigate(`/edit/${row.id}`) },
+    { label: "Excluir", variant: "destructive", action: handleDelete },
+  ]}
+  pagination={{ page: 1, perPage: 10, total: 100, totalPages: 10 }}
+  onPageChange={setPage}
+/>
+```

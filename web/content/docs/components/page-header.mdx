@@ -1,0 +1,59 @@
+---
+title: PageHeader
+description: Cabeçalho de página com título, breadcrumbs e ações.
+---
+
+<ComponentPreview name="page-header-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add page-header
+```
+
+**Dependências instaladas automaticamente:** `breadcrumb`, `button` (shadcn/ui)
+
+## Importação
+
+```tsx
+import { PageHeader } from "@/components/kobana/page-header"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `title` | `string` | — | Título da página |
+| `description` | `string` | — | Subtítulo/descrição |
+| `breadcrumbs` | `BreadcrumbItem[]` | — | Trail de navegação |
+| `actions` | `ReactNode` | — | Ações (botões) alinhados à direita |
+| `backHref` | `string` | — | URL para botão voltar |
+| `className` | `string` | — | Classes adicionais |
+
+### BreadcrumbItem
+
+```tsx
+interface BreadcrumbItem {
+  label: string
+  href?: string  // último item sem href = página atual
+}
+```
+
+## Uso
+
+```tsx
+<PageHeader
+  title="Cobranças"
+  description="Gerencie as cobranças do seu negócio"
+  breadcrumbs={[
+    { label: "Dashboard", href: "/" },
+    { label: "Cobranças" },
+  ]}
+  actions={
+    <>
+      <Button variant="outline">Exportar</Button>
+      <Button>Nova Cobrança</Button>
+    </>
+  }
+/>
+```

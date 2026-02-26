@@ -1,0 +1,36 @@
+---
+title: CopyCell
+description: Célula com copy-to-clipboard, truncamento e tooltip.
+---
+
+<ComponentPreview name="copy-cell-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add copy-cell
+```
+
+**Dependências instaladas automaticamente:** `button`, `tooltip` (shadcn/ui)
+
+## Importação
+
+```tsx
+import { CopyCell } from "@/components/kobana/copy-cell"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `value` | `string` | — | Valor a ser exibido e copiado |
+| `truncate` | `number` | — | Limite de caracteres (appends "...") |
+| `className` | `string` | — | Classes adicionais |
+
+## Uso
+
+```tsx
+<CopyCell value="txn_1234567890abcdef" truncate={12} />
+```
+
+Ideal para IDs, chaves, tokens e outros valores longos em tabelas.

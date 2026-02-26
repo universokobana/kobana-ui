@@ -1,0 +1,47 @@
+---
+title: FormSection
+description: Seção de formulário com grid responsivo de 1 a 3 colunas.
+---
+
+<ComponentPreview name="form-section-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add form-section
+```
+
+**Dependências instaladas automaticamente:** `separator` (shadcn/ui)
+
+## Importação
+
+```tsx
+import { FormSection } from "@/components/kobana/form-section"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `title` | `string` | — | Título da seção |
+| `description` | `string` | — | Descrição |
+| `columns` | `1 \| 2 \| 3` | `1` | Número de colunas no grid |
+| `children` | `ReactNode` | — | Campos do formulário |
+| `className` | `string` | — | Classes adicionais |
+
+## Uso
+
+```tsx
+<FormSection title="Informações Pessoais" description="Dados básicos" columns={2}>
+  <FormField name="name" label="Nome" />
+  <FormField name="email" label="Email" />
+  <FormField name="cpf" label="CPF" />
+  <FormField name="phone" label="Telefone" />
+</FormSection>
+
+<FormSection title="Endereço" columns={3}>
+  <FormField name="street" label="Rua" />
+  <FormField name="number" label="Número" />
+  <FormField name="complement" label="Complemento" />
+</FormSection>
+```

@@ -1,0 +1,48 @@
+---
+title: CurrencyInput
+description: Input com formatação automática de moeda. Trabalha internamente em centavos.
+---
+
+<ComponentPreview name="currency-input-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add currency-input
+```
+
+**Dependências instaladas automaticamente:** `input` (shadcn/ui)
+
+## Importação
+
+```tsx
+import { CurrencyInput } from "@/components/kobana/currency-input"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `value` | `number` | — | Valor em centavos (1990 = R$ 19,90) |
+| `onChange` | `(value: number) => void` | — | Retorna valor em centavos |
+| `currency` | `string` | `"BRL"` | Código da moeda |
+| `locale` | `string` | `"pt-BR"` | Locale para formatação |
+| `disabled` | `boolean` | — | Desabilitado |
+| `className` | `string` | — | Classes adicionais |
+| `name` | `string` | — | Nome do campo |
+| `id` | `string` | — | ID do campo |
+
+## Uso
+
+```tsx
+const [amount, setAmount] = useState(0)
+
+<CurrencyInput
+  value={amount}
+  onChange={setAmount}
+  currency="BRL"
+  locale="pt-BR"
+/>
+```
+
+O valor é sempre em **centavos** (inteiro), evitando problemas de precisão de ponto flutuante.

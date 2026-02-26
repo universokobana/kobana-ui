@@ -1,0 +1,71 @@
+---
+title: FilterBar
+description: Barra de filtros reutilizável com múltiplos tipos de filtro.
+---
+
+<ComponentPreview name="filter-bar-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add filter-bar
+```
+
+**Dependências instaladas automaticamente:** `input`, `select`, `popover`, `calendar`, `button`, `badge` (shadcn/ui)
+
+## Importação
+
+```tsx
+import { FilterBar } from "@/components/kobana/filter-bar"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `filters` | `FilterConfig[]` | — | Configuração dos filtros |
+| `values` | `Record<string, unknown>` | — | Valores atuais dos filtros |
+| `onChange` | `(values: Record<string, unknown>) => void` | — | Callback de mudança |
+| `onClear` | `() => void` | — | Limpar todos os filtros |
+| `className` | `string` | — | Classes adicionais |
+
+### FilterConfig
+
+```tsx
+interface FilterConfig {
+  key: string
+  label: string
+  type: "text" | "select" | "multi-select" | "date-range" | "custom"
+  options?: { label: string; value: string }[]
+  placeholder?: string
+  component?: ReactNode  // para type="custom"
+}
+```
+
+## Tipos de Filtro
+
+| Tipo | Componente | Descrição |
+|------|-----------|-----------|
+| `text` | Input | Campo de busca textual |
+| `select` | Select | Seleção única |
+| `multi-select` | Popover + Checkboxes | Seleção múltipla |
+| `date-range` | Calendar | Intervalo de datas |
+| `custom` | ReactNode | Componente personalizado |
+
+## Uso
+
+```tsx
+<FilterBar
+  filters={[
+    { key: "search", label: "Buscar", type: "text", placeholder: "Nome ou ID..." },
+    { key: "status", label: "Status", type: "select", options: [
+      { label: "Ativo", value: "active" },
+      { label: "Pendente", value: "pending" },
+    ]},
+    { key: "date", label: "Data", type: "date-range" },
+  ]}
+  values={filterValues}
+  onChange={setFilterValues}
+  onClear={() => setFilterValues({})}
+/>
+```
