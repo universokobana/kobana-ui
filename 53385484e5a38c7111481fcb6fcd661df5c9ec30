@@ -1,0 +1,31 @@
+src/components/composites/import-modal/import-modal.tsx
+  2c0b7e054db5c261 1-588
+web/examples/import-modal-demo.tsx
+  2c0b7e054db5c261 1-191
+web/lib/registry.ts
+  2c0b7e054db5c261 46
+web/content/docs/components/import-modal.mdx
+  2c0b7e054db5c261 1-104
+src/components/composites/import-modal/index.ts
+  2c0b7e054db5c261 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.5",
+  "base_commit_sha": "53385484e5a38c7111481fcb6fcd661df5c9ec30",
+  "prompts": {
+    "2c0b7e054db5c261": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4b6b4e9a-31df-47f8-8161-d2b8aaae2c7a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 895,
+      "total_deletions": 4,
+      "accepted_lines": 891,
+      "overriden_lines": 0
+    }
+  }
+}
