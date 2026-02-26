@@ -50,13 +50,30 @@ import { ListPage } from "@/components/kobana/templates/list-page"
   columns={columns}
   data={charges}
   searchKey="name"
+  searchPlaceholder="Buscar cobranças..."
+  onSearch={handleSearch}
+  filterComponent={
+    <MultiSelectFilter
+      label="Status"
+      options={statusOptions}
+      selected={selectedStatuses}
+      onChange={setSelectedStatuses}
+    />
+  }
   selectable
+  rowActions={[
+    { label: "Editar", onClick: (row) => navigate(`/edit/${row.id}`) },
+    { label: "Excluir", variant: "destructive", onClick: handleDelete },
+  ]}
   pagination={{ page, perPage, total, totalPages }}
   onPageChange={setPage}
+  onPerPageChange={setPerPage}
+  onRefresh={refetch}
   emptyState={{
     title: "Nenhuma cobrança",
     description: "Crie sua primeira cobrança",
-    action: { label: "Criar", onClick: () => navigate("/new") },
+    actionLabel: "Criar",
+    onAction: () => navigate("/new"),
   }}
 />
 ```

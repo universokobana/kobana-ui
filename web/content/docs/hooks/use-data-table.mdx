@@ -51,12 +51,26 @@ const { table, sorting, filtering, pagination, rowSelection } = useDataTable({
 
 ```tsx
 function ChargesTable({ charges }: { charges: Charge[] }) {
-  const { table } = useDataTable({
+  const { table, sorting, pagination } = useDataTable({
     data: charges,
     columns: chargeColumns,
   })
 
-  return <DataTable table={table} />
+  return (
+    <DataTable
+      columns={chargeColumns}
+      data={charges}
+      searchKey="name"
+      searchPlaceholder="Buscar cobranças..."
+      onSearch={handleSearch}
+      pagination={{
+        page: pagination.pageIndex + 1,
+        perPage: pagination.pageSize,
+        total: charges.length,
+        totalPages: Math.ceil(charges.length / pagination.pageSize),
+      }}
+    />
+  )
 }
 ```
 

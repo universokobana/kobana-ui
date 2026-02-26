@@ -358,9 +358,8 @@ export default function DataTableDemo() {
                 {visibleCols.type && <th className="h-12 px-4 text-left font-medium text-muted-foreground">Tipo</th>}
                 {visibleCols.amount && <th className="h-12 px-4 text-right font-medium text-muted-foreground"><SortButton field="amount" label="Preço" /></th>}
                 {visibleCols.date && <th className="h-12 px-4 text-left font-medium text-muted-foreground"><SortButton field="date" label="Criado em" /></th>}
-                <th className="h-12 w-[50px] px-4" />
-                <th className="h-12 w-10 px-2">
-                  <div className="relative">
+                <th className="h-12 w-[50px] px-2">
+                  <div className="relative flex justify-end">
                     <button
                       type="button"
                       onClick={() => setColumnsOpen(!columnsOpen)}
@@ -391,7 +390,7 @@ export default function DataTableDemo() {
             </thead>
             <tbody className="[&_tr:last-child]:border-0">
               {paged.length === 0 ? (
-                <tr><td colSpan={8} className="h-24 text-center text-muted-foreground">Nenhum resultado encontrado.</td></tr>
+                <tr><td colSpan={7} className="h-24 text-center text-muted-foreground">Nenhum resultado encontrado.</td></tr>
               ) : (
                 paged.map((row) => (
                   <tr key={row.id} className="group border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted" data-state={selected.has(row.id) ? "selected" : undefined}>
@@ -409,12 +408,11 @@ export default function DataTableDemo() {
                     {visibleCols.type && <td className="p-4 text-muted-foreground">{typeLabels[row.type]}</td>}
                     {visibleCols.amount && <td className="p-4 text-right font-mono">{formatCurrency(row.amount)}</td>}
                     {visibleCols.date && <td className="p-4 text-muted-foreground">{row.date}</td>}
-                    <td className="p-4">
+                    <td className="p-4 text-right">
                       <button type="button" className="inline-flex size-8 items-center justify-center rounded-md hover:bg-accent">
                         <MoreHorizontalIcon className="size-4" />
                       </button>
                     </td>
-                    <td className="w-10" />
                   </tr>
                 ))
               )}

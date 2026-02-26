@@ -178,27 +178,18 @@ export function DataTable<TData, TValue = unknown>({
 
     cols.push(...(userColumns as ColumnDef<TData, any>[]));
 
-    if (rowActions && rowActions.length > 0) {
-      cols.push({
-        id: 'actions',
-        header: () => null,
-        cell: ({ row }) => <DataTableActions row={row.original} actions={rowActions} />,
-        enableSorting: false,
-        enableHiding: false,
-        size: 50,
-      });
-    }
-
-    // Column visibility icon in the last column header
+    // Actions column with column visibility icon in its header
     cols.push({
-      id: '_column_visibility',
+      id: 'actions',
       header: ({ table: t }) => (
         <DataTableColumnVisibility table={t} columnLabels={columnLabels} />
       ),
-      cell: () => null,
+      cell: rowActions && rowActions.length > 0
+        ? ({ row }) => <DataTableActions row={row.original} actions={rowActions} />
+        : () => null,
       enableSorting: false,
       enableHiding: false,
-      size: 40,
+      size: 50,
     });
 
     return cols;
