@@ -1,6 +1,6 @@
 ---
 title: Cores
-description: Paleta de cores semânticas do Kobana UI
+description: Paleta de cores da marca e cores semânticas do Kobana UI.
 ---
 
 ## Instalação
@@ -8,6 +8,54 @@ description: Paleta de cores semânticas do Kobana UI
 ```bash
 npx @kobana/ui add tokens
 ```
+
+## Cores da Marca
+
+Paleta oficial conforme Branding Book. As cores principais (lime e black) devem sempre predominar.
+
+| Cor | Hex | Token | Uso |
+|-----|-----|-------|-----|
+| Verde-limão | `#D3FD54` | `kobana-lime` | Cor primária, CTAs, destaques |
+| Preto | `#000000` | `kobana-black` | Textos, fundos escuros, contraste |
+| Branco | `#FDFDFB` | `kobana-white` | Fundos claros, texto em fundo escuro |
+| Cinza | `#676767` | `kobana-gray` | Textos secundários, elementos neutros |
+| Roxo | `#A630DA` | `kobana-purple` | Destaques, CTAs secundários |
+
+### Uso com Tailwind
+
+```html
+<button class="bg-kobana-lime text-kobana-black">Ação principal</button>
+<span class="text-kobana-gray">Texto secundário</span>
+<a class="text-kobana-purple">Link de destaque</a>
+```
+
+### Uso via TypeScript
+
+```tsx
+import { brandColors, semanticColors } from "@kobana/ui/tokens/colors"
+
+brandColors.lime      // "#D3FD54"
+brandColors.purple    // "#A630DA"
+
+semanticColors.primary           // "#D3FD54"
+semanticColors.primaryForeground // "#000000"
+semanticColors.accent            // "#A630DA"
+semanticColors.text              // "#000000"
+semanticColors.textSecondary     // "#676767"
+```
+
+## Dashboard Theme
+
+A classe `.dashboard-theme` ativa o verde-limão como cor primária dos componentes (botões, rings, etc.):
+
+```html
+<div class="dashboard-theme">
+  <!-- bg-primary agora é Kobana Lime -->
+  <button class="bg-primary text-primary-foreground">Salvar</button>
+</div>
+```
+
+Funciona tanto em light quanto dark mode.
 
 ## Status Colors
 
@@ -29,41 +77,9 @@ Cada cor tem uma variante `-bg` com opacidade (10% light, 15% dark) para uso em 
 - `--color-status-error-bg`
 - `--color-status-info-bg`
 
-## Uso
-
 ```css
 .custom-badge {
   color: var(--color-status-success);
   background-color: var(--color-status-success-bg);
-}
-```
-
-## CSS Completo
-
-```css
-@layer base {
-  :root {
-    --color-status-success: oklch(0.72 0.19 142);
-    --color-status-warning: oklch(0.75 0.18 85);
-    --color-status-error: oklch(0.63 0.24 25);
-    --color-status-info: oklch(0.7 0.15 250);
-
-    --color-status-success-bg: oklch(0.72 0.19 142 / 0.1);
-    --color-status-warning-bg: oklch(0.75 0.18 85 / 0.1);
-    --color-status-error-bg: oklch(0.63 0.24 25 / 0.1);
-    --color-status-info-bg: oklch(0.7 0.15 250 / 0.1);
-  }
-
-  .dark {
-    --color-status-success: oklch(0.78 0.17 142);
-    --color-status-warning: oklch(0.8 0.16 85);
-    --color-status-error: oklch(0.7 0.22 25);
-    --color-status-info: oklch(0.76 0.13 250);
-
-    --color-status-success-bg: oklch(0.78 0.17 142 / 0.15);
-    --color-status-warning-bg: oklch(0.8 0.16 85 / 0.15);
-    --color-status-error-bg: oklch(0.7 0.22 25 / 0.15);
-    --color-status-info-bg: oklch(0.76 0.13 250 / 0.15);
-  }
 }
 ```

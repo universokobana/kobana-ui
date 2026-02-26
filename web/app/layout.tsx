@@ -1,15 +1,15 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Work_Sans, Syne } from "next/font/google"
 import { RootProvider } from "fumadocs-ui/provider/next"
 import "@/styles/globals.css"
 
-const geistSans = Geist({
+const workSans = Work_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
 })
 
-const geistMono = Geist_Mono({
-  variable: "--font-mono",
+const syne = Syne({
+  variable: "--font-display",
   subsets: ["latin"],
 })
 
@@ -44,7 +44,7 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${workSans.variable} ${syne.variable}`}
     >
       <body className="min-h-screen bg-background font-sans antialiased">
         <RootProvider>

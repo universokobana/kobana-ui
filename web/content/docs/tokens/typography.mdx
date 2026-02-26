@@ -1,7 +1,32 @@
 ---
 title: Tipografia
-description: Tokens de tipografia do Kobana UI
+description: Fontes, tamanhos e pesos tipográficos do Kobana UI.
 ---
+
+## Fontes
+
+Conforme Branding Book, a Kobana usa duas famílias tipográficas:
+
+| Família | Token | Tailwind | Uso |
+|---------|-------|----------|-----|
+| **Work Sans** | `sans` | `font-sans` | Uso geral: textos, títulos, interfaces. Clara, neutra e legível. |
+| **Syne** | `display` | `font-display` | Uso pontual: headings de destaque, números, hero titles. Forte personalidade — evitar textos longos. |
+
+### Uso com Tailwind
+
+```html
+<p class="font-sans">Texto em Work Sans (padrão do body)</p>
+<h1 class="font-display text-3xl font-bold">Título em Syne</h1>
+```
+
+### Uso via TypeScript
+
+```tsx
+import { fontFamily } from "@kobana/ui/tokens/typography"
+
+fontFamily.sans    // "'Work Sans', sans-serif"
+fontFamily.display // "'Syne', sans-serif"
+```
 
 ## Font Sizes
 
@@ -9,13 +34,13 @@ Alinhados com os defaults do Tailwind CSS.
 
 | Token | Valor | Pixels | Tailwind | Uso |
 |-------|-------|--------|----------|-----|
-| `xs` | 0.75rem | 12px | `text-xs` | Captions, labels |
+| `xs` | 0.75rem | 12px | `text-xs` | Captions, labels, badges |
 | `sm` | 0.875rem | 14px | `text-sm` | Body small, table cells |
 | `base` | 1rem | 16px | `text-base` | Body text |
 | `lg` | 1.125rem | 18px | `text-lg` | Subtítulos |
 | `xl` | 1.25rem | 20px | `text-xl` | Títulos de seção |
 | `2xl` | 1.5rem | 24px | `text-2xl` | Títulos de página |
-| `3xl` | 1.875rem | 30px | `text-3xl` | Títulos hero |
+| `3xl` | 1.875rem | 30px | `text-3xl` | Hero titles (usar `font-display`) |
 
 ## Font Weights
 
@@ -34,13 +59,21 @@ Alinhados com os defaults do Tailwind CSS.
 | `normal` | 1.5 | `leading-normal` |
 | `relaxed` | 1.75 | `leading-relaxed` |
 
-## Uso
+## Exemplos
 
 ```tsx
-<h1 className="text-2xl font-bold leading-tight">
-  Título da Página
+{/* Hero title — Syne */}
+<h1 className="font-display text-3xl font-bold leading-tight">
+  A gente cuida dos seus processos
 </h1>
+
+{/* Page title — Work Sans */}
+<h2 className="text-2xl font-semibold leading-tight">
+  Cobranças
+</h2>
+
+{/* Body text — Work Sans (padrão) */}
 <p className="text-sm text-muted-foreground leading-normal">
-  Descrição do componente
+  Gerencie suas cobranças em um só lugar.
 </p>
 ```
