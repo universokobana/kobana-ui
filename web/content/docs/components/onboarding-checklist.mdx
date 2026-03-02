@@ -1,0 +1,90 @@
+---
+title: OnboardingChecklist
+description: Checklist de onboarding com tarefas, ícones e status pendente/concluído.
+---
+
+<ComponentPreview name="onboarding-checklist-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add onboarding-checklist
+```
+
+## Importação
+
+```tsx
+import { OnboardingChecklist } from "@/components/kobana/onboarding-checklist"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `tasks` | `OnboardingTask[]` | — | Lista de tarefas |
+| `title` | `string` | — | Título no topo |
+| `description` | `string` | — | Subtítulo descritivo |
+| `action` | `{ label: string; onClick: () => void }` | — | Botão exibido quando todas as tarefas estão completas |
+| `footer` | `ReactNode` | — | Conteúdo no rodapé |
+| `className` | `string` | — | Classes adicionais |
+
+### OnboardingTask
+
+| Campo | Tipo | Default | Descrição |
+|-------|------|---------|-----------|
+| `id` | `string` | — | Identificador único |
+| `icon` | `ReactNode` | — | Ícone da tarefa |
+| `label` | `string` | — | Texto descritivo |
+| `completed` | `boolean` | — | Status da tarefa |
+| `href` | `string` | — | Link opcional (renderiza como `<a>`) |
+| `onClick` | `() => void` | — | Handler opcional (renderiza como `<button>`) |
+
+## Uso
+
+```tsx
+import { Building2, CreditCard, FileText } from "lucide-react"
+
+const tasks = [
+  {
+    id: "company",
+    icon: <Building2 className="h-4 w-4" />,
+    label: "Preencher dados da empresa",
+    completed: true,
+  },
+  {
+    id: "bank",
+    icon: <CreditCard className="h-4 w-4" />,
+    label: "Cadastrar conta bancária",
+    completed: false,
+    href: "/settings/bank",
+  },
+  {
+    id: "charge",
+    icon: <FileText className="h-4 w-4" />,
+    label: "Criar primeira cobrança",
+    completed: false,
+    href: "/charges/new",
+  },
+]
+
+<OnboardingChecklist
+  title="Configure sua conta"
+  description="Complete as etapas abaixo para começar."
+  tasks={tasks}
+  action={{
+    label: "Ir para o Dashboard",
+    onClick: () => navigate("/dashboard"),
+  }}
+  footer={
+    <span>
+      Precisa de ajuda?{" "}
+      <a href="/help" className="text-primary hover:underline">
+        Central de Ajuda
+      </a>
+    </span>
+  }
+/>
+```
+
+  
+

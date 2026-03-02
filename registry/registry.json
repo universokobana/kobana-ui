@@ -460,6 +460,21 @@
         "npm": ["@tanstack/react-table"]
       }
     },
+    "onboarding-checklist": {
+      "name": "OnboardingChecklist",
+      "description": "Checklist de onboarding com tarefas, ícones e status pendente/concluído",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/onboarding-checklist/onboarding-checklist.tsx",
+        "src/components/composites/onboarding-checklist/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": []
+      }
+    },
     "manage-login-page": {
       "name": "ManageLoginPage",
       "description": "Template de página de login para área administrativa com Google OAuth",

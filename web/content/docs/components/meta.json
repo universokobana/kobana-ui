@@ -17,6 +17,7 @@
     "import-modal",
     "locale-toggle",
     "number-input",
+    "onboarding-checklist",
     "page-header",
     "require-permission",
     "status-badge",

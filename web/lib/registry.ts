@@ -1,8 +1,9 @@
-import { lazy, type ComponentType } from "react"
+import dynamic from "next/dynamic"
+import type { ComponentType } from "react"
 
 export interface RegistryEntry {
   name: string
-  component: React.LazyExoticComponent<ComponentType>
+  component: ComponentType
   sourceFile: string
 }
 
@@ -14,7 +15,7 @@ function entry(
     name,
     {
       name,
-      component: lazy(loader),
+      component: dynamic(loader),
       sourceFile: `examples/${name}.tsx`,
     },
   ]
@@ -30,6 +31,7 @@ const registry: Record<string, RegistryEntry> = Object.fromEntries([
   entry("form-section-demo", () => import("@/examples/form-section-demo")),
   entry("data-table-demo", () => import("@/examples/data-table-demo")),
   entry("empty-state-demo", () => import("@/examples/empty-state-demo")),
+  entry("onboarding-checklist-demo", () => import("@/examples/onboarding-checklist-demo")),
   entry("copy-cell-demo", () => import("@/examples/copy-cell-demo")),
   entry("currency-input-demo", () => import("@/examples/currency-input-demo")),
   // Grupo 2 — Extended composites
