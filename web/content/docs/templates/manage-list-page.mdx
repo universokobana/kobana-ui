@@ -1,0 +1,80 @@
+---
+title: ManageListPage
+description: Template de página de listagem para área administrativa com header de ícone, toolbar e DataTable.
+---
+
+<ComponentPreview name="manage-list-page-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add manage-list-page
+```
+
+**Dependências Kobana:** `data-table`
+
+## Importação
+
+```tsx
+import { ManageListPage } from "@/components/kobana/templates/manage-list-page"
+```
+
+## Quando usar
+
+Use **ManageListPage** para páginas de listagem na área administrativa (manage/dashboard):
+- Header com ícone + título + descrição
+- Toolbar com busca, filtros por dropdown, botão de atualizar
+- Tabela de dados com sorting, column visibility, ações por linha
+- Paginação server-side
+
+Para páginas de portal (billing, assinaturas), use o template **PortalPage**.
+Para listagens com breadcrumbs e PageHeader, use o template **ListPage**.
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `icon` | `ReactNode` | — | Ícone do header |
+| `title` | `string` | — | Título da página |
+| `description` | `string` | — | Descrição |
+| `headerAction` | `ReactNode` | — | Ação no header (ex: botão criar) |
+| `columns` | `ColumnDef<TData>[]` | — | Colunas da tabela |
+| `data` | `TData[]` | — | Dados |
+| `filterComponent` | `ReactNode` | — | Filtros customizados |
+| `searchKey` | `string` | — | Coluna de busca |
+| `searchPlaceholder` | `string` | — | Placeholder do campo de busca |
+| `pagination` | `PaginationConfig` | — | Paginação server-side |
+| `rowActions` | `RowAction<TData>[]` | — | Ações por linha |
+| `onRefresh` | `() => void` | — | Callback para atualizar dados |
+| `isLoading` | `boolean` | — | Loading state |
+| `isRefreshing` | `boolean` | — | Refreshing state |
+
+## Uso
+
+```tsx
+<ManageListPage
+  icon={<Users className="h-6 w-6" />}
+  title="Clientes"
+  description="Todos os clientes de todas as organizações"
+  columns={columns}
+  data={customers}
+  searchKey="name"
+  searchPlaceholder="Buscar por nome, email ou CPF/CNPJ..."
+  onSearch={handleSearch}
+  filterComponent={
+    <StatusFilter
+      options={statusOptions}
+      selected={selectedStatuses}
+      onChange={setSelectedStatuses}
+    />
+  }
+  rowActions={[
+    { label: "Visualizar", onClick: (row) => navigate(`/customers/${row.id}`) },
+  ]}
+  pagination={{ page, perPage, total, totalPages }}
+  onPageChange={setPage}
+  onPerPageChange={setPerPage}
+  onRefresh={fetchCustomers}
+  isLoading={loading}
+/>
+```

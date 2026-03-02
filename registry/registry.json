@@ -444,6 +444,21 @@
         "kobana": [],
         "npm": []
       }
+    },
+    "manage-list-page": {
+      "name": "ManageListPage",
+      "description": "Template de página de listagem para área administrativa com header de ícone, toolbar e DataTable",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/manage-list-page/manage-list-page.tsx",
+        "src/components/templates/manage-list-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": ["data-table"],
+        "npm": ["@tanstack/react-table"]
+      }
     }
   }
 }
