@@ -1,0 +1,23 @@
+package.json
+  63551cd2800e635b 7-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "638048afb677ef102b13dbccc9284a0fd354bfe6",
+  "prompts": {
+    "63551cd2800e635b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a7e01fc7-c1bc-4181-b62f-68c020ecbb74",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 1,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
