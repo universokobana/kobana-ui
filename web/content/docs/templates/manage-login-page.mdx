@@ -1,0 +1,66 @@
+---
+title: ManageLoginPage
+description: Template de página de login para área administrativa com autenticação Google OAuth.
+---
+
+<ComponentPreview name="manage-login-page-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add manage-login-page
+```
+
+## Importação
+
+```tsx
+import { ManageLoginPage } from "@/components/kobana/templates/manage-login-page"
+```
+
+## Quando usar
+
+Use **ManageLoginPage** para páginas de login na área administrativa (backoffice/manage):
+- Login com Google OAuth (botão único)
+- Background dark com gradiente
+- Card com logo, título e descrição
+- Alerta de erro inline
+- Aviso de restrição de domínio
+
+Para login de dashboard com magic link + OAuth, use o template **DashboardLoginPage**.
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `logo` | `ReactNode` | — | Logo acima do título |
+| `labels` | `ManageLoginPageLabels` | — | Labels para i18n |
+| `onLogin` | `() => void \| Promise<void>` | — | Callback do botão de login |
+| `loginDisabled` | `boolean` | — | Desabilitar botão (ex: aguardando CSRF) |
+| `error` | `string \| null` | — | Mensagem de erro |
+| `className` | `string` | — | Classes adicionais |
+
+### ManageLoginPageLabels
+
+| Prop | Default | Descrição |
+|------|---------|-----------|
+| `title` | `"Backoffice Admin"` | Título da página |
+| `description` | `"Acesso restrito à equipe administrativa"` | Descrição |
+| `loginButton` | `"Entrar com Google"` | Texto do botão |
+| `loggingIn` | `"Entrando..."` | Texto durante loading |
+| `restrictionNotice` | `"Apenas emails autorizados são permitidos"` | Aviso de restrição |
+
+## Uso
+
+```tsx
+<ManageLoginPage
+  logo={<Logo variant="dark" />}
+  labels={{
+    title: "Backoffice Admin",
+    description: "Acesso restrito à equipe Kobana",
+    restrictionNotice: "Apenas emails @kobana.com.br são autorizados",
+  }}
+  onLogin={handleGoogleLogin}
+  loginDisabled={!csrfToken}
+  error={errorMessage}
+/>
+```

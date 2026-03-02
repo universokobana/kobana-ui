@@ -459,6 +459,21 @@
         "kobana": ["data-table"],
         "npm": ["@tanstack/react-table"]
       }
+    },
+    "manage-login-page": {
+      "name": "ManageLoginPage",
+      "description": "Template de página de login para área administrativa com Google OAuth",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/manage-login-page/manage-login-page.tsx",
+        "src/components/templates/manage-login-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": []
+      }
     }
   }
 }

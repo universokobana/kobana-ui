@@ -52,6 +52,7 @@ const registry: Record<string, RegistryEntry> = Object.fromEntries([
   entry("dashboard-login-page-demo", () => import("@/examples/dashboard-login-page-demo")),
   entry("portal-page-demo", () => import("@/examples/portal-page-demo")),
   entry("manage-list-page-demo", () => import("@/examples/manage-list-page-demo")),
+  entry("manage-login-page-demo", () => import("@/examples/manage-login-page-demo")),
 ])
 
 export function getRegistryEntry(name: string): RegistryEntry | undefined {
