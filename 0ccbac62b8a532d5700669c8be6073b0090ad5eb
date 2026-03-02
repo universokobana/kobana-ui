@@ -1,0 +1,35 @@
+src/cli/commands/diff.ts
+  63551cd2800e635b 8-9,45-50,78-81
+web/kobana.json
+  63551cd2800e635b 1-8
+src/cli/utils/registry.ts
+  63551cd2800e635b 51-63,69,72-89
+src/cli/utils/installer.ts
+  63551cd2800e635b 78-80,86,100-101,109-121,123
+src/cli/commands/add.ts
+  63551cd2800e635b 6,105-110,115
+src/cli/commands/update.ts
+  63551cd2800e635b 9-10,52-57,90-95,97
+package.json
+  63551cd2800e635b 7,9-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "0ccbac62b8a532d5700669c8be6073b0090ad5eb",
+  "prompts": {
+    "63551cd2800e635b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a7e01fc7-c1bc-4181-b62f-68c020ecbb74",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 127,
+      "total_deletions": 67,
+      "accepted_lines": 105,
+      "overriden_lines": 0
+    }
+  }
+}
