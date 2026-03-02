@@ -1,0 +1,49 @@
+registry/registry.json
+  a146afd7abc23cab 463-477
+web/content/docs/components/meta.json
+  314aa05c4edd6334 20
+web/examples/onboarding-checklist-demo.tsx
+  a146afd7abc23cab 1-109
+src/components/composites/onboarding-checklist/onboarding-checklist.tsx
+  a146afd7abc23cab 1-117
+web/lib/registry.ts
+  a146afd7abc23cab 34
+  314aa05c4edd6334 1-2,18
+web/content/docs/components/onboarding-checklist.mdx
+  a146afd7abc23cab 1-87
+src/components/composites/onboarding-checklist/index.ts
+  a146afd7abc23cab 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "974c8d4df068c314c00ae9fd4447262d0800d9bf",
+  "prompts": {
+    "314aa05c4edd6334": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "531bf027-a544-4c63-b687-a6558edc08f8",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 40,
+      "total_deletions": 4,
+      "accepted_lines": 39,
+      "overriden_lines": 0
+    },
+    "a146afd7abc23cab": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2a97d017-f9ef-4701-8ba4-5aa023f26d7a",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 334,
+      "total_deletions": 0,
+      "accepted_lines": 334,
+      "overriden_lines": 0
+    }
+  }
+}
