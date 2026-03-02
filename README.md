@@ -217,6 +217,32 @@ npm run test
 npm run storybook
 ```
 
+### Publicando uma nova versão no npm
+
+```bash
+# 1. Certifique-se de que o working tree está limpo
+git status
+
+# 2. Incremente a versão (patch/minor/major)
+npm version patch   # 0.1.1 → 0.1.2 (bug fixes)
+npm version minor   # 0.1.2 → 0.2.0 (novos componentes)
+npm version major   # 0.2.0 → 1.0.0 (breaking changes)
+
+# 3. Push do commit e da tag criados pelo npm version
+git push --follow-tags
+
+# 4. Publique no npm
+pnpm publish --access public
+```
+
+O `prepublishOnly` roda `pnpm build` automaticamente antes de publicar.
+
+Para verificar:
+
+```bash
+npx @kobana/ui@latest --help
+```
+
 ### Criando um novo componente
 
 1. Implemente em `src/components/composites/<nome>/`
