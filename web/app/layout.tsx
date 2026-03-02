@@ -20,6 +20,22 @@ export const metadata: Metadata = {
   },
   description:
     "Design System para produtos Kobana. Componentes compostos, reutilizáveis e acessíveis construídos com shadcn/ui.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/favicon/apple-touch-icon.png",
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/favicon/safari-pinned-tab.svg",
+        color: "#D3FD54",
+      },
+    ],
+  },
+  manifest: "/favicon/site.webmanifest",
   openGraph: {
     title: "Kobana UI",
     description:
@@ -32,6 +48,10 @@ export const metadata: Metadata = {
     title: "Kobana UI",
     description:
       "Design System para produtos Kobana. Componentes compostos, reutilizáveis e acessíveis construídos com shadcn/ui.",
+  },
+  other: {
+    "msapplication-TileColor": "#D3FD54",
+    "msapplication-config": "/favicon/browserconfig.xml",
   },
 }
 
