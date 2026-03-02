@@ -1,0 +1,71 @@
+---
+title: MultipleEmails
+description: Campo dinâmico para cadastro de múltiplos e-mails com label e endereço.
+---
+
+<ComponentPreview name="multiple-emails-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add multiple-emails
+```
+
+**Dependências shadcn/ui:** `form`, `input`, `button`
+
+**Dependências npm:** `react-hook-form`
+
+## Importação
+
+```tsx
+import { MultipleEmails } from "@/components/kobana/multiple-emails"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `form` | `UseFormReturn` | — | Instância do react-hook-form |
+| `name` | `string` | `"emails"` | Nome do field array no formulário |
+| `disabled` | `boolean` | `false` | Desabilita todos os campos |
+| `className` | `string` | — | Classes adicionais no container |
+| `addLabel` | `string` | `"Adicionar e-mail"` | Texto do botão de adicionar |
+| `labelPlaceholder` | `string` | `"Label"` | Label do campo de identificação |
+| `emailLabel` | `string` | `"E-mail"` | Label do campo de e-mail |
+| `emailPlaceholder` | `string` | — | Placeholder do campo de e-mail |
+| `firstLabelLocked` | `boolean` | `true` | Trava o label do primeiro item (ex: "Principal") |
+
+## Estrutura dos dados
+
+Cada item do array possui:
+
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| `label` | `string` | Identificação do e-mail (ex: "Principal", "Financeiro") |
+| `address` | `string` | Endereço de e-mail |
+
+## Uso
+
+```tsx
+const form = useForm({
+  defaultValues: {
+    emails: [{ label: "Principal", address: "" }],
+  },
+})
+
+<MultipleEmails form={form} />
+```
+
+### Com labels customizados
+
+```tsx
+<MultipleEmails
+  form={form}
+  addLabel="Add email"
+  labelPlaceholder="Type"
+  emailLabel="Email address"
+  firstLabelLocked={false}
+/>
+```
+
+O primeiro item não pode ser removido. O label do primeiro item é travado por padrão (`firstLabelLocked`).

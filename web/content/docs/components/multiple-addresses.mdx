@@ -1,0 +1,80 @@
+---
+title: MultipleAddresses
+description: Campo dinâmico para cadastro de múltiplos endereços com auto-lookup de CEP.
+---
+
+<ComponentPreview name="multiple-addresses-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add multiple-addresses
+```
+
+**Dependências shadcn/ui:** `form`, `input`, `button`
+
+**Dependências Kobana:** `address-form-fields`
+
+**Dependências npm:** `react-hook-form`
+
+## Importação
+
+```tsx
+import { MultipleAddresses } from "@/components/kobana/multiple-addresses"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `form` | `UseFormReturn` | — | Instância do react-hook-form |
+| `name` | `string` | `"addresses"` | Nome do field array no formulário |
+| `disabled` | `boolean` | `false` | Desabilita todos os campos |
+| `className` | `string` | — | Classes adicionais no container |
+| `addLabel` | `string` | `"Adicionar endereço"` | Texto do botão de adicionar |
+| `labelPlaceholder` | `string` | `"Label (ex: Comercial, Entrega)"` | Placeholder do campo de label |
+| `emptyMessage` | `string` | `"Nenhum endereço adicional."` | Mensagem quando não há endereços |
+| `addressFormFieldsProps` | `Omit<AddressFormFieldsProps, 'form' \| 'baseName' \| 'disabled'>` | — | Props adicionais para o AddressFormFields |
+
+## Estrutura dos dados
+
+Cada item do array possui:
+
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| `label` | `string` | Identificação do endereço (ex: "Comercial", "Entrega") |
+| `zipCode` | `string` | CEP |
+| `street` | `string` | Rua/Avenida |
+| `number` | `string` | Número |
+| `complement` | `string` | Complemento |
+| `neighborhood` | `string` | Bairro |
+| `city` | `string` | Cidade |
+| `cityIbgeCode` | `string` | Código IBGE da cidade |
+| `state` | `string` | Estado (UF) |
+| `country` | `string` | País (default: `"BR"`) |
+
+## Uso
+
+```tsx
+const form = useForm({
+  defaultValues: {
+    addresses: [],
+  },
+})
+
+<MultipleAddresses form={form} />
+```
+
+### Com API de CEP customizada
+
+```tsx
+<MultipleAddresses
+  form={form}
+  addressFormFieldsProps={{
+    cepApiUrl: "/api/cep",
+    citiesApiUrl: "/api/cities",
+  }}
+/>
+```
+
+Cada endereço utiliza o componente `AddressFormFields` internamente, com auto-lookup de CEP via ViaCEP e seleção de estado/cidade com combobox.

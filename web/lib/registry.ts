@@ -47,6 +47,10 @@ const registry: Record<string, RegistryEntry> = Object.fromEntries([
   entry("export-modal-demo", () => import("@/examples/export-modal-demo")),
   entry("import-modal-demo", () => import("@/examples/import-modal-demo")),
   entry("header-notifications-demo", () => import("@/examples/header-notifications-demo")),
+  entry("multiple-emails-demo", () => import("@/examples/multiple-emails-demo")),
+  entry("multiple-phones-demo", () => import("@/examples/multiple-phones-demo")),
+  entry("multiple-websites-demo", () => import("@/examples/multiple-websites-demo")),
+  entry("multiple-addresses-demo", () => import("@/examples/multiple-addresses-demo")),
   // Templates
   entry("list-page-demo", () => import("@/examples/list-page-demo")),
   entry("detail-page-demo", () => import("@/examples/detail-page-demo")),

@@ -489,6 +489,66 @@
         "kobana": [],
         "npm": []
       }
+    },
+    "multiple-emails": {
+      "name": "MultipleEmails",
+      "description": "Campo dinâmico para cadastro de múltiplos e-mails com label e endereço",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/multiple-emails/multiple-emails.tsx",
+        "src/components/composites/multiple-emails/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["form", "input", "button"],
+        "kobana": [],
+        "npm": ["react-hook-form"]
+      }
+    },
+    "multiple-phones": {
+      "name": "MultiplePhones",
+      "description": "Campo dinâmico para cadastro de múltiplos telefones com tipo, DDD e número",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/multiple-phones/multiple-phones.tsx",
+        "src/components/composites/multiple-phones/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["form", "input", "select", "button"],
+        "kobana": [],
+        "npm": ["react-hook-form"]
+      }
+    },
+    "multiple-websites": {
+      "name": "MultipleWebsites",
+      "description": "Campo dinâmico para cadastro de múltiplos websites com label e URL",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/multiple-websites/multiple-websites.tsx",
+        "src/components/composites/multiple-websites/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["form", "input", "button"],
+        "kobana": [],
+        "npm": ["react-hook-form"]
+      }
+    },
+    "multiple-addresses": {
+      "name": "MultipleAddresses",
+      "description": "Campo dinâmico para cadastro de múltiplos endereços com AddressFormFields",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/multiple-addresses/multiple-addresses.tsx",
+        "src/components/composites/multiple-addresses/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["form", "input", "button"],
+        "kobana": ["address-form-fields"],
+        "npm": ["react-hook-form"]
+      }
     }
   }
 }

@@ -1,0 +1,69 @@
+---
+title: MultipleWebsites
+description: Campo dinâmico para cadastro de múltiplos websites com label e URL.
+---
+
+<ComponentPreview name="multiple-websites-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add multiple-websites
+```
+
+**Dependências shadcn/ui:** `form`, `input`, `button`
+
+**Dependências npm:** `react-hook-form`
+
+## Importação
+
+```tsx
+import { MultipleWebsites } from "@/components/kobana/multiple-websites"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `form` | `UseFormReturn` | — | Instância do react-hook-form |
+| `name` | `string` | `"websites"` | Nome do field array no formulário |
+| `disabled` | `boolean` | `false` | Desabilita todos os campos |
+| `className` | `string` | — | Classes adicionais no container |
+| `addLabel` | `string` | `"Adicionar website"` | Texto do botão de adicionar |
+| `labelPlaceholder` | `string` | `"Label"` | Label do campo de identificação |
+| `urlLabel` | `string` | `"URL"` | Label do campo de URL |
+| `urlPlaceholder` | `string` | `"https://"` | Placeholder do campo de URL |
+
+## Estrutura dos dados
+
+Cada item do array possui:
+
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| `label` | `string` | Identificação do website (ex: "Site", "Blog") |
+| `url` | `string` | URL do website |
+
+## Uso
+
+```tsx
+const form = useForm({
+  defaultValues: {
+    websites: [],
+  },
+})
+
+<MultipleWebsites form={form} />
+```
+
+### Com labels customizados
+
+```tsx
+<MultipleWebsites
+  form={form}
+  addLabel="Add website"
+  labelPlaceholder="Name"
+  urlLabel="Website URL"
+/>
+```
+
+Todos os itens podem ser removidos (diferente de emails e phones onde o primeiro é fixo).

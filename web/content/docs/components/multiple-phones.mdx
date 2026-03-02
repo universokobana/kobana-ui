@@ -1,0 +1,87 @@
+---
+title: MultiplePhones
+description: Campo dinâmico para cadastro de múltiplos telefones com tipo, DDD e número.
+---
+
+<ComponentPreview name="multiple-phones-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add multiple-phones
+```
+
+**Dependências shadcn/ui:** `form`, `input`, `select`, `button`
+
+**Dependências npm:** `react-hook-form`
+
+## Importação
+
+```tsx
+import { MultiplePhones } from "@/components/kobana/multiple-phones"
+```
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `form` | `UseFormReturn` | — | Instância do react-hook-form |
+| `name` | `string` | `"phones"` | Nome do field array no formulário |
+| `disabled` | `boolean` | `false` | Desabilita todos os campos |
+| `className` | `string` | — | Classes adicionais no container |
+| `addLabel` | `string` | `"Adicionar telefone"` | Texto do botão de adicionar |
+| `typeLabel` | `string` | `"Tipo"` | Label do select de tipo |
+| `areaCodeLabel` | `string` | `"DDD"` | Label do campo de DDD |
+| `numberLabel` | `string` | `"Número"` | Label do campo de número |
+| `phoneTypes` | `PhoneTypeOption[]` | `[mobile, landline]` | Opções do select de tipo |
+| `defaultType` | `string` | `"mobile"` | Tipo padrão ao adicionar novo telefone |
+| `defaultCountryCode` | `string` | `"55"` | Código do país padrão |
+
+## Sub-tipos
+
+### PhoneTypeOption
+
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| `value` | `string` | Valor interno da opção |
+| `label` | `string` | Texto exibido no select |
+
+## Estrutura dos dados
+
+Cada item do array possui:
+
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| `type` | `string` | Tipo do telefone (ex: `"mobile"`, `"landline"`) |
+| `areaCode` | `string` | DDD (2 dígitos) |
+| `number` | `string` | Número do telefone |
+| `countryCode` | `string` | Código do país |
+| `label` | `string` | Identificação opcional |
+
+## Uso
+
+```tsx
+const form = useForm({
+  defaultValues: {
+    phones: [{ label: "Principal", type: "landline", countryCode: "55" }],
+  },
+})
+
+<MultiplePhones form={form} />
+```
+
+### Com tipos customizados
+
+```tsx
+<MultiplePhones
+  form={form}
+  phoneTypes={[
+    { value: "mobile", label: "Celular" },
+    { value: "landline", label: "Fixo" },
+    { value: "fax", label: "Fax" },
+  ]}
+  defaultType="mobile"
+/>
+```
+
+O primeiro item não pode ser removido.
