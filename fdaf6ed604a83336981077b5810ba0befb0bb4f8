@@ -1,0 +1,25 @@
+web/scripts/watch-content.mjs
+  314aa05c4edd6334 1-34
+web/package.json
+  314aa05c4edd6334 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "fdaf6ed604a83336981077b5810ba0befb0bb4f8",
+  "prompts": {
+    "314aa05c4edd6334": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "531bf027-a544-4c63-b687-a6558edc08f8",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 35,
+      "overriden_lines": 0
+    }
+  }
+}
