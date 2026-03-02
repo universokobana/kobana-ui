@@ -1,0 +1,23 @@
+README.md
+  63551cd2800e635b 220-245
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "d8305136ac146e8b4c908eff56d0e4a91f15449b",
+  "prompts": {
+    "63551cd2800e635b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a7e01fc7-c1bc-4181-b62f-68c020ecbb74",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 26,
+      "total_deletions": 0,
+      "accepted_lines": 26,
+      "overriden_lines": 0
+    }
+  }
+}
