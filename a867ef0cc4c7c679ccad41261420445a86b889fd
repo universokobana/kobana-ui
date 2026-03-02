@@ -1,0 +1,33 @@
+web/content/docs/templates/manage-login-page.mdx
+  42b7b7817313dc4c 1-66
+registry/registry.json
+  42b7b7817313dc4c 462-476
+web/lib/registry.ts
+  42b7b7817313dc4c 55
+src/components/templates/manage-login-page/manage-login-page.tsx
+  42b7b7817313dc4c 1-144
+src/components/templates/manage-login-page/index.ts
+  42b7b7817313dc4c 1-2
+web/examples/manage-login-page-demo.tsx
+  42b7b7817313dc4c 1-118
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "a867ef0cc4c7c679ccad41261420445a86b889fd",
+  "prompts": {
+    "42b7b7817313dc4c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2b6787d9-76f4-42a4-81fc-21cc031bb594",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 346,
+      "total_deletions": 0,
+      "accepted_lines": 346,
+      "overriden_lines": 0
+    }
+  }
+}
