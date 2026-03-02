@@ -1,0 +1,23 @@
+web/app/layout.tsx
+  84e1582aa8ecea93 23-38,52-54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "1f0892081630112dfc46cb9d2b1d1c71612ee2b6",
+  "prompts": {
+    "84e1582aa8ecea93": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "be2b53d1-be5d-4b82-a304-9e424faf2693",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 19,
+      "overriden_lines": 0
+    }
+  }
+}
