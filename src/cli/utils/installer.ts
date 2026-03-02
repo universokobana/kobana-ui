@@ -75,17 +75,18 @@ export function rewriteImports(
 
 /**
  * Copy a kobana component's files to the consumer project.
+ *
+ * When `options.sourceDir` is set (--local mode), reads files from the local filesystem.
+ * When `options.fetchFile` is set (remote mode), downloads files via HTTP.
  */
 export async function installComponent(
   component: ComponentDef,
   slug: string,
   config: KobanaConfig,
-  sourceDir: string,
+  options: { sourceDir?: string; fetchFile?: (filePath: string) => Promise<string> },
   projectDir: string = process.cwd(),
 ): Promise<void> {
   for (const file of component.files) {
-    const sourcePath = path.join(sourceDir, file);
-
     // Map source path to destination path
     // e.g., src/components/composites/status-badge/index.ts → {componentDir}/composites/status-badge/index.ts
     const relativePath = file.replace(/^src\/components\//, '');
@@ -96,13 +97,30 @@ export async function installComponent(
       continue;
     }
 
-    // Read source, rewrite imports, write to dest
-    const content = await fs.readFile(sourcePath, 'utf-8');
+    // Read source content (local or remote)
+    const content = await getFileContent(file, options);
     const rewritten = rewriteImports(content, config);
 
     await fs.ensureDir(path.dirname(destPath));
     await fs.writeFile(destPath, rewritten, 'utf-8');
   }
+}
+
+/**
+ * Read a file from local sourceDir or fetch remotely.
+ * Used by install, diff, and update commands.
+ */
+export async function getFileContent(
+  filePath: string,
+  options: { sourceDir?: string; fetchFile?: (filePath: string) => Promise<string> },
+): Promise<string> {
+  if (options.sourceDir) {
+    return fs.readFile(path.join(options.sourceDir, filePath), 'utf-8');
+  }
+  if (options.fetchFile) {
+    return options.fetchFile(filePath);
+  }
+  throw new Error('No source directory or fetch function provided.');
 }
 
 /**

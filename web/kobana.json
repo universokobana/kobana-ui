@@ -1,0 +1,8 @@
+{
+  "componentDir": "src/components/kobana",
+  "typescript": true,
+  "alias": "@/components/kobana",
+  "shadcnAlias": "@/components/ui",
+  "registry": "https://raw.githubusercontent.com/kobana/ui/main/registry/registry.json",
+  "installed": {}
+}

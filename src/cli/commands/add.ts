@@ -2,9 +2,8 @@ import { Command } from 'commander';
 import chalk from 'chalk';
 import ora from 'ora';
 import prompts from 'prompts';
-import path from 'path';
 import { loadConfig, saveConfig } from '../utils/config.js';
-import { fetchRegistry, fetchLocalRegistry } from '../utils/registry.js';
+import { fetchRegistry, fetchLocalRegistry, fetchFileContent, getRepoRoot } from '../utils/registry.js';
 import { resolveDependencies } from '../utils/resolver.js';
 import { installComponent, installShadcnDeps, installNpmDeps, computeComponentHash } from '../utils/installer.js';
 
@@ -103,17 +102,17 @@ export const addCommand = new Command('add')
       }
     }
 
-    // Copy kobana component files
-    // Determine the source directory (the kobana-ui repo root)
-    const sourceDir = path.resolve(
-      path.dirname(new URL(import.meta.url).pathname),
-      '../../..',
-    );
+    // Determine file source: local filesystem or remote fetch
+    const sourceOptions = options.local
+      ? { sourceDir: getRepoRoot() }
+      : {
+          fetchFile: (filePath: string) => fetchFileContent(config.registry, filePath),
+        };
 
     for (const { slug, component } of resolved.kobana) {
       const componentSpinner = ora(`Adding ${slug}...`).start();
       try {
-        await installComponent(component, slug, config, sourceDir, cwd);
+        await installComponent(component, slug, config, sourceOptions, cwd);
         const hash = await computeComponentHash(component, config, cwd);
         config.installed[slug] = {
           version: component.version,

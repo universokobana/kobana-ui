@@ -5,7 +5,8 @@ import fs from 'fs-extra';
 import path from 'path';
 import { createTwoFilesPatch } from 'diff';
 import { loadConfig } from '../utils/config.js';
-import { fetchRegistry, fetchLocalRegistry, getComponent } from '../utils/registry.js';
+import { fetchRegistry, fetchLocalRegistry, fetchFileContent, getComponent, getRepoRoot } from '../utils/registry.js';
+import { getFileContent } from '../utils/installer.js';
 
 export const diffCommand = new Command('diff')
   .description('Show differences between local and registry versions of components')
@@ -41,11 +42,12 @@ export const diffCommand = new Command('diff')
       return;
     }
 
-    // Determine source dir for registry files
-    const sourceDir = path.resolve(
-      path.dirname(new URL(import.meta.url).pathname),
-      '../../..',
-    );
+    // Determine file source: local filesystem or remote fetch
+    const sourceOptions = options.local
+      ? { sourceDir: getRepoRoot() }
+      : {
+          fetchFile: (filePath: string) => fetchFileContent(config.registry, filePath),
+        };
 
     let hasDiffs = false;
 
@@ -66,7 +68,6 @@ export const diffCommand = new Command('diff')
       for (const file of component.files) {
         const relativePath = file.replace(/^src\/components\//, '');
         const localPath = path.join(cwd, config.componentDir, relativePath);
-        const registryPath = path.join(sourceDir, file);
 
         if (!(await fs.pathExists(localPath))) {
           console.log(chalk.yellow(`  Missing locally: ${relativePath}`));
@@ -74,12 +75,14 @@ export const diffCommand = new Command('diff')
           continue;
         }
 
-        if (!(await fs.pathExists(registryPath))) {
+        let registryContent: string;
+        try {
+          registryContent = await getFileContent(file, sourceOptions);
+        } catch {
           continue; // Source file doesn't exist — skip
         }
 
         const localContent = await fs.readFile(localPath, 'utf-8');
-        const registryContent = await fs.readFile(registryPath, 'utf-8');
 
         if (localContent !== registryContent) {
           hasDiffs = true;
