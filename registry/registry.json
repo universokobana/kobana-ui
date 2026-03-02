@@ -429,6 +429,21 @@
         "kobana": [],
         "npm": []
       }
+    },
+    "portal-page": {
+      "name": "PortalPage",
+      "description": "Template de página de portal com cards de estatísticas, seções agrupadas e itens em formato de card",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/portal-page/portal-page.tsx",
+        "src/components/templates/portal-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kobana": [],
+        "npm": []
+      }
     }
   }
 }

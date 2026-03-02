@@ -1,0 +1,151 @@
+---
+title: PortalPage
+description: Template de página de portal com cards de estatísticas, seções agrupadas e itens em formato de card.
+---
+
+<ComponentPreview name="portal-page-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add portal-page
+```
+
+## Importação
+
+```tsx
+import { PortalPage } from "@/components/kobana/templates/portal-page"
+```
+
+## Quando usar
+
+Use **PortalPage** quando precisar de uma página de portal com:
+- Cards de estatísticas no topo
+- Itens agrupados por status em seções (ex: pendentes, histórico, falhas)
+- Cada item exibido como um card com ícone, informações e ações
+- Paginação simples (anterior/próximo)
+
+Para listagens com tabela (sorting, seleção, bulk actions), use o template **ListPage**.
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `title` | `string` | — | Título da página |
+| `description` | `string` | — | Descrição |
+| `headerAction` | `ReactNode` | — | Ação no header (ex: filtro de datas, botão) |
+| `stats` | `PortalPageStat[]` | — | Cards de estatísticas |
+| `sections` | `PortalPageSection[]` | — | Seções agrupadas de itens |
+| `pagination` | `PortalPagePagination` | — | Paginação (aplicada à última seção) |
+| `emptyState` | `PortalPageEmptyState` | — | Estado vazio |
+| `footer` | `ReactNode` | — | Conteúdo adicional no rodapé |
+
+### PortalPageStat
+
+| Prop | Tipo | Descrição |
+|------|------|-----------|
+| `label` | `string` | Label do stat |
+| `value` | `ReactNode` | Valor do stat |
+| `icon` | `ReactNode` | Ícone |
+| `iconClassName` | `string` | Classes do container do ícone |
+
+### PortalPageSection
+
+| Prop | Tipo | Descrição |
+|------|------|-----------|
+| `title` | `string` | Título da seção |
+| `description` | `string` | Descrição |
+| `icon` | `ReactNode` | Ícone do título |
+| `variant` | `"default" \| "warning" \| "danger"` | Estilo visual |
+| `items` | `PortalPageItem[]` | Itens da seção |
+
+### PortalPageItem
+
+| Prop | Tipo | Descrição |
+|------|------|-----------|
+| `id` | `string` | ID único |
+| `icon` | `ReactNode` | Ícone do item |
+| `iconClassName` | `string` | Classes do container do ícone |
+| `title` | `ReactNode` | Título principal |
+| `badge` | `ReactNode` | Badge de status |
+| `subtitle` | `ReactNode` | Subtítulo |
+| `meta` | `ReactNode` | Informações adicionais |
+| `value` | `ReactNode` | Valor (ex: preço) |
+| `actions` | `ReactNode` | Botões de ação |
+
+## Uso
+
+```tsx
+<PortalPage
+  title="Faturas"
+  description="Gerencie suas faturas e histórico de pagamentos"
+  headerAction={<DateRangePicker />}
+  stats={[
+    {
+      label: "Total pago",
+      value: "R$ 6.600,00",
+      icon: <Wallet className="h-6 w-6 text-green-600" />,
+      iconClassName: "bg-green-500/10",
+    },
+    {
+      label: "Faturas pagas",
+      value: "5",
+      icon: <Receipt className="h-6 w-6 text-blue-600" />,
+      iconClassName: "bg-blue-500/10",
+    },
+  ]}
+  sections={[
+    {
+      title: "Faturas pendentes",
+      icon: <CreditCard className="h-5 w-5" />,
+      variant: "warning",
+      items: openInvoices.map((inv) => ({
+        id: inv.id,
+        icon: <FileText className="h-5 w-5 text-orange-500" />,
+        iconClassName: "bg-orange-500/10",
+        title: inv.number,
+        badge: <Badge variant="warning">Pendente</Badge>,
+        meta: `${inv.period} • Vence em ${inv.dueDate}`,
+        value: formatCurrency(inv.amount),
+        actions: (
+          <>
+            <Button size="sm" variant="outline">Ver</Button>
+            <Button size="sm">Pagar</Button>
+          </>
+        ),
+      })),
+    },
+    {
+      title: "Histórico de faturas",
+      icon: <FileText className="h-5 w-5" />,
+      items: paidInvoices.map((inv) => ({
+        id: inv.id,
+        icon: <CheckCircle2 className="h-5 w-5 text-green-500" />,
+        iconClassName: "bg-green-500/10",
+        title: inv.number,
+        badge: <Badge variant="success">Pago</Badge>,
+        meta: `${inv.period} • Pago em ${inv.paidAt}`,
+        value: formatCurrency(inv.amount),
+        actions: (
+          <>
+            <Button size="sm" variant="outline">Ver</Button>
+            <Button size="sm" variant="outline"><Download /></Button>
+          </>
+        ),
+      })),
+    },
+  ]}
+  pagination={{
+    page: 1,
+    perPage: 10,
+    total: 25,
+    totalPages: 3,
+    onPageChange: setPage,
+  }}
+  emptyState={{
+    icon: <FileText className="h-12 w-12" />,
+    title: "Nenhuma fatura",
+    description: "Suas faturas aparecerão aqui",
+  }}
+/>
+```
