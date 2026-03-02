@@ -1,0 +1,23 @@
+web/examples/manage-list-page-demo.tsx
+  42b7b7817313dc4c 245,247-254,375-400
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "ee389e3b601f33557a1922746adffef81fc7190f",
+  "prompts": {
+    "42b7b7817313dc4c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2b6787d9-76f4-42a4-81fc-21cc031bb594",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 35,
+      "total_deletions": 39,
+      "accepted_lines": 35,
+      "overriden_lines": 0
+    }
+  }
+}
