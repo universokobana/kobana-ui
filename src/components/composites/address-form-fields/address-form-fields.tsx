@@ -93,13 +93,13 @@ export function AddressFormFields({
   const currentState = form.watch(fieldPath(names.state));
 
   return (
-    <div className={cn('grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3', className)}>
+    <div className={cn('flex flex-col gap-4', className)}>
       {/* CEP */}
       <FormField
         control={form.control}
         name={fieldPath(names.zipCode)}
         render={({ field }) => (
-          <FormItem>
+          <FormItem className="w-[12.5ch]">
             <FormLabel>CEP</FormLabel>
             <FormControl>
               <div className="relative">
@@ -122,110 +122,113 @@ export function AddressFormFields({
         )}
       />
 
-      {/* Estado */}
-      <FormField
-        control={form.control}
-        name={fieldPath(names.state)}
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Estado</FormLabel>
-            <FormControl>
-              <StateCombobox
-                value={field.value || ''}
-                onChange={field.onChange}
-                disabled={disabled}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+      {/* Rua | Número */}
+      <div className="flex flex-col gap-4 sm:flex-row">
+        <FormField
+          control={form.control}
+          name={fieldPath(names.street)}
+          render={({ field }) => (
+            <FormItem className="flex-1">
+              <FormLabel>Rua</FormLabel>
+              <FormControl>
+                <Input {...field} placeholder="Rua, Avenida, etc." disabled={disabled} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-      {/* Cidade */}
-      <FormField
-        control={form.control}
-        name={fieldPath(names.city)}
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Cidade</FormLabel>
-            <FormControl>
-              <CityCombobox
-                value={field.value || ''}
-                onChange={(city, ibgeCode) => {
-                  field.onChange(city);
-                  if (ibgeCode) {
-                    form.setValue(fieldPath(names.cityIbgeCode), ibgeCode);
-                  }
-                }}
-                state={currentState || ''}
-                citiesApiUrl={citiesApiUrl}
-                disabled={disabled}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+        <FormField
+          control={form.control}
+          name={fieldPath(names.number)}
+          render={({ field }) => (
+            <FormItem className="w-[10ch]">
+              <FormLabel>Número</FormLabel>
+              <FormControl>
+                <Input {...field} placeholder="Nº" disabled={disabled} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      </div>
 
-      {/* Rua */}
-      <FormField
-        control={form.control}
-        name={fieldPath(names.street)}
-        render={({ field }) => (
-          <FormItem className="sm:col-span-2">
-            <FormLabel>Rua</FormLabel>
-            <FormControl>
-              <Input {...field} placeholder="Rua, Avenida, etc." disabled={disabled} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+      {/* Complemento | Bairro */}
+      <div className="flex flex-col gap-4 sm:flex-row">
+        <FormField
+          control={form.control}
+          name={fieldPath(names.complement)}
+          render={({ field }) => (
+            <FormItem className="flex-1">
+              <FormLabel>Complemento</FormLabel>
+              <FormControl>
+                <Input {...field} placeholder="Apto, Sala, etc." disabled={disabled} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-      {/* Número */}
-      <FormField
-        control={form.control}
-        name={fieldPath(names.number)}
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Número</FormLabel>
-            <FormControl>
-              <Input {...field} placeholder="Nº" disabled={disabled} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+        <FormField
+          control={form.control}
+          name={fieldPath(names.neighborhood)}
+          render={({ field }) => (
+            <FormItem className="flex-1">
+              <FormLabel>Bairro</FormLabel>
+              <FormControl>
+                <Input {...field} placeholder="Bairro" disabled={disabled} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      </div>
 
-      {/* Complemento */}
-      <FormField
-        control={form.control}
-        name={fieldPath(names.complement)}
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Complemento</FormLabel>
-            <FormControl>
-              <Input {...field} placeholder="Apto, Sala, etc." disabled={disabled} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+      {/* Estado | Cidade */}
+      <div className="flex flex-col gap-4 sm:flex-row">
+        <FormField
+          control={form.control}
+          name={fieldPath(names.state)}
+          render={({ field }) => (
+            <FormItem className="flex-1">
+              <FormLabel>Estado</FormLabel>
+              <FormControl>
+                <StateCombobox
+                  value={field.value || ''}
+                  onChange={field.onChange}
+                  disabled={disabled}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-      {/* Bairro */}
-      <FormField
-        control={form.control}
-        name={fieldPath(names.neighborhood)}
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Bairro</FormLabel>
-            <FormControl>
-              <Input {...field} placeholder="Bairro" disabled={disabled} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+        <FormField
+          control={form.control}
+          name={fieldPath(names.city)}
+          render={({ field }) => (
+            <FormItem className="flex-1">
+              <FormLabel>Cidade</FormLabel>
+              <FormControl>
+                <CityCombobox
+                  value={field.value || ''}
+                  onChange={(city, ibgeCode) => {
+                    field.onChange(city);
+                    if (ibgeCode) {
+                      form.setValue(fieldPath(names.cityIbgeCode), ibgeCode);
+                    }
+                  }}
+                  state={currentState || ''}
+                  citiesApiUrl={citiesApiUrl}
+                  disabled={disabled}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      </div>
     </div>
   );
 }
