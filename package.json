@@ -4,7 +4,8 @@
   "description": "Kobana Design System — CLI + Registry",
   "type": "module",
   "bin": {
-    "kobana-ui": "./dist/index.js"
+    "kobana-ui": "./dist/index.js",
+    "ui": "./dist/index.js"
   },
   "files": [
     "dist",
