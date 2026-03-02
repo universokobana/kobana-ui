@@ -121,16 +121,6 @@ function SlidersIcon({ className }: { className?: string }) {
   )
 }
 
-function ExternalLinkIcon({ className }: { className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M15 3h6v6" />
-      <path d="M10 14 21 3" />
-      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-    </svg>
-  )
-}
-
 // ─── MultiSelectFilter ──────────────────────────────────────────────────────
 
 function MultiSelectFilter({
@@ -252,7 +242,16 @@ export default function ManageListPageDemo() {
   const [sortDir, setSortDir] = useState<SortDir>("asc")
   const [page, setPage] = useState(1)
   const [columnsOpen, setColumnsOpen] = useState(false)
+  const columnsRef = React.useRef<HTMLDivElement>(null)
   const [visibleCols, setVisibleCols] = useState({ name: true, status: true, subscriptions: true, mrr: true, totalPaid: true, createdAt: true })
+
+  React.useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (columnsRef.current && !columnsRef.current.contains(e.target as Node)) setColumnsOpen(false)
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
   const perPage = 5
 
   // Filter
@@ -358,33 +357,6 @@ export default function ManageListPageDemo() {
           <RefreshIcon className="size-4" />
           Atualizar
         </button>
-        <div className="relative">
-          <button
-            type="button"
-            onClick={() => setColumnsOpen(!columnsOpen)}
-            className="inline-flex h-8 items-center gap-2 rounded-md border border-input bg-background px-3 text-sm shadow-sm hover:bg-accent"
-          >
-            <SlidersIcon className="size-4" />
-            Colunas
-          </button>
-          {columnsOpen && (
-            <div className="absolute right-0 top-full z-50 mt-1 w-[160px] rounded-md border bg-popover p-1 shadow-md">
-              {(Object.keys(visibleCols) as (keyof typeof visibleCols)[]).map((col) => (
-                <button
-                  key={col}
-                  type="button"
-                  onClick={() => setVisibleCols((prev) => ({ ...prev, [col]: !prev[col] }))}
-                  className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-sm hover:bg-accent"
-                >
-                  <span className={`flex size-4 items-center justify-center rounded-sm border ${visibleCols[col] ? "bg-primary text-primary-foreground border-primary" : "opacity-50 border-input"}`}>
-                    {visibleCols[col] && <CheckIcon className="size-3" />}
-                  </span>
-                  {{ name: "Cliente", status: "Status", subscriptions: "Assinaturas", mrr: "MRR", totalPaid: "Total Pago", createdAt: "Desde" }[col]}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
       </div>
 
       {/* Table */}
@@ -400,8 +372,32 @@ export default function ManageListPageDemo() {
                 {visibleCols.totalPaid && <th className="h-12 px-4 text-right font-medium text-muted-foreground">Total Pago</th>}
                 {visibleCols.createdAt && <th className="h-12 px-4 text-left font-medium text-muted-foreground"><SortButton field="createdAt" label="Desde" /></th>}
                 <th className="h-12 w-[50px] px-2">
-                  <div className="flex justify-end">
-                    <ExternalLinkIcon className="size-4 text-muted-foreground opacity-0" />
+                  <div className="relative flex justify-end" ref={columnsRef}>
+                    <button
+                      type="button"
+                      onClick={() => setColumnsOpen(!columnsOpen)}
+                      className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                    >
+                      <SlidersIcon className="size-4" />
+                      <span className="sr-only">Colunas</span>
+                    </button>
+                    {columnsOpen && (
+                      <div className="absolute right-0 top-full z-50 mt-1 w-[160px] rounded-md border bg-popover p-1 shadow-md">
+                        {(Object.keys(visibleCols) as (keyof typeof visibleCols)[]).map((col) => (
+                          <button
+                            key={col}
+                            type="button"
+                            onClick={() => setVisibleCols((prev) => ({ ...prev, [col]: !prev[col] }))}
+                            className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-sm hover:bg-accent"
+                          >
+                            <span className={`flex size-4 items-center justify-center rounded-sm border ${visibleCols[col] ? "bg-primary text-primary-foreground border-primary" : "opacity-50 border-input"}`}>
+                              {visibleCols[col] && <CheckIcon className="size-3" />}
+                            </span>
+                            {{ name: "Cliente", status: "Status", subscriptions: "Assinaturas", mrr: "MRR", totalPaid: "Total Pago", createdAt: "Desde" }[col]}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </th>
               </tr>
