@@ -1,0 +1,72 @@
+web/content/docs/components/meta.json
+  3d1c383780da80b9 19-22
+src/components/composites/multiple-phones/multiple-phones.tsx
+  3d1c383780da80b9 1-159
+web/content/docs/components/multiple-emails.mdx
+  3d1c383780da80b9 1-71
+registry/registry.json
+  3d1c383780da80b9 492-551
+src/components/composites/multiple-addresses/multiple-addresses.tsx
+  3d1c383780da80b9 1-110
+web/examples/multiple-phones-demo.tsx
+  3d1c383780da80b9 1-125
+web/lib/registry.ts
+  3d1c383780da80b9 50-53
+src/components/composites/multiple-phones/index.ts
+  3d1c383780da80b9 1-2
+src/components/composites/multiple-websites/index.ts
+  3d1c383780da80b9 1-2
+web/content/docs/components/multiple-websites.mdx
+  3d1c383780da80b9 1-69
+src/components/composites/multiple-addresses/index.ts
+  3d1c383780da80b9 1-2
+src/components/composites/multiple-emails/multiple-emails.tsx
+  3d1c383780da80b9 1-116
+web/content/docs/components/multiple-phones.mdx
+  3d1c383780da80b9 1-87
+web/examples/multiple-websites-demo.tsx
+  3d1c383780da80b9 1-97
+web/examples/multiple-addresses-demo.tsx
+  3d1c383780da80b9 1-182
+src/components/composites/multiple-websites/multiple-websites.tsx
+  3d1c383780da80b9 1-109
+web/content/docs/components/multiple-addresses.mdx
+  3d1c383780da80b9 1-80
+src/components/composites/multiple-emails/index.ts
+  3d1c383780da80b9 1-2
+web/examples/multiple-emails-demo.tsx
+  3d1c383780da80b9 1-98
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "90e3a2b540dc19a73b29fc6b5c56b0289624d7b3",
+  "prompts": {
+    "3d1c383780da80b9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c8ce5b1e-6501-42a3-a8ef-0b7497cc1fe4",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 1381,
+      "total_deletions": 2,
+      "accepted_lines": 1379,
+      "overriden_lines": 0
+    },
+    "84e1582aa8ecea93": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "be2b53d1-be5d-4b82-a304-9e424faf2693",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 20,
+      "total_deletions": 0,
+      "accepted_lines": 20,
+      "overriden_lines": 0
+    }
+  }
+}
