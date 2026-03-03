@@ -1,0 +1,27 @@
+web/examples/entity-combobox-demo.tsx
+  a806c3c92b57b1fa 3-4,20-23,28-29,31-60,68-70,72-75,81,83,88-93,98,102-103,107,109-114,118-119
+web/content/docs/components/entity-combobox.mdx
+  a806c3c92b57b1fa 22-31,52-53,62-64,67,70-72
+src/components/composites/entity-combobox/entity-combobox.tsx
+  a806c3c92b57b1fa 2,78,93-94,98,101,110,119,130-135
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.7",
+  "base_commit_sha": "627d50d3723bd6a3293a8a1685f0bd2b585dcca4",
+  "prompts": {
+    "a806c3c92b57b1fa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4c75403f-3f55-4b3e-bb8c-77612b05129d",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 161,
+      "total_deletions": 79,
+      "accepted_lines": 130,
+      "overriden_lines": 0
+    }
+  }
+}
