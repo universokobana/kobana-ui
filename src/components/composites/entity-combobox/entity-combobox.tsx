@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Check, ChevronsUpDown, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import {
@@ -74,6 +75,7 @@ export function EntityCombobox<T>({
     };
   }, [open, handleSearch]);
 
+  const hasValue = selectedEntity || value;
   const displayLabel = selectedEntity
     ? (renderSelected ? renderSelected(selectedEntity) : getItemLabel(selectedEntity))
     : value || placeholder;
@@ -86,12 +88,17 @@ export function EntityCombobox<T>({
           role="combobox"
           aria-expanded={open}
           disabled={disabled}
-          className={cn('w-full justify-between font-normal', className)}
+          className={cn(
+            'w-full justify-between font-normal',
+            !hasValue && 'text-muted-foreground',
+            className,
+          )}
         >
           <span className="truncate">{displayLabel as React.ReactNode}</span>
+          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[350px] p-0" align="start">
+      <PopoverContent className="w-[var(--radix-popover-trigger-width)] min-w-[350px] p-0" align="start">
         <Command shouldFilter={false}>
           <CommandInput
             placeholder={searchPlaceholder}
@@ -100,6 +107,7 @@ export function EntityCombobox<T>({
           <CommandList>
             {loading ? (
               <div className="py-6 text-center text-sm text-muted-foreground">
+                <Loader2 className="mx-auto mb-2 h-4 w-4 animate-spin" />
                 Carregando...
               </div>
             ) : (
@@ -108,6 +116,7 @@ export function EntityCombobox<T>({
                 <CommandGroup>
                   {items.map((item) => {
                     const itemValue = getItemValue(item);
+                    const isSelected = itemValue === value;
                     return (
                       <CommandItem
                         key={itemValue}
@@ -118,6 +127,12 @@ export function EntityCombobox<T>({
                           setOpen(false);
                         }}
                       >
+                        <Check
+                          className={cn(
+                            'mr-2 h-4 w-4 shrink-0',
+                            isSelected ? 'opacity-100' : 'opacity-0',
+                          )}
+                        />
                         {renderItem(item)}
                       </CommandItem>
                     );

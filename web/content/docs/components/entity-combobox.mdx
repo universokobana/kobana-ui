@@ -19,6 +19,16 @@ npx @kobana/ui add entity-combobox
 import { EntityCombobox } from "@/components/kobana/entity-combobox"
 ```
 
+## Características
+
+- Busca assíncrona com debounce de 300ms
+- Ícone `ChevronsUpDown` no botão trigger
+- Ícone `Check` indicando o item selecionado
+- Spinner `Loader2` animado durante carregamento
+- Placeholder com `text-muted-foreground` quando sem valor
+- Largura do popover acompanha o trigger via CSS variable
+- Renderização customizável de itens e item selecionado
+
 ## Props
 
 | Prop | Tipo | Default | Descrição |
@@ -39,6 +49,8 @@ import { EntityCombobox } from "@/components/kobana/entity-combobox"
 ## Uso
 
 ```tsx
+const [customerId, setCustomerId] = useState("")
+
 <EntityCombobox<Customer>
   value={customerId}
   onChange={(value, customer) => setCustomerId(value)}
@@ -47,12 +59,16 @@ import { EntityCombobox } from "@/components/kobana/entity-combobox"
     return res.data
   }}
   renderItem={(c) => (
-    <div>
-      <p className="font-medium">{c.name}</p>
-      <p className="text-xs text-muted-foreground">{c.email}</p>
+    <div className="flex flex-col">
+      <span className="font-medium">{c.name}</span>
+      <span className="text-xs text-muted-foreground">{c.document}</span>
     </div>
   )}
+  renderSelected={(c) => c.name}
   getItemValue={(c) => c.id}
   getItemLabel={(c) => c.name}
+  placeholder="Selecionar cliente..."
+  searchPlaceholder="Buscar por nome ou documento..."
+  emptyMessage="Nenhum cliente encontrado."
 />
 ```
