@@ -1,0 +1,23 @@
+web/middleware.ts
+  c3857cbc99e59172 1-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.8",
+  "base_commit_sha": "d572407368bb1c5eefea795c947c8ce54a6b5a75",
+  "prompts": {
+    "c3857cbc99e59172": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1e281e91-da84-405a-8367-8972566a6d36",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 48,
+      "total_deletions": 18,
+      "accepted_lines": 46,
+      "overriden_lines": 0
+    }
+  }
+}
