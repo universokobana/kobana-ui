@@ -1,0 +1,23 @@
+web/next.config.mjs
+  c3857cbc99e59172 8-54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.8",
+  "base_commit_sha": "b3eabad05afa109629d3572f6c10953767a4facf",
+  "prompts": {
+    "c3857cbc99e59172": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1e281e91-da84-405a-8367-8972566a6d36",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 47,
+      "total_deletions": 0,
+      "accepted_lines": 47,
+      "overriden_lines": 0
+    }
+  }
+}
