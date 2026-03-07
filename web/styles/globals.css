@@ -1,133 +1,133 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 @import "tailwindcss";
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
+@import "./underlith.tokens.css";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-sidebar-background: var(--sidebar-background);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --color-background: var(--ul-color-background);
+  --color-foreground: var(--ul-color-foreground);
+  --color-card: var(--ul-color-card);
+  --color-card-foreground: var(--ul-color-card-foreground);
+  --color-popover: var(--ul-color-popover);
+  --color-popover-foreground: var(--ul-color-popover-foreground);
+  --color-primary: var(--ul-color-primary);
+  --color-primary-foreground: var(--ul-color-primary-foreground);
+  --color-secondary: var(--ul-color-secondary);
+  --color-secondary-foreground: var(--ul-color-secondary-foreground);
+  --color-muted: var(--ul-color-muted);
+  --color-muted-foreground: var(--ul-color-muted-foreground);
+  --color-accent: var(--ul-color-accent);
+  --color-accent-foreground: var(--ul-color-accent-foreground);
+  --color-destructive: var(--ul-color-destructive);
+  --color-destructive-foreground: var(--ul-color-destructive-foreground);
+  --color-border: var(--ul-color-border);
+  --color-input: var(--ul-color-input);
+  --color-ring: var(--ul-color-ring);
+  --color-sidebar-background: var(--ul-color-sidebar-background);
+  --color-sidebar-foreground: var(--ul-color-sidebar-foreground);
+  --color-sidebar-primary: var(--ul-color-sidebar-primary);
+  --color-sidebar-primary-foreground: var(--ul-color-sidebar-primary-foreground);
+  --color-sidebar-accent: var(--ul-color-sidebar-accent);
+  --color-sidebar-accent-foreground: var(--ul-color-sidebar-accent-foreground);
+  --color-sidebar-border: var(--ul-color-sidebar-border);
+  --color-sidebar-ring: var(--ul-color-sidebar-ring);
 
   /* Kobana Brand Colors */
-  --color-kobana-lime: #D3FD54;
-  --color-kobana-black: #000000;
-  --color-kobana-white: #FDFDFB;
-  --color-kobana-gray: #676767;
-  --color-kobana-purple: #A630DA;
+  --color-kobana-lime: var(--ul-color-kobana-lime);
+  --color-kobana-black: var(--ul-color-kobana-black);
+  --color-kobana-white: var(--ul-color-kobana-white);
+  --color-kobana-gray: var(--ul-color-kobana-gray);
+  --color-kobana-purple: var(--ul-color-kobana-purple);
 
-  --font-sans: 'Work Sans', sans-serif;
-  --font-display: 'Syne', sans-serif;
+  --font-sans: var(--ul-font-sans);
+  --font-display: var(--ul-font-display);
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: var(--ul-radius-sm);
+  --radius-md: var(--ul-radius-md);
+  --radius-lg: var(--ul-radius-lg);
+  --radius-xl: var(--ul-radius-xl);
 }
 
 :root {
-  --radius: 0.5rem;
+  --radius: var(--ul-radius);
 
   /* Kobana Brand Colors (HSL) */
-  --kobana-lime: 73 99% 66%;
-  --kobana-black: 0 0% 0%;
-  --kobana-white: 60 20% 99%;
-  --kobana-gray: 0 0% 40%;
-  --kobana-purple: 285 75% 52%;
+  --kobana-lime: var(--ul-kobana-lime);
+  --kobana-black: var(--ul-kobana-black);
+  --kobana-white: var(--ul-kobana-white);
+  --kobana-gray: var(--ul-kobana-gray);
+  --kobana-purple: var(--ul-kobana-purple);
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --sidebar-background: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: var(--ul-background);
+  --foreground: var(--ul-foreground);
+  --card: var(--ul-card);
+  --card-foreground: var(--ul-card-foreground);
+  --popover: var(--ul-popover);
+  --popover-foreground: var(--ul-popover-foreground);
+  --primary: var(--ul-primary);
+  --primary-foreground: var(--ul-primary-foreground);
+  --secondary: var(--ul-secondary);
+  --secondary-foreground: var(--ul-secondary-foreground);
+  --muted: var(--ul-muted);
+  --muted-foreground: var(--ul-muted-foreground);
+  --accent: var(--ul-accent);
+  --accent-foreground: var(--ul-accent-foreground);
+  --destructive: var(--ul-destructive);
+  --destructive-foreground: var(--ul-destructive-foreground);
+  --border: var(--ul-border);
+  --input: var(--ul-input);
+  --ring: var(--ul-ring);
+  --sidebar-background: var(--ul-sidebar-background);
+  --sidebar-foreground: var(--ul-sidebar-foreground);
+  --sidebar-primary: var(--ul-sidebar-primary);
+  --sidebar-primary-foreground: var(--ul-sidebar-primary-foreground);
+  --sidebar-accent: var(--ul-sidebar-accent);
+  --sidebar-accent-foreground: var(--ul-sidebar-accent-foreground);
+  --sidebar-border: var(--ul-sidebar-border);
+  --sidebar-ring: var(--ul-sidebar-ring);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --sidebar-background: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.985 0 0);
-  --sidebar-primary-foreground: oklch(0.205 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: var(--ul-background);
+  --foreground: var(--ul-foreground);
+  --card: var(--ul-card);
+  --card-foreground: var(--ul-card-foreground);
+  --popover: var(--ul-popover);
+  --popover-foreground: var(--ul-popover-foreground);
+  --primary: var(--ul-primary);
+  --primary-foreground: var(--ul-primary-foreground);
+  --secondary: var(--ul-secondary);
+  --secondary-foreground: var(--ul-secondary-foreground);
+  --muted: var(--ul-muted);
+  --muted-foreground: var(--ul-muted-foreground);
+  --accent: var(--ul-accent);
+  --accent-foreground: var(--ul-accent-foreground);
+  --destructive: var(--ul-destructive);
+  --destructive-foreground: var(--ul-destructive-foreground);
+  --border: var(--ul-border);
+  --input: var(--ul-input);
+  --ring: var(--ul-ring);
+  --sidebar-background: var(--ul-sidebar-background);
+  --sidebar-foreground: var(--ul-sidebar-foreground);
+  --sidebar-primary: var(--ul-sidebar-primary);
+  --sidebar-primary-foreground: var(--ul-sidebar-primary-foreground);
+  --sidebar-accent: var(--ul-sidebar-accent);
+  --sidebar-accent-foreground: var(--ul-sidebar-accent-foreground);
+  --sidebar-border: var(--ul-sidebar-border);
+  --sidebar-ring: var(--ul-sidebar-ring);
 }
 
 /* Dashboard theme — Kobana Lime as primary */
 .dashboard-theme {
-  --primary: hsl(73 99% 66%);
-  --primary-foreground: hsl(0 0% 0%);
-  --ring: hsl(73 99% 66%);
+  --primary: var(--ul-primary);
+  --primary-foreground: var(--ul-primary-foreground);
+  --ring: var(--ul-ring);
 }
 
 .dark .dashboard-theme,
 .dashboard-theme.dark {
-  --primary: hsl(73 99% 66%);
-  --primary-foreground: hsl(0 0% 0%);
-  --ring: hsl(73 99% 66%);
+  --primary: var(--ul-primary);
+  --primary-foreground: var(--ul-primary-foreground);
+  --ring: var(--ul-ring);
 }
