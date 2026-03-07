@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Work_Sans, Syne } from "next/font/google"
 import { RootProvider } from "fumadocs-ui/provider/next"
 import "@/styles/globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const workSans = Work_Sans({
   variable: "--font-sans",
@@ -67,9 +68,11 @@ export default function RootLayout({
       className={`${workSans.variable} ${syne.variable}`}
     >
       <body className="min-h-screen bg-background font-sans antialiased">
-        <RootProvider>
-          {children}
-        </RootProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <RootProvider>
+            {children}
+          </RootProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

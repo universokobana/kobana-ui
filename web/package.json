@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node scripts/watch-content.mjs & next dev --turbopack --port 4000",
+    "dev": "concurrently -k -n watch,next \"node scripts/watch-content.mjs\" \"next dev --turbopack --port 4001\"",
     "build": "next build",
     "start": "next start",
     "postinstall": "fumadocs-mdx"
@@ -29,6 +29,7 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^9.1.2",
     "tailwindcss": "^4",
     "typescript": "^5.5"
   }

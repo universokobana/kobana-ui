@@ -1,0 +1,173 @@
+/**
+ * Underlith Tokens — Kobana UI
+ * Single source of truth for all design decisions.
+ *
+ * Edit values here. All shadcn components update automatically.
+ * DO NOT edit shadcn variables directly — edit tokens here instead.
+ *
+ * https://mikaelcarrara.github.io/underlith/
+ */
+
+/* ── Brand ───────────────────────────────────────────────────────────────── */
+
+:root {
+  --ul-kobana-lime:   73 99% 66%;
+  --ul-kobana-black:  0 0% 0%;
+  --ul-kobana-white:  60 20% 99%;
+  --ul-kobana-gray:   0 0% 40%;
+  --ul-kobana-purple: 285 75% 52%;
+}
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+
+:root {
+  --ul-font-sans:    'Work Sans', sans-serif;
+  --ul-font-display: 'Syne', sans-serif;
+}
+
+/* ── Radius ──────────────────────────────────────────────────────────────── */
+
+:root {
+  --ul-radius:    0.5rem;
+  --ul-radius-sm: calc(var(--ul-radius) - 4px);
+  --ul-radius-md: calc(var(--ul-radius) - 2px);
+  --ul-radius-lg: var(--ul-radius);
+  --ul-radius-xl: calc(var(--ul-radius) + 4px);
+}
+
+/* ── Tailwind color aliases (map shadcn color tokens to Underlith) ─────────── */
+
+:root {
+  --ul-color-background:                var(--ul-background);
+  --ul-color-foreground:                var(--ul-foreground);
+  --ul-color-card:                      var(--ul-card);
+  --ul-color-card-foreground:           var(--ul-card-foreground);
+  --ul-color-popover:                   var(--ul-popover);
+  --ul-color-popover-foreground:        var(--ul-popover-foreground);
+  --ul-color-primary:                   var(--ul-primary);
+  --ul-color-primary-foreground:        var(--ul-primary-foreground);
+  --ul-color-secondary:                 var(--ul-secondary);
+  --ul-color-secondary-foreground:      var(--ul-secondary-foreground);
+  --ul-color-muted:                     var(--ul-muted);
+  --ul-color-muted-foreground:          var(--ul-muted-foreground);
+  --ul-color-accent:                    var(--ul-accent);
+  --ul-color-accent-foreground:         var(--ul-accent-foreground);
+  --ul-color-destructive:               var(--ul-destructive);
+  --ul-color-destructive-foreground:    var(--ul-destructive-foreground);
+  --ul-color-border:                    var(--ul-border);
+  --ul-color-input:                     var(--ul-input);
+  --ul-color-ring:                      var(--ul-ring);
+  --ul-color-sidebar-background:        var(--ul-sidebar-background);
+  --ul-color-sidebar-foreground:        var(--ul-sidebar-foreground);
+  --ul-color-sidebar-primary:           var(--ul-sidebar-primary);
+  --ul-color-sidebar-primary-foreground: var(--ul-sidebar-primary-foreground);
+  --ul-color-sidebar-accent:            var(--ul-sidebar-accent);
+  --ul-color-sidebar-accent-foreground: var(--ul-sidebar-accent-foreground);
+  --ul-color-sidebar-border:            var(--ul-sidebar-border);
+  --ul-color-sidebar-ring:              var(--ul-sidebar-ring);
+}
+
+/* ── Colors: Light ───────────────────────────────────────────────────────── */
+
+:root {
+  --ul-background:                oklch(1 0 0);
+  --ul-foreground:                oklch(0.145 0 0);
+  --ul-card:                      oklch(1 0 0);
+  --ul-card-foreground:           oklch(0.145 0 0);
+  --ul-popover:                   oklch(1 0 0);
+  --ul-popover-foreground:        oklch(0.145 0 0);
+  --ul-primary:                   oklch(0.205 0 0);
+  --ul-primary-foreground:        oklch(0.985 0 0);
+  --ul-secondary:                 oklch(0.97 0 0);
+  --ul-secondary-foreground:      oklch(0.205 0 0);
+  --ul-muted:                     oklch(0.97 0 0);
+  --ul-muted-foreground:          oklch(0.556 0 0);
+  --ul-accent:                    oklch(0.97 0 0);
+  --ul-accent-foreground:         oklch(0.205 0 0);
+  --ul-destructive:               oklch(0.577 0.245 27.325);
+  --ul-destructive-foreground:    oklch(0.577 0.245 27.325);
+  --ul-border:                    oklch(0.922 0 0);
+  --ul-input:                     oklch(0.922 0 0);
+  --ul-ring:                      oklch(0.708 0 0);
+  --ul-sidebar-background:        oklch(0.985 0 0);
+  --ul-sidebar-foreground:        oklch(0.145 0 0);
+  --ul-sidebar-primary:           oklch(0.205 0 0);
+  --ul-sidebar-primary-foreground: oklch(0.985 0 0);
+  --ul-sidebar-accent:            oklch(0.97 0 0);
+  --ul-sidebar-accent-foreground: oklch(0.205 0 0);
+  --ul-sidebar-border:            oklch(0.922 0 0);
+  --ul-sidebar-ring:              oklch(0.708 0 0);
+}
+
+/* ── Colors: Dark ────────────────────────────────────────────────────────── */
+
+.dark {
+  --ul-background:                oklch(0.145 0 0);
+  --ul-foreground:                oklch(0.985 0 0);
+  --ul-card:                      oklch(0.145 0 0);
+  --ul-card-foreground:           oklch(0.985 0 0);
+  --ul-popover:                   oklch(0.145 0 0);
+  --ul-popover-foreground:        oklch(0.985 0 0);
+  --ul-primary:                   oklch(0.985 0 0);
+  --ul-primary-foreground:        oklch(0.205 0 0);
+  --ul-secondary:                 oklch(0.269 0 0);
+  --ul-secondary-foreground:      oklch(0.985 0 0);
+  --ul-muted:                     oklch(0.269 0 0);
+  --ul-muted-foreground:          oklch(0.708 0 0);
+  --ul-accent:                    oklch(0.269 0 0);
+  --ul-accent-foreground:         oklch(0.985 0 0);
+  --ul-destructive:               oklch(0.577 0.245 27.325);
+  --ul-destructive-foreground:    oklch(0.577 0.245 27.325);
+  --ul-border:                    oklch(0.269 0 0);
+  --ul-input:                     oklch(0.269 0 0);
+  --ul-ring:                      oklch(0.439 0 0);
+  --ul-sidebar-background:        oklch(0.205 0 0);
+  --ul-sidebar-foreground:        oklch(0.985 0 0);
+  --ul-sidebar-primary:           oklch(0.985 0 0);
+  --ul-sidebar-primary-foreground: oklch(0.205 0 0);
+  --ul-sidebar-accent:            oklch(0.269 0 0);
+  --ul-sidebar-accent-foreground: oklch(0.985 0 0);
+  --ul-sidebar-border:            oklch(0.269 0 0);
+  --ul-sidebar-ring:              oklch(0.439 0 0);
+}
+
+/* Keep color aliases in sync for dark scope */
+.dark {
+  --ul-color-background:                var(--ul-background);
+  --ul-color-foreground:                var(--ul-foreground);
+  --ul-color-card:                      var(--ul-card);
+  --ul-color-card-foreground:           var(--ul-card-foreground);
+  --ul-color-popover:                   var(--ul-popover);
+  --ul-color-popover-foreground:        var(--ul-popover-foreground);
+  --ul-color-primary:                   var(--ul-primary);
+  --ul-color-primary-foreground:        var(--ul-primary-foreground);
+  --ul-color-secondary:                 var(--ul-secondary);
+  --ul-color-secondary-foreground:      var(--ul-secondary-foreground);
+  --ul-color-muted:                     var(--ul-muted);
+  --ul-color-muted-foreground:          var(--ul-muted-foreground);
+  --ul-color-accent:                    var(--ul-accent);
+  --ul-color-accent-foreground:         var(--ul-accent-foreground);
+  --ul-color-destructive:               var(--ul-destructive);
+  --ul-color-destructive-foreground:    var(--ul-destructive-foreground);
+  --ul-color-border:                    var(--ul-border);
+  --ul-color-input:                     var(--ul-input);
+  --ul-color-ring:                      var(--ul-ring);
+  --ul-color-sidebar-background:        var(--ul-sidebar-background);
+  --ul-color-sidebar-foreground:        var(--ul-sidebar-foreground);
+  --ul-color-sidebar-primary:           var(--ul-sidebar-primary);
+  --ul-color-sidebar-primary-foreground: var(--ul-sidebar-primary-foreground);
+  --ul-color-sidebar-accent:            var(--ul-sidebar-accent);
+  --ul-color-sidebar-accent-foreground: var(--ul-sidebar-accent-foreground);
+  --ul-color-sidebar-border:            var(--ul-sidebar-border);
+  --ul-color-sidebar-ring:              var(--ul-sidebar-ring);
+}
+
+/* ── Dashboard theme — Kobana Lime as primary ────────────────────────────── */
+
+.dashboard-theme,
+.dark .dashboard-theme,
+.dashboard-theme.dark {
+  --ul-primary:            hsl(var(--ul-kobana-lime));
+  --ul-primary-foreground: hsl(var(--ul-kobana-black));
+  --ul-ring:               hsl(var(--ul-kobana-lime));
+}
