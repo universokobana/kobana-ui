@@ -38,7 +38,7 @@ Zero component rewrites — all 26 Kobana UI components continue to work exactly
 ```css
 /* web/styles/underlith.tokens.css */
 
-/* Change the brand lime across ALL projects: */
+/* Change the brand lime across the project: */
 --ul-kobana-lime: 73 99% 66%;
 
 /* Change the primary color: */
@@ -50,17 +50,16 @@ Zero component rewrites — all 26 Kobana UI components continue to work exactly
 
 ## Sharing tokens across multiple Kobana products
 
-Any Kobana product can consume the same token layer:
+The tokens currently live inside this repository. To share them across other Kobana
+products, the next step is extracting them into a standalone package — `@kobana/tokens`.
+
+Any product would then install it directly, independent of stack or framework:
 
 ```bash
-npm install @mikaelcarrara/underlith
+npm install @kobana/tokens
 ```
 
-```css
-@import "@mikaelcarrara/underlith/src/underlith.tokens.css";
-```
-
-One change in Underlith propagates to every product on the next `npm update`.
+This package does not exist yet. This PR lays the groundwork.
 
 ## Who should edit tokens
 
@@ -78,9 +77,8 @@ If it's specific to one component, it stays in the component.
 
 | File | What changed |
 |------|-------------|
-| `web/styles/underlith.tokens.css` | Token definitions (single source of truth) |
-| `web/styles/globals.css` | shadcn variables now reference Underlith tokens |
-| `web/styles/globals.css` import | Added `@import` for `underlith.tokens.css` |
+| `web/styles/underlith.tokens.css` | NEW — token definitions (single source of truth) |
+| `web/styles/globals.css` | shadcn variables now reference Underlith tokens via `@import` |
 
 ## Learn more
 
