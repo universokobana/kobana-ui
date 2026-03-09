@@ -7,6 +7,7 @@
     "dev": "node scripts/watch-content.mjs & next dev --turbopack --port 4000",
     "build": "next build",
     "start": "next start",
+    "test:e2e": "playwright test",
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "tailwind-merge": "^3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.41.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^22",
     "@types/react": "^19",
