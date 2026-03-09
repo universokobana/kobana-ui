@@ -35,36 +35,15 @@
   --ul-radius-xl: calc(var(--ul-radius) + 4px);
 }
 
-/* ── Tailwind color aliases (map shadcn color tokens to Underlith) ─────────── */
-
 :root {
-  --ul-color-background:                var(--ul-background);
-  --ul-color-foreground:                var(--ul-foreground);
-  --ul-color-card:                      var(--ul-card);
-  --ul-color-card-foreground:           var(--ul-card-foreground);
-  --ul-color-popover:                   var(--ul-popover);
-  --ul-color-popover-foreground:        var(--ul-popover-foreground);
-  --ul-color-primary:                   var(--ul-primary);
-  --ul-color-primary-foreground:        var(--ul-primary-foreground);
-  --ul-color-secondary:                 var(--ul-secondary);
-  --ul-color-secondary-foreground:      var(--ul-secondary-foreground);
-  --ul-color-muted:                     var(--ul-muted);
-  --ul-color-muted-foreground:          var(--ul-muted-foreground);
-  --ul-color-accent:                    var(--ul-accent);
-  --ul-color-accent-foreground:         var(--ul-accent-foreground);
-  --ul-color-destructive:               var(--ul-destructive);
-  --ul-color-destructive-foreground:    var(--ul-destructive-foreground);
-  --ul-color-border:                    var(--ul-border);
-  --ul-color-input:                     var(--ul-input);
-  --ul-color-ring:                      var(--ul-ring);
-  --ul-color-sidebar-background:        var(--ul-sidebar-background);
-  --ul-color-sidebar-foreground:        var(--ul-sidebar-foreground);
-  --ul-color-sidebar-primary:           var(--ul-sidebar-primary);
-  --ul-color-sidebar-primary-foreground: var(--ul-sidebar-primary-foreground);
-  --ul-color-sidebar-accent:            var(--ul-sidebar-accent);
-  --ul-color-sidebar-accent-foreground: var(--ul-sidebar-accent-foreground);
-  --ul-color-sidebar-border:            var(--ul-sidebar-border);
-  --ul-color-sidebar-ring:              var(--ul-sidebar-ring);
+  --ul-status-success:    oklch(0.30 0.13 145);
+  --ul-status-success-bg: oklch(0.98 0.03 145);
+  --ul-status-warning:    oklch(0.40 0.12 75);
+  --ul-status-warning-bg: oklch(0.97 0.04 75);
+  --ul-status-error:      oklch(0.40 0.16 25);
+  --ul-status-error-bg:   oklch(0.97 0.04 25);
+  --ul-status-info:       oklch(0.40 0.13 240);
+  --ul-status-info-bg:    oklch(0.97 0.04 240);
 }
 
 /* ── Colors: Light ───────────────────────────────────────────────────────── */
@@ -129,37 +108,6 @@
   --ul-sidebar-accent-foreground: oklch(0.985 0 0);
   --ul-sidebar-border:            oklch(0.269 0 0);
   --ul-sidebar-ring:              oklch(0.439 0 0);
-}
-
-/* Keep color aliases in sync for dark scope */
-.dark {
-  --ul-color-background:                var(--ul-background);
-  --ul-color-foreground:                var(--ul-foreground);
-  --ul-color-card:                      var(--ul-card);
-  --ul-color-card-foreground:           var(--ul-card-foreground);
-  --ul-color-popover:                   var(--ul-popover);
-  --ul-color-popover-foreground:        var(--ul-popover-foreground);
-  --ul-color-primary:                   var(--ul-primary);
-  --ul-color-primary-foreground:        var(--ul-primary-foreground);
-  --ul-color-secondary:                 var(--ul-secondary);
-  --ul-color-secondary-foreground:      var(--ul-secondary-foreground);
-  --ul-color-muted:                     var(--ul-muted);
-  --ul-color-muted-foreground:          var(--ul-muted-foreground);
-  --ul-color-accent:                    var(--ul-accent);
-  --ul-color-accent-foreground:         var(--ul-accent-foreground);
-  --ul-color-destructive:               var(--ul-destructive);
-  --ul-color-destructive-foreground:    var(--ul-destructive-foreground);
-  --ul-color-border:                    var(--ul-border);
-  --ul-color-input:                     var(--ul-input);
-  --ul-color-ring:                      var(--ul-ring);
-  --ul-color-sidebar-background:        var(--ul-sidebar-background);
-  --ul-color-sidebar-foreground:        var(--ul-sidebar-foreground);
-  --ul-color-sidebar-primary:           var(--ul-sidebar-primary);
-  --ul-color-sidebar-primary-foreground: var(--ul-sidebar-primary-foreground);
-  --ul-color-sidebar-accent:            var(--ul-sidebar-accent);
-  --ul-color-sidebar-accent-foreground: var(--ul-sidebar-accent-foreground);
-  --ul-color-sidebar-border:            var(--ul-sidebar-border);
-  --ul-color-sidebar-ring:              var(--ul-sidebar-ring);
 }
 
 /* ── Dashboard theme — Kobana Lime as primary ────────────────────────────── */

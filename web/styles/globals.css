@@ -52,6 +52,49 @@
 :root {
   --radius: var(--ul-radius);
 
+  --ul-color-background: var(--ul-background);
+  --ul-color-foreground: var(--ul-foreground);
+  --ul-color-card: var(--ul-card);
+  --ul-color-card-foreground: var(--ul-card-foreground);
+  --ul-color-popover: var(--ul-popover);
+  --ul-color-popover-foreground: var(--ul-popover-foreground);
+  --ul-color-primary: var(--ul-primary);
+  --ul-color-primary-foreground: var(--ul-primary-foreground);
+  --ul-color-secondary: var(--ul-secondary);
+  --ul-color-secondary-foreground: var(--ul-secondary-foreground);
+  --ul-color-muted: var(--ul-muted);
+  --ul-color-muted-foreground: var(--ul-muted-foreground);
+  --ul-color-accent: var(--ul-accent);
+  --ul-color-accent-foreground: var(--ul-accent-foreground);
+  --ul-color-destructive: var(--ul-destructive);
+  --ul-color-destructive-foreground: var(--ul-destructive-foreground);
+  --ul-color-border: var(--ul-border);
+  --ul-color-input: var(--ul-input);
+  --ul-color-ring: var(--ul-ring);
+  --ul-color-sidebar-background: var(--ul-sidebar-background);
+  --ul-color-sidebar-foreground: var(--ul-sidebar-foreground);
+  --ul-color-sidebar-primary: var(--ul-sidebar-primary);
+  --ul-color-sidebar-primary-foreground: var(--ul-sidebar-primary-foreground);
+  --ul-color-sidebar-accent: var(--ul-sidebar-accent);
+  --ul-color-sidebar-accent-foreground: var(--ul-sidebar-accent-foreground);
+  --ul-color-sidebar-border: var(--ul-sidebar-border);
+  --ul-color-sidebar-ring: var(--ul-sidebar-ring);
+
+  --ul-color-kobana-lime: var(--ul-kobana-lime);
+  --ul-color-kobana-black: var(--ul-kobana-black);
+  --ul-color-kobana-white: var(--ul-kobana-white);
+  --ul-color-kobana-gray: var(--ul-kobana-gray);
+  --ul-color-kobana-purple: var(--ul-kobana-purple);
+
+  --ul-color-status-success: var(--ul-status-success);
+  --ul-color-status-success-bg: var(--ul-status-success-bg);
+  --ul-color-status-warning: var(--ul-status-warning);
+  --ul-color-status-warning-bg: var(--ul-status-warning-bg);
+  --ul-color-status-error: var(--ul-status-error);
+  --ul-color-status-error-bg: var(--ul-status-error-bg);
+  --ul-color-status-info: var(--ul-status-info);
+  --ul-color-status-info-bg: var(--ul-status-info-bg);
+
   /* Kobana Brand Colors (HSL) */
   --kobana-lime: var(--ul-kobana-lime);
   --kobana-black: var(--ul-kobana-black);

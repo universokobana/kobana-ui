@@ -14,19 +14,44 @@ function contrastRatio(fg: number[], bg: number[]) {
   return L1 > L2 ? L1 / L2 : L2 / L1;
 }
 
-function parseRGB(s: string) {
-  const m = s.match(/rgba?\\(([^)]+)\\)/);
-  if (!m) throw new Error(`Unsupported color format: ${s}`);
-  const parts = m[1].split(',').map((p) => Number(p.trim()));
-  return parts.slice(0, 3) as [number, number, number];
+function parseColorStringToRGB(s: string): [number, number, number] {
+  const rgb = s.match(/rgba?\\(([^)]+)\\)/);
+  if (rgb) {
+    const parts = rgb[1].split(',').map((p) => Number(p.trim()));
+    return parts.slice(0, 3) as [number, number, number];
+  }
+  const hex = s.trim().toLowerCase();
+  if (hex.startsWith('#')) {
+    const v = hex.length === 4
+      ? [hex[1] + hex[1], hex[2] + hex[2], hex[3] + hex[3]]
+      : [hex.slice(1, 3), hex.slice(3, 5), hex.slice(5, 7)];
+    return v.map((h) => parseInt(h, 16)) as [number, number, number];
+  }
+  throw new Error(`Unsupported color format: ${s}`);
+}
+
+async function toRGBViaCanvas(page, cssColor: string): Promise<[number, number, number]> {
+  const [r, g, b] = await page.evaluate((color) => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = 1;
+    const ctx = canvas.getContext('2d')!;
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, 1, 1);
+    const data = ctx.getImageData(0, 0, 1, 1).data;
+    return [data[0], data[1], data[2]];
+  }, cssColor);
+  return [r, g, b];
 }
 
 async function assertBadgeContrast(page, selector: string, min = 4.5) {
   const el = page.locator(selector);
   await expect(el).toBeVisible();
-  const bg = await el.evaluate((node) => getComputedStyle(node as HTMLElement).backgroundColor);
-  const fg = await el.evaluate((node) => getComputedStyle(node as HTMLElement).color);
-  const ratio = contrastRatio(parseRGB(fg), parseRGB(bg));
+  const bgRaw = await el.evaluate((node) => getComputedStyle(node as HTMLElement).backgroundColor);
+  const fgRaw = await el.evaluate((node) => getComputedStyle(node as HTMLElement).color);
+  const bg = await toRGBViaCanvas(page, bgRaw);
+  const fg = await toRGBViaCanvas(page, fgRaw);
+  const ratio = contrastRatio(fg, bg);
   expect(ratio).toBeGreaterThanOrEqual(min);
 }
 
