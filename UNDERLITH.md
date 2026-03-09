@@ -85,3 +85,89 @@ If it's specific to one component, it stays in the component.
 - [Underlith documentation](https://mikaelcarrara.github.io/underlith/)
 - [Token reference](https://mikaelcarrara.github.io/underlith/tokens)
 - [Consumption strategies](https://mikaelcarrara.github.io/underlith/consumption)
+
+---
+
+## Consumption Policy (single alias)
+
+- Components must consume **only** `var(--ul-color-*)`.
+- The bridge between canonical tokens (`--ul-*`) and consumption aliases (`--ul-color-*`) is centralized in `web/styles/globals.css`.
+- Benefits: easier audits, predictable theming, and no component dependency on canonical tokens.
+
+Example (component consumption):
+
+```css
+.badge-success {
+  color: var(--ul-color-status-success);
+  background-color: var(--ul-color-status-success-bg);
+}
+```
+
+---
+
+## Status tokens (canonical + consumption)
+
+- Canonical (defined in `web/styles/underlith.tokens.css` — `:root` scope):
+
+```css
+:root {
+  --ul-status-success:    oklch(0.30 0.13 145);
+  --ul-status-success-bg: oklch(0.98 0.03 145);
+
+  --ul-status-warning:    oklch(0.40 0.12 75);
+  --ul-status-warning-bg: oklch(0.97 0.04 75);
+
+  --ul-status-error:      oklch(0.40 0.16 25);
+  --ul-status-error-bg:   oklch(0.97 0.04 25);
+
+  --ul-status-info:       oklch(0.40 0.13 240);
+  --ul-status-info-bg:    oklch(0.97 0.04 240);
+}
+```
+
+- Consumption aliases (exposed in `web/styles/globals.css`):
+
+```css
+:root {
+  --ul-color-status-success:    var(--ul-status-success);
+  --ul-color-status-success-bg: var(--ul-status-success-bg);
+  --ul-color-status-warning:    var(--ul-status-warning);
+  --ul-color-status-warning-bg: var(--ul-status-warning-bg);
+  --ul-color-status-error:      var(--ul-status-error);
+  --ul-color-status-error-bg:   var(--ul-status-error-bg);
+  --ul-color-status-info:       var(--ul-status-info);
+  --ul-color-status-info-bg:    var(--ul-status-info-bg);
+}
+```
+
+---
+
+## Typography with Tailwind v4 (@theme)
+
+- Canonical tokens: `--ul-font-sans`, `--ul-font-display`.
+- Bridge in `web/styles/globals.css`:
+
+```css
+@theme inline {
+  --font-sans:    var(--ul-font-sans);
+  --font-display: var(--ul-font-display);
+}
+```
+
+- Consumption:
+
+```html
+<h1 class="font-display">Título</h1>
+<p class="font-sans">Corpo</p>
+```
+
+---
+
+## Checklist — Next 16 migration (middleware → proxy)
+
+- [ ] Audit `middleware.ts` (rewrites, headers, forwarding).
+- [ ] If it only forwards, migrate to `proxy` in `next.config.mjs` and remove `middleware.ts`.
+- [ ] Move auth/geo/header logic to Route Handlers or Server Components.
+- [ ] Validate locally: `npm run dev` with no warnings.
+- [ ] Validate build: `npm run build` with no middleware warning.
+- [ ] Remove unused imports and dependencies.

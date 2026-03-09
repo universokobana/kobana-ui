@@ -92,6 +92,48 @@ When these names match, a designer saying `kobana-lime` and a developer saying
 - A dev receives "change this button to #D3FD54" instead of "update kobana-lime"
 - A component was changed directly without updating the token
 - Figma and code have different names for the same color
+---
+
+## Consumption policy (single alias)
+
+- Components must use `var(--ul-color-*)` only.
+- The `--ul-*` → `--ul-color-*` mapping lives in the theme layer (`globals.css`).
+- Benefit: design defines tokens; implementation consumes stable aliases.
+
+Example (component):
+
+```css
+.badge-success {
+  color: var(--ul-color-status-success);
+  background-color: var(--ul-color-status-success-bg);
+}
+```
+
+---
+
+## Status tokens
+
+- Canonical definition (`:root`, `underlith.tokens.css`): success, warning, error, info and their `*-bg`.
+- Consumption (aliases in `globals.css`): `--ul-color-status-*` and `--ul-color-status-*-bg`.
+- Goal: ensure minimum contrast in light/dark without hardcoding in components.
+
+Showcase: route `/status-badges-showcase` demonstrates the four variants.
+
+---
+
+## Typography with Tailwind (@theme)
+
+- Tokens: `--ul-font-sans`, `--ul-font-display`.
+- Binding: `@theme inline` in `globals.css` defines `--font-sans` and `--font-display`.
+- Use: `font-sans` and `font-display` classes (no direct `font-family`).
+
+---
+
+## Checklist — Next 16 migration (middleware → proxy)
+
+- Simple rewrites/forwarding → `proxy` in `next.config.mjs`.
+- Complex logic (auth/headers) → Route Handlers/Server Components.
+- Goal: remove build warning and keep architecture clean.
 
 ---
 
