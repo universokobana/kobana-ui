@@ -1,0 +1,38 @@
+web/content/docs/tokens/underlith.mdx
+  b91be9b62e98bcf7 1-169
+web/next.config.mjs
+  dd0bf528600d9782 1,7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.9",
+  "base_commit_sha": "bdbc2b6789da85a19a213ca241a2149ec2d0b3fa",
+  "prompts": {
+    "b91be9b62e98bcf7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "917fb666-9e0e-4d87-8bc8-74ae21b8112c",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 169,
+      "total_deletions": 0,
+      "accepted_lines": 169,
+      "overriden_lines": 0
+    },
+    "dd0bf528600d9782": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ff6cc05f-881d-4d98-b481-1c54584eabfa",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 1,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}
