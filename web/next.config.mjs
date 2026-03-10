@@ -1,9 +1,10 @@
+import path from "node:path"
 import { createMDX } from "fumadocs-mdx/next"
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   turbopack: {
-    root: process.cwd(),
+    root: path.resolve(import.meta.dirname, ".."),
   },
   typescript: {
     ignoreBuildErrors: true,

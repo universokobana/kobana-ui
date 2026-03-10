@@ -1,0 +1,169 @@
+---
+title: Underlith
+description: Camada de design tokens que centraliza todas as decisões visuais do Kobana UI.
+---
+
+O [Underlith](https://mikaelcarrara.github.io/underlith/) e a fonte unica de verdade para design tokens.
+Antes dessa integracao, valores da marca estavam hardcoded no `globals.css` do shadcn — cada produto precisava copiar manualmente, sem garantia de consistencia.
+
+## Como funciona
+
+```
+Underlith tokens  →  shadcn variables  →  components
+(edite aqui)         (auto-updated)       (sem mudanca)
+```
+
+Todos os tokens vivem em `web/styles/underlith.tokens.css`.
+As variaveis do shadcn em `globals.css` apontam para esses tokens via `@import`.
+Zero reescrita de componentes — todos continuam funcionando como antes.
+
+## Arquivos
+
+| Arquivo | Papel |
+|---------|-------|
+| `web/styles/underlith.tokens.css` | Definicao dos tokens (fonte unica de verdade) |
+| `web/styles/globals.css` | Variaveis shadcn apontam para tokens Underlith via `@import` |
+
+## Tokens disponiveis
+
+### Marca
+
+```css
+:root {
+  --ul-kobana-lime:   73 99% 66%;
+  --ul-kobana-black:  0 0% 0%;
+  --ul-kobana-white:  60 20% 99%;
+  --ul-kobana-gray:   0 0% 40%;
+  --ul-kobana-purple: 285 75% 52%;
+}
+```
+
+### Tipografia
+
+```css
+:root {
+  --ul-font-sans:    'Work Sans', sans-serif;
+  --ul-font-display: 'Syne', sans-serif;
+}
+```
+
+Bridge com Tailwind v4:
+
+```css
+@theme inline {
+  --font-sans:    var(--ul-font-sans);
+  --font-display: var(--ul-font-display);
+}
+```
+
+```html
+<h1 class="font-display">Titulo</h1>
+<p class="font-sans">Corpo</p>
+```
+
+### Radius
+
+```css
+:root {
+  --ul-radius:    0.5rem;
+  --ul-radius-sm: calc(var(--ul-radius) - 4px);
+  --ul-radius-md: calc(var(--ul-radius) - 2px);
+  --ul-radius-lg: var(--ul-radius);
+  --ul-radius-xl: calc(var(--ul-radius) + 4px);
+}
+```
+
+### Status
+
+```css
+:root {
+  --ul-status-success:    oklch(0.30 0.13 145);
+  --ul-status-success-bg: oklch(0.98 0.03 145);
+  --ul-status-warning:    oklch(0.40 0.12 75);
+  --ul-status-warning-bg: oklch(0.97 0.04 75);
+  --ul-status-error:      oklch(0.40 0.16 25);
+  --ul-status-error-bg:   oklch(0.97 0.04 25);
+  --ul-status-info:       oklch(0.40 0.13 240);
+  --ul-status-info-bg:    oklch(0.97 0.04 240);
+}
+```
+
+### Cores Light/Dark
+
+O arquivo define tokens para ambos os modos. O modo light usa `:root`, o dark usa `.dark`:
+
+```css
+:root {
+  --ul-background: oklch(1 0 0);
+  --ul-primary:    oklch(0.205 0 0);
+  /* ... */
+}
+
+.dark {
+  --ul-background: oklch(0.145 0 0);
+  --ul-primary:    oklch(0.985 0 0);
+  /* ... */
+}
+```
+
+### Dashboard Theme
+
+A classe `.dashboard-theme` troca o primary para Kobana Lime:
+
+```css
+.dashboard-theme {
+  --ul-primary:            hsl(var(--ul-kobana-lime));
+  --ul-primary-foreground: hsl(var(--ul-kobana-black));
+  --ul-ring:               hsl(var(--ul-kobana-lime));
+}
+```
+
+## Politica de consumo
+
+Componentes devem consumir **apenas** `var(--ul-color-*)`.
+O bridge entre tokens canonicos (`--ul-*`) e aliases de consumo (`--ul-color-*`) fica centralizado em `globals.css`.
+
+```css
+/* correto */
+.badge-success {
+  color: var(--ul-color-status-success);
+  background-color: var(--ul-color-status-success-bg);
+}
+
+/* errado — nao use tokens canonicos diretamente */
+.badge-success {
+  color: var(--ul-status-success);
+}
+```
+
+## Como editar tokens
+
+**Sempre edite `web/styles/underlith.tokens.css` — nunca edite variaveis shadcn diretamente.**
+
+```css
+/* Mudar o lime da marca: */
+--ul-kobana-lime: 73 99% 66%;
+
+/* Mudar a cor primaria: */
+--ul-primary: oklch(0.205 0 0);
+
+/* Mudar o radius global: */
+--ul-radius: 0.5rem;
+```
+
+## Quem deve editar tokens
+
+Underlith e para quem cuida do design system — nao para devs de feature.
+
+- Mudar uma cor da marca → edite `underlith.tokens.css`
+- Adicionar uma nova cor da marca → adicione um novo `--ul-*` token
+- Ajustar radius ou tipografia global → edite o token relevante
+- Mudar uma cor em um componente especifico → isso e preocupacao do componente, nao do token
+
+**Regra:** se a mudanca deve afetar todos os produtos, pertence ao Underlith. Se e especifica de um componente, fica no componente.
+
+## Links
+
+- [Documentacao Underlith](https://mikaelcarrara.github.io/underlith/)
+- [Referencia de tokens](https://mikaelcarrara.github.io/underlith/tokens)
+- [Estrategias de consumo](https://mikaelcarrara.github.io/underlith/consumption)
