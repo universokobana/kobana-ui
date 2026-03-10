@@ -9,3 +9,5 @@ web/.next/
 web/node_modules/
 web/.source/
 shadcn-ui/
+web/test-results/
+web/debug.log
