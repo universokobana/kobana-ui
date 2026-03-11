@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { headers } from "next/headers"
 import { Work_Sans, Syne } from "next/font/google"
 import { RootProvider } from "fumadocs-ui/provider/next"
 import "@/styles/globals.css"
@@ -56,11 +57,13 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const nonce = (await headers()).get("x-nonce") ?? ""
+
   return (
     <html
       lang="pt-BR"
@@ -68,7 +71,12 @@ export default function RootLayout({
       className={`${workSans.variable} ${syne.variable}`}
     >
       <body className="min-h-screen bg-background font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          nonce={nonce}
+        >
           <RootProvider>
             {children}
           </RootProvider>

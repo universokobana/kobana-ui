@@ -1,13 +1,19 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
+// ╔══════════════════════════════════════════════════════════════════════╗
+// ║  SECURITY POLICY: NEVER use 'unsafe-inline' or 'unsafe-eval'      ║
+// ║  in any CSP directive. All scripts MUST use nonce-based loading.   ║
+// ║  See: https://web.dev/articles/strict-csp                         ║
+// ╚══════════════════════════════════════════════════════════════════════╝
+
 export function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64")
 
   const cspHeader = [
     "default-src 'self'",
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'`,
-    "style-src 'self' 'unsafe-inline'",
+    `style-src 'self' 'nonce-${nonce}'`,
     "img-src 'self' data: blob:",
     "font-src 'self'",
     "connect-src 'self'",
