@@ -1,0 +1,27 @@
+web/middleware.ts
+  7d6b44f7e699a7d3 4-9,16
+web/app/layout.tsx
+  7d6b44f7e699a7d3 2,60,65-66,78
+CLAUDE.md
+  7d6b44f7e699a7d3 1-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.10",
+  "base_commit_sha": "76f3e44cfefc4ed56c5120dcd2efc9c395863efa",
+  "prompts": {
+    "7d6b44f7e699a7d3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3962c8aa-a744-4b46-9bcd-29f7272b4170",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima <contato@rafael.adm.br>",
+      "messages": [],
+      "total_additions": 49,
+      "total_deletions": 12,
+      "accepted_lines": 41,
+      "overriden_lines": 0
+    }
+  }
+}
