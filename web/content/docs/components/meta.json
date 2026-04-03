@@ -5,6 +5,7 @@
     "app-layout",
     "app-sidebar",
     "confirm-dialog",
+    "danger-zone",
     "copy-cell",
     "currency-input",
     "data-table",

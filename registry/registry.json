@@ -34,6 +34,21 @@
         "npm": []
       }
     },
+    "danger-zone": {
+      "name": "DangerZone",
+      "description": "Zona de perigo com ações destrutivas agrupadas em card",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/danger-zone/danger-zone.tsx",
+        "src/components/composites/danger-zone/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["card"],
+        "kobana": [],
+        "npm": ["lucide-react"]
+      }
+    },
     "confirm-dialog": {
       "name": "ConfirmDialog",
       "description": "Dialog de confirmação com variantes de severidade",

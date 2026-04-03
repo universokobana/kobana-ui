@@ -26,6 +26,7 @@ const registry: Record<string, RegistryEntry> = Object.fromEntries([
   entry("status-badge-demo", () => import("@/examples/status-badge-demo")),
   entry("status-badge-variants", () => import("@/examples/status-badge-variants")),
   entry("confirm-dialog-demo", () => import("@/examples/confirm-dialog-demo")),
+  entry("danger-zone-demo", () => import("@/examples/danger-zone-demo")),
   entry("page-header-demo", () => import("@/examples/page-header-demo")),
   entry("filter-bar-demo", () => import("@/examples/filter-bar-demo")),
   entry("form-section-demo", () => import("@/examples/form-section-demo")),

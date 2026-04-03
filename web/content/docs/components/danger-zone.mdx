@@ -1,0 +1,125 @@
+---
+title: DangerZone
+description: Zona de perigo com ações destrutivas agrupadas em card com variantes de severidade.
+---
+
+<ComponentPreview name="danger-zone-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add danger-zone
+```
+
+**Dependências instaladas automaticamente:** `card` (shadcn/ui), `lucide-react`
+
+## Importação
+
+```tsx
+import { DangerZone, DangerZoneItem } from "@/components/kobana/danger-zone"
+```
+
+## Props
+
+### DangerZone
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `title` | `string` | — | Título do card |
+| `description` | `string` | — | Descrição abaixo do título |
+| `icon` | `ReactNode` | `<AlertTriangle />` | Ícone ao lado do título |
+| `children` | `ReactNode` | — | Itens da zona de perigo |
+| `className` | `string` | — | Classes adicionais no card |
+
+### DangerZoneItem
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `title` | `string` | — | Título da ação |
+| `description` | `string` | — | Descrição da ação |
+| `variant` | `"danger" \| "warning"` | `"danger"` | Variante visual da borda |
+| `children` | `ReactNode` | — | Botão ou trigger da ação |
+| `className` | `string` | — | Classes adicionais |
+
+## Uso
+
+### Básico
+
+```tsx
+<DangerZone
+  title="Zona de Perigo"
+  description="Ações que podem afetar permanentemente este recurso"
+>
+  <DangerZoneItem
+    title="Excluir registro"
+    description="Esta ação não pode ser desfeita."
+  >
+    <Button
+      variant="outline"
+      className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+    >
+      <Trash2 className="mr-2 h-4 w-4" />
+      Excluir
+    </Button>
+  </DangerZoneItem>
+</DangerZone>
+```
+
+### Com variante warning
+
+```tsx
+<DangerZone
+  title="Zona de Perigo"
+  description="Ações que podem afetar esta assinatura"
+>
+  <DangerZoneItem
+    title="Reverter para Confirmada"
+    description="Reverta a assinatura para poder editá-la novamente."
+    variant="warning"
+  >
+    <Button variant="outline" className="border-amber-200 text-amber-600 ...">
+      <RotateCcw className="mr-2 h-4 w-4" />
+      Reverter
+    </Button>
+  </DangerZoneItem>
+
+  <DangerZoneItem
+    title="Cancelar assinatura"
+    description="Encerre a assinatura permanentemente."
+  >
+    <Button
+      variant="outline"
+      className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+    >
+      <XCircle className="mr-2 h-4 w-4" />
+      Cancelar
+    </Button>
+  </DangerZoneItem>
+</DangerZone>
+```
+
+### Combinado com ConfirmDialog
+
+```tsx
+<DangerZone title="Zona de Perigo" description="Cuidado com estas ações">
+  <DangerZoneItem
+    title="Excluir rascunho"
+    description="Exclua permanentemente este rascunho."
+  >
+    <ConfirmDialog
+      variant="danger"
+      title="Excluir rascunho?"
+      description="Esta ação não pode ser desfeita."
+      onConfirm={async () => await deleteRecord(id)}
+    >
+      <Button
+        variant="outline"
+        className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+      >
+        <Trash2 className="mr-2 h-4 w-4" />
+        Excluir
+      </Button>
+    </ConfirmDialog>
+  </DangerZoneItem>
+</DangerZone>
+```
