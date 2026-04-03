@@ -1,0 +1,35 @@
+src/components/composites/danger-zone/danger-zone.tsx
+  746f0d189f39be30 1-77
+web/content/docs/components/danger-zone.mdx
+  746f0d189f39be30 1-125
+web/lib/registry.ts
+  746f0d189f39be30 29
+web/examples/danger-zone-demo.tsx
+  746f0d189f39be30 1-138
+web/content/docs/components/meta.json
+  746f0d189f39be30 8
+registry/registry.json
+  746f0d189f39be30 37-51
+src/components/composites/danger-zone/index.ts
+  746f0d189f39be30 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "4b1c67d24b2aa151fa8843105706520d383860f7",
+  "prompts": {
+    "746f0d189f39be30": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "37173e94-da6d-4375-90a9-aa908632472f",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 359,
+      "overriden_lines": 0
+    }
+  }
+}
