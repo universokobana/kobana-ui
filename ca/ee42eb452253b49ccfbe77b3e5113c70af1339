@@ -1,0 +1,37 @@
+web/content/docs/components/scope-selector.mdx
+  746f0d189f39be30 1-142
+src/components/composites/scope-selector/scope-selector.tsx
+  746f0d189f39be30 1-211
+registry/registry.json
+  746f0d189f39be30 37-52
+web/content/docs/components/meta.json
+  746f0d189f39be30 29
+src/components/composites/scope-selector/scope-context.tsx
+  746f0d189f39be30 1-90
+web/lib/registry.ts
+  746f0d189f39be30 31
+src/components/composites/scope-selector/index.ts
+  746f0d189f39be30 1-5
+web/examples/scope-selector-demo.tsx
+  746f0d189f39be30 1-162
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "caee42eb452253b49ccfbe77b3e5113c70af1339",
+  "prompts": {
+    "746f0d189f39be30": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "37173e94-da6d-4375-90a9-aa908632472f",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima",
+      "messages": [],
+      "total_additions": 633,
+      "total_deletions": 5,
+      "accepted_lines": 628,
+      "overriden_lines": 0
+    }
+  }
+}
