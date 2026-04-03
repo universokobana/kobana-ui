@@ -1,0 +1,35 @@
+web/examples/date-range-picker-demo.tsx
+  746f0d189f39be30 1-218
+web/content/docs/components/date-range-picker.mdx
+  746f0d189f39be30 1-131
+registry/registry.json
+  746f0d189f39be30 37-51
+src/components/composites/date-range-picker/date-range-picker.tsx
+  746f0d189f39be30 1-273
+web/content/docs/components/meta.json
+  746f0d189f39be30 9
+src/components/composites/date-range-picker/index.ts
+  746f0d189f39be30 1-6
+web/lib/registry.ts
+  746f0d189f39be30 30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "31df1086748f4bbc6fbcf3d9d1d0cd985258b381",
+  "prompts": {
+    "746f0d189f39be30": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "37173e94-da6d-4375-90a9-aa908632472f",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Rafael Lima",
+      "messages": [],
+      "total_additions": 649,
+      "total_deletions": 4,
+      "accepted_lines": 645,
+      "overriden_lines": 0
+    }
+  }
+}
