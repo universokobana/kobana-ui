@@ -1,0 +1,131 @@
+---
+title: DateRangePicker
+description: Seletor de período com opções rápidas (Hoje, Últimos 7 dias, etc.) e período personalizado com inputs de data.
+---
+
+<ComponentPreview name="date-range-picker-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add date-range-picker
+```
+
+**Dependências instaladas automaticamente:** `button`, `input`, `label`, `popover` (shadcn/ui), `lucide-react`
+
+## Importação
+
+```tsx
+import { DateRangePicker } from "@/components/kobana/date-range-picker"
+```
+
+## Props
+
+### DateRangePicker
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `startDate` | `string` | `""` | Data inicial no formato ISO (`YYYY-MM-DD`) |
+| `endDate` | `string` | `""` | Data final no formato ISO (`YYYY-MM-DD`) |
+| `onDateChange` | `(start: string, end: string) => void` | — | Callback ao alterar o período |
+| `quickOptions` | `QuickOption[]` | Hoje, Ontem, 7/30/90 dias, Todo Período | Opções de seleção rápida |
+| `labels` | `DateRangePickerLabels` | pt-BR | Labels customizáveis |
+| `formatDate` | `(dateStr: string) => string` | `dd/mm/yyyy` | Formatação de exibição |
+| `align` | `"start" \| "center" \| "end"` | `"end"` | Alinhamento do popover |
+| `className` | `string` | — | Classes adicionais no trigger |
+
+### QuickOption
+
+| Prop | Tipo | Descrição |
+|------|------|-----------|
+| `key` | `string` | Identificador único |
+| `label` | `string` | Texto exibido |
+| `getRange` | `() => { start: string; end: string }` | Função que retorna o período |
+
+### DateRangePickerLabels
+
+| Prop | Tipo | Default |
+|------|------|---------|
+| `quickSelection` | `string` | `"Seleção Rápida"` |
+| `customPeriod` | `string` | `"Período Personalizado"` |
+| `startDate` | `string` | `"Data Inicial"` |
+| `endDate` | `string` | `"Data Final"` |
+| `apply` | `string` | `"Aplicar"` |
+| `clear` | `string` | `"Limpar"` |
+| `allTime` | `string` | `"Todo o Período"` |
+| `from` | `string` | `"De"` |
+| `until` | `string` | `"Até"` |
+
+## Uso
+
+### Básico
+
+```tsx
+const [startDate, setStartDate] = useState("")
+const [endDate, setEndDate] = useState("")
+
+<DateRangePicker
+  startDate={startDate}
+  endDate={endDate}
+  onDateChange={(start, end) => {
+    setStartDate(start)
+    setEndDate(end)
+  }}
+/>
+```
+
+### Com URL params (Next.js)
+
+```tsx
+const searchParams = useSearchParams()
+const router = useRouter()
+const pathname = usePathname()
+
+<DateRangePicker
+  startDate={searchParams.get("startDate") ?? ""}
+  endDate={searchParams.get("endDate") ?? ""}
+  onDateChange={(start, end) => {
+    const params = new URLSearchParams(searchParams.toString())
+    start ? params.set("startDate", start) : params.delete("startDate")
+    end ? params.set("endDate", end) : params.delete("endDate")
+    router.push(`${pathname}?${params.toString()}`)
+  }}
+/>
+```
+
+### Com opções personalizadas
+
+```tsx
+<DateRangePicker
+  startDate={startDate}
+  endDate={endDate}
+  onDateChange={handleDateChange}
+  quickOptions={[
+    { key: "thisMonth", label: "Este mês", getRange: () => ({ start: "2025-04-01", end: "2025-04-30" }) },
+    { key: "lastMonth", label: "Mês passado", getRange: () => ({ start: "2025-03-01", end: "2025-03-31" }) },
+    { key: "allTime", label: "Tudo", getRange: () => ({ start: "", end: "" }) },
+  ]}
+/>
+```
+
+### Com labels em inglês
+
+```tsx
+<DateRangePicker
+  startDate={startDate}
+  endDate={endDate}
+  onDateChange={handleDateChange}
+  labels={{
+    quickSelection: "Quick Selection",
+    customPeriod: "Custom Period",
+    startDate: "Start Date",
+    endDate: "End Date",
+    apply: "Apply",
+    clear: "Clear",
+    allTime: "All Time",
+    from: "From",
+    until: "Until",
+  }}
+  formatDate={(d) => new Date(d + "T00:00:00").toLocaleDateString("en-US")}
+/>
+```

@@ -34,6 +34,21 @@
         "npm": []
       }
     },
+    "date-range-picker": {
+      "name": "DateRangePicker",
+      "description": "Seletor de período com opções rápidas e período personalizado",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/date-range-picker/date-range-picker.tsx",
+        "src/components/composites/date-range-picker/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button", "input", "label", "popover"],
+        "kobana": [],
+        "npm": ["lucide-react"]
+      }
+    },
     "danger-zone": {
       "name": "DangerZone",
       "description": "Zona de perigo com ações destrutivas agrupadas em card",
