@@ -34,6 +34,22 @@
         "npm": []
       }
     },
+    "scope-selector": {
+      "name": "ScopeSelector",
+      "description": "Seletor de escopo para header com busca async, badge compacto e persistência em localStorage",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/scope-selector/scope-selector.tsx",
+        "src/components/composites/scope-selector/scope-context.tsx",
+        "src/components/composites/scope-selector/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button", "command", "popover"],
+        "kobana": [],
+        "npm": ["lucide-react"]
+      }
+    },
     "date-range-picker": {
       "name": "DateRangePicker",
       "description": "Seletor de período com opções rápidas e período personalizado",

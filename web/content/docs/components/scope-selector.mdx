@@ -1,0 +1,142 @@
+---
+title: ScopeSelector
+description: Seletor de escopo para header com busca assíncrona, badge compacto e persistência em localStorage.
+---
+
+<ComponentPreview name="scope-selector-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add scope-selector
+```
+
+**Dependências instaladas automaticamente:** `button`, `command`, `popover` (shadcn/ui), `lucide-react`
+
+## Importação
+
+```tsx
+import {
+  ScopeSelector,
+  ScopeProvider,
+  useScope,
+} from "@/components/kobana/scope-selector"
+```
+
+## Props
+
+### ScopeSelector
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `value` | `T \| null` | — | Item selecionado |
+| `onChange` | `(value: T \| null) => void` | — | Callback de seleção/limpeza |
+| `onSearch` | `(query: string) => Promise<T[]>` | — | Busca assíncrona de itens |
+| `getItemValue` | `(item: T) => string` | — | Extrai ID único do item |
+| `getItemLabel` | `(item: T) => string` | — | Extrai label de exibição |
+| `renderItem` | `(item: T) => ReactNode` | — | Render customizado de cada item na lista |
+| `icon` | `ReactNode` | `<User />` | Ícone do trigger |
+| `placeholder` | `string` | `"Filtrar..."` | Título do botão sem seleção |
+| `searchPlaceholder` | `string` | `"Buscar..."` | Placeholder do campo de busca |
+| `emptyMessage` | `string` | `"Nenhum resultado encontrado."` | Mensagem quando a busca não retorna resultados |
+| `loadingMessage` | `string` | `"Carregando..."` | Mensagem de loading |
+| `clearLabel` | `string` | `"Limpar filtro"` | Label acessível do botão de limpar |
+| `groupHeading` | `string` | — | Heading do grupo de itens |
+| `align` | `"start" \| "center" \| "end"` | `"end"` | Alinhamento do popover |
+| `popoverWidth` | `string` | `"w-[350px]"` | Largura do popover |
+| `className` | `string` | — | Classes adicionais |
+
+### ScopeProvider
+
+| Prop | Tipo | Descrição |
+|------|------|-----------|
+| `storageKey` | `string` | Chave usada no localStorage |
+| `children` | `ReactNode` | Conteúdo do provider |
+
+### useScope\<T\>
+
+Hook que retorna:
+
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| `value` | `T \| null` | Valor atual do escopo |
+| `setValue` | `(value: T \| null) => void` | Define o valor |
+| `clear` | `() => void` | Limpa o escopo |
+| `isHydrated` | `boolean` | `true` após hidratar do localStorage |
+
+## Uso
+
+### Básico (controlado)
+
+```tsx
+const [customer, setCustomer] = useState<Customer | null>(null)
+
+<ScopeSelector
+  value={customer}
+  onChange={setCustomer}
+  onSearch={async (query) => {
+    const res = await fetch(`/api/customers?search=${query}`)
+    const json = await res.json()
+    return json.data
+  }}
+  getItemValue={(c) => c.id}
+  getItemLabel={(c) => c.name}
+  renderItem={(c) => (
+    <div className="flex flex-col">
+      <span className="font-medium">{c.name}</span>
+      <span className="text-xs text-muted-foreground">{c.email}</span>
+    </div>
+  )}
+  placeholder="Filtrar por cliente"
+  searchPlaceholder="Buscar cliente..."
+/>
+```
+
+### Com ScopeProvider (persistência)
+
+```tsx
+// layout.tsx
+<ScopeProvider storageKey="customer-scope">
+  <Header />
+  <main>{children}</main>
+</ScopeProvider>
+
+// header.tsx
+function Header() {
+  const { value, setValue } = useScope<Customer>()
+
+  return (
+    <header>
+      <ScopeSelector
+        value={value}
+        onChange={setValue}
+        onSearch={fetchCustomers}
+        getItemValue={(c) => c.id}
+        getItemLabel={(c) => c.name}
+      />
+    </header>
+  )
+}
+
+// any-page.tsx — lê o escopo
+function InvoicesPage() {
+  const { value: customer } = useScope<Customer>()
+  // filtra dados pelo customer.id
+}
+```
+
+### Com ícone customizado
+
+```tsx
+import { Building } from "lucide-react"
+
+<ScopeSelector
+  value={selectedOrg}
+  onChange={setSelectedOrg}
+  onSearch={fetchOrganizations}
+  getItemValue={(o) => o.id}
+  getItemLabel={(o) => o.name}
+  icon={<Building className="h-4 w-4" />}
+  placeholder="Filtrar por organização"
+/>
+```

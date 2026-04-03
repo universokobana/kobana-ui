@@ -26,6 +26,7 @@
     "onboarding-checklist",
     "page-header",
     "require-permission",
+    "scope-selector",
     "status-badge",
     "theme-toggle"
   ]

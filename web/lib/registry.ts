@@ -28,6 +28,7 @@ const registry: Record<string, RegistryEntry> = Object.fromEntries([
   entry("confirm-dialog-demo", () => import("@/examples/confirm-dialog-demo")),
   entry("danger-zone-demo", () => import("@/examples/danger-zone-demo")),
   entry("date-range-picker-demo", () => import("@/examples/date-range-picker-demo")),
+  entry("scope-selector-demo", () => import("@/examples/scope-selector-demo")),
   entry("page-header-demo", () => import("@/examples/page-header-demo")),
   entry("filter-bar-demo", () => import("@/examples/filter-bar-demo")),
   entry("form-section-demo", () => import("@/examples/form-section-demo")),
