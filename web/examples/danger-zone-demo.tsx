@@ -124,7 +124,7 @@ export default function DangerZoneDemo() {
               </button>
               <button
                 onClick={handleConfirm}
-                className="rounded-md bg-destructive px-4 py-2 text-sm font-medium text-destructive-foreground hover:bg-destructive/90"
+                className="rounded-md bg-destructive px-4 py-2 text-sm font-medium text-white hover:bg-destructive/90"
                 disabled={loading}
               >
                 {loading ? "Aguarde..." : "Confirmar"}
