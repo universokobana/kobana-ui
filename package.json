@@ -1,6 +1,6 @@
 {
   "name": "@kobana/ui",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Kobana Design System — CLI + Registry",
   "type": "module",
   "bin": {
