@@ -180,17 +180,3 @@
   --sidebar-border: var(--ul-sidebar-border);
   --sidebar-ring: var(--ul-sidebar-ring);
 }
-
-/* Dashboard theme — Kobana Lime as primary */
-.dashboard-theme {
-  --primary: var(--ul-primary);
-  --primary-foreground: var(--ul-primary-foreground);
-  --ring: var(--ul-ring);
-}
-
-.dark .dashboard-theme,
-.dashboard-theme.dark {
-  --primary: var(--ul-primary);
-  --primary-foreground: var(--ul-primary-foreground);
-  --ring: var(--ul-ring);
-}
