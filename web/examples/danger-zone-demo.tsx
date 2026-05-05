@@ -51,12 +51,12 @@ export default function DangerZoneDemo() {
 
   const variantStyles = {
     danger: {
-      border: "border-red-500/30 dark:border-red-500/20",
-      btn: "border-red-500/50 text-red-600 hover:bg-red-50 hover:text-red-700 dark:text-red-400 dark:hover:bg-red-950 dark:hover:text-red-300",
+      border: "border-destructive/30",
+      btn: "border-destructive/50 text-destructive hover:bg-destructive/10",
     },
     warning: {
-      border: "border-amber-300/50 dark:border-amber-500/20",
-      btn: "border-amber-400/50 text-amber-600 hover:bg-amber-50 hover:text-amber-700 dark:text-amber-400 dark:hover:bg-amber-950 dark:hover:text-amber-300",
+      border: "border-status-warning/30",
+      btn: "border-status-warning/50 text-status-warning hover:bg-status-warning/10",
     },
   }
 
@@ -70,7 +70,7 @@ export default function DangerZoneDemo() {
   return (
     <div className="w-full">
       {/* DangerZone card */}
-      <div className="rounded-xl border border-red-500/30 bg-card text-card-foreground shadow dark:border-red-500/20">
+      <div className="rounded-xl border border-destructive/30 bg-card text-card-foreground shadow">
         {/* Header */}
         <div className="flex flex-col space-y-1.5 p-6">
           <h3 className="flex items-center gap-2 text-lg font-semibold text-destructive">
@@ -124,7 +124,7 @@ export default function DangerZoneDemo() {
               </button>
               <button
                 onClick={handleConfirm}
-                className="rounded-md bg-destructive px-4 py-2 text-sm font-medium text-white hover:bg-destructive/90"
+                className="rounded-md bg-destructive px-4 py-2 text-sm font-medium text-destructive-foreground hover:bg-destructive/90"
                 disabled={loading}
               >
                 {loading ? "Aguarde..." : "Confirmar"}

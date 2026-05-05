@@ -7,9 +7,9 @@ export default function ConfirmDialogDemo() {
   const [loading, setLoading] = useState(false)
 
   const variants = [
-    { key: "danger", label: "Excluir", title: "Excluir registro?", desc: "Esta ação não pode ser desfeita.", btnClass: "bg-red-600 hover:bg-red-700 text-white" },
-    { key: "warning", label: "Arquivar", title: "Arquivar item?", desc: "O item será movido para o arquivo.", btnClass: "bg-yellow-600 hover:bg-yellow-700 text-white" },
-    { key: "info", label: "Confirmar", title: "Confirmar ação?", desc: "Deseja prosseguir com esta ação?", btnClass: "bg-blue-600 hover:bg-blue-700 text-white" },
+    { key: "danger", label: "Excluir", title: "Excluir registro?", desc: "Esta ação não pode ser desfeita.", btnClass: "bg-destructive hover:bg-destructive/90 text-destructive-foreground" },
+    { key: "warning", label: "Arquivar", title: "Arquivar item?", desc: "O item será movido para o arquivo.", btnClass: "bg-status-warning hover:bg-status-warning/90 text-white" },
+    { key: "info", label: "Confirmar", title: "Confirmar ação?", desc: "Deseja prosseguir com esta ação?", btnClass: "bg-primary hover:bg-primary/90 text-primary-foreground" },
   ]
 
   async function handleConfirm() {

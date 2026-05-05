@@ -19,10 +19,10 @@ function timeAgo(timestamp: string) {
 }
 
 const severityColors = {
-  info: "bg-blue-500",
-  warning: "bg-yellow-500",
-  error: "bg-red-500",
-  critical: "bg-red-700",
+  info: "bg-status-info",
+  warning: "bg-status-warning",
+  error: "bg-status-error",
+  critical: "bg-destructive",
 }
 
 export default function HeaderNotificationsDemo() {
@@ -37,7 +37,7 @@ export default function HeaderNotificationsDemo() {
       >
         🔔
         {unread > 0 && (
-          <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[10px] text-white">
+          <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-destructive text-[10px] text-destructive-foreground">
             {unread}
           </span>
         )}

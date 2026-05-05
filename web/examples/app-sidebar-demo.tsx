@@ -33,7 +33,7 @@ export default function AppSidebarDemo() {
             >
               <span>{collapsed ? item.title[0] : item.title}</span>
               {!collapsed && item.badge && (
-                <span className="rounded-full bg-red-100 px-1.5 text-xs font-medium text-red-700 dark:bg-red-900/30 dark:text-red-400">
+                <span className="rounded-full bg-destructive/10 px-1.5 text-xs font-medium text-destructive">
                   {item.badge}
                 </span>
               )}

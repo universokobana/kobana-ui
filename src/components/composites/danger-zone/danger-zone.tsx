@@ -48,7 +48,7 @@ export interface DangerZoneItemProps {
 
 const itemVariants = {
   danger: 'border-destructive/30',
-  warning: 'border-amber-200 dark:border-amber-900',
+  warning: 'border-status-warning/30',
 } as const;
 
 export const DangerZoneItem = React.forwardRef<HTMLDivElement, DangerZoneItemProps>(
