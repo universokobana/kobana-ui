@@ -39,6 +39,20 @@
   --color-kobana-gray: var(--ul-color-kobana-gray);
   --color-kobana-purple: var(--ul-color-kobana-purple);
 
+  /* Status — exposed as Tailwind utilities (bg-status-success, text-status-warning, etc.) */
+  --color-status-success: var(--ul-color-status-success);
+  --color-status-success-bg: var(--ul-color-status-success-bg);
+  --color-status-warning: var(--ul-color-status-warning);
+  --color-status-warning-bg: var(--ul-color-status-warning-bg);
+  --color-status-error: var(--ul-color-status-error);
+  --color-status-error-bg: var(--ul-color-status-error-bg);
+  --color-status-info: var(--ul-color-status-info);
+  --color-status-info-bg: var(--ul-color-status-info-bg);
+  --color-status-active: var(--ul-color-status-active);
+  --color-status-active-bg: var(--ul-color-status-active-bg);
+  --color-status-inactive: var(--ul-color-status-inactive);
+  --color-status-inactive-bg: var(--ul-color-status-inactive-bg);
+
   --font-sans: var(--ul-font-sans);
   --font-display: var(--ul-font-display);
 
@@ -93,6 +107,10 @@
   --ul-color-status-error-bg: var(--ul-status-error-bg);
   --ul-color-status-info: var(--ul-status-info);
   --ul-color-status-info-bg: var(--ul-status-info-bg);
+  --ul-color-status-active: var(--ul-status-active);
+  --ul-color-status-active-bg: var(--ul-status-active-bg);
+  --ul-color-status-inactive: var(--ul-status-inactive);
+  --ul-color-status-inactive-bg: var(--ul-status-inactive-bg);
 
   /* Kobana Brand Colors (HSL) */
   --kobana-lime: var(--ul-kobana-lime);
