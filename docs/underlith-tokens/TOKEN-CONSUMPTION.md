@@ -73,15 +73,26 @@ When to use which:
 
 ## Status Color Tokens
 
-Six families: `success`, `warning`, `error`, `info`, `active`, `inactive`. Each has a foreground (`--ul-color-status-X`) and a tinted background (`--ul-color-status-X-bg`). Canonical values live in [`web/styles/underlith.tokens.css`](../../web/styles/underlith.tokens.css).
+Six families: `success`, `warning`, `error`, `info`, `active`, `inactive`. Each family has a triplet of tokens. Canonical values live in [`web/styles/underlith.tokens.css`](../../web/styles/underlith.tokens.css).
+
+| Token | Role | Use when |
+|---|---|---|
+| `--ul-color-status-X` | Deep colored value | Foreground on a neutral surface, OR as a solid bg when paired with `-on` |
+| `--ul-color-status-X-bg` | Tinted near-surface | Background of subtle/light badges paired with `-` as foreground |
+| `--ul-color-status-X-on` | Foreground over the deep value | When `-` is the bg (Material/HIG-style "on-color" pair) |
 
 - `active` is brand-aligned (Kobana lime).
 - `inactive` is neutral grey.
 - The other four are calibrated for accessible contrast in both themes.
 
+### The two badge patterns
+
 ```tsx
-// ✅ Tailwind utility (preferred)
+// ✅ Subtle badge — light tinted bg, deep colored text
 <span className="bg-status-success-bg text-status-success">Pago</span>
+
+// ✅ Solid action — deep colored bg, contrasting text
+<button className="bg-status-warning text-status-warning-on">Arquivar</button>
 
 // ✅ CSS alias (for non-utility contexts)
 <span style={{
@@ -89,6 +100,8 @@ Six families: `success`, `warning`, `error`, `info`, `active`, `inactive`. Each 
   backgroundColor: 'var(--ul-color-status-success-bg)',
 }}>Pago</span>
 ```
+
+The `-on` value is intentionally distinct from `-bg`: they happen to share values in the calibrated palette today, but the design contract is "background of a subtle badge" vs "foreground over a colored bg". Future palette tweaks may diverge them.
 
 ### Mapping domain status to tokens
 

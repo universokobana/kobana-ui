@@ -39,19 +39,27 @@
   --color-kobana-gray: var(--ul-color-kobana-gray);
   --color-kobana-purple: var(--ul-color-kobana-purple);
 
-  /* Status — exposed as Tailwind utilities (bg-status-success, text-status-warning, etc.) */
+  /* Status — exposed as Tailwind utilities (bg-status-success, text-status-warning, etc.).
+     The -on variants are the foreground color to use when the deep value is the bg
+     (e.g. bg-status-warning text-status-warning-on). */
   --color-status-success: var(--ul-color-status-success);
   --color-status-success-bg: var(--ul-color-status-success-bg);
+  --color-status-success-on: var(--ul-color-status-success-on);
   --color-status-warning: var(--ul-color-status-warning);
   --color-status-warning-bg: var(--ul-color-status-warning-bg);
+  --color-status-warning-on: var(--ul-color-status-warning-on);
   --color-status-error: var(--ul-color-status-error);
   --color-status-error-bg: var(--ul-color-status-error-bg);
+  --color-status-error-on: var(--ul-color-status-error-on);
   --color-status-info: var(--ul-color-status-info);
   --color-status-info-bg: var(--ul-color-status-info-bg);
+  --color-status-info-on: var(--ul-color-status-info-on);
   --color-status-active: var(--ul-color-status-active);
   --color-status-active-bg: var(--ul-color-status-active-bg);
+  --color-status-active-on: var(--ul-color-status-active-on);
   --color-status-inactive: var(--ul-color-status-inactive);
   --color-status-inactive-bg: var(--ul-color-status-inactive-bg);
+  --color-status-inactive-on: var(--ul-color-status-inactive-on);
 
   --font-sans: var(--ul-font-sans);
   --font-display: var(--ul-font-display);
@@ -104,16 +112,22 @@
 
   --ul-color-status-success: var(--ul-status-success);
   --ul-color-status-success-bg: var(--ul-status-success-bg);
+  --ul-color-status-success-on: var(--ul-status-success-on);
   --ul-color-status-warning: var(--ul-status-warning);
   --ul-color-status-warning-bg: var(--ul-status-warning-bg);
+  --ul-color-status-warning-on: var(--ul-status-warning-on);
   --ul-color-status-error: var(--ul-status-error);
   --ul-color-status-error-bg: var(--ul-status-error-bg);
+  --ul-color-status-error-on: var(--ul-status-error-on);
   --ul-color-status-info: var(--ul-status-info);
   --ul-color-status-info-bg: var(--ul-status-info-bg);
+  --ul-color-status-info-on: var(--ul-status-info-on);
   --ul-color-status-active: var(--ul-status-active);
   --ul-color-status-active-bg: var(--ul-status-active-bg);
+  --ul-color-status-active-on: var(--ul-status-active-on);
   --ul-color-status-inactive: var(--ul-status-inactive);
   --ul-color-status-inactive-bg: var(--ul-status-inactive-bg);
+  --ul-color-status-inactive-on: var(--ul-status-inactive-on);
 
   /* Kobana Brand Colors (HSL) */
   --kobana-lime: var(--ul-kobana-lime);
