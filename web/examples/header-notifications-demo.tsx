@@ -5,7 +5,8 @@ import { useState } from "react"
 const mockNotifications = [
   { id: "1", title: "Pagamento recebido", description: "Cobrança #001 paga", severity: "info" as const, timestamp: new Date(Date.now() - 5 * 60_000).toISOString(), read: false },
   { id: "2", title: "Cobrança vencida", description: "Cobrança #002 está vencida", severity: "warning" as const, timestamp: new Date(Date.now() - 2 * 3600_000).toISOString(), read: false },
-  { id: "3", title: "Erro na transferência", description: "Transferência #005 falhou", severity: "error" as const, timestamp: new Date(Date.now() - 24 * 3600_000).toISOString(), read: true },
+  { id: "3", title: "Falha de conciliação", description: "Saldo divergente em conta principal", severity: "critical" as const, timestamp: new Date(Date.now() - 30 * 60_000).toISOString(), read: false },
+  { id: "4", title: "Erro na transferência", description: "Transferência #005 falhou", severity: "error" as const, timestamp: new Date(Date.now() - 24 * 3600_000).toISOString(), read: true },
 ]
 
 function timeAgo(timestamp: string) {

@@ -63,6 +63,8 @@ test.describe('Status badges contrast', () => {
     await assertBadgeContrast(page, '[data-badge=status-warning]');
     await assertBadgeContrast(page, '[data-badge=status-error]');
     await assertBadgeContrast(page, '[data-badge=status-info]');
+    await assertBadgeContrast(page, '[data-badge=status-active]');
+    await assertBadgeContrast(page, '[data-badge=status-inactive]', 3.0);
   });
 
   test('dark mode', async ({ page }) => {
@@ -75,5 +77,7 @@ test.describe('Status badges contrast', () => {
     await assertBadgeContrast(page, '[data-badge=status-warning]', 3.0);
     await assertBadgeContrast(page, '[data-badge=status-error]', 3.0);
     await assertBadgeContrast(page, '[data-badge=status-info]', 3.0);
+    await assertBadgeContrast(page, '[data-badge=status-active]', 3.0);
+    await assertBadgeContrast(page, '[data-badge=status-inactive]', 3.0);
   });
 });
