@@ -77,6 +77,7 @@ When these names match, a designer saying `kobana-lime` and a developer saying
 | Add a new brand color                 | Add a new token in Underlith         |
 | Change font family                    | Update `--ul-font-sans` or `--ul-font-display` |
 | Adjust border radius globally         | Update `--ul-radius`                 |
+| Change a status color (e.g. success)  | Update `--ul-status-*` (and its `.dark` counterpart) |
 | Change a color in one specific component | Talk to the dev — it may need a new token |
 
 ---
@@ -113,11 +114,12 @@ Example (component):
 
 ## Status tokens
 
-- Canonical definition (`:root`, `underlith.tokens.css`): success, warning, error, info and their `*-bg`.
+- Canonical definition (`:root` and `.dark` in `underlith.tokens.css`): six families — `success`, `warning`, `error`, `info`, `active`, `inactive` — each with a foreground and a `*-bg` background.
 - Consumption (aliases in `globals.css`): `--ul-color-status-*` and `--ul-color-status-*-bg`.
+- `active` is brand-aligned (Kobana lime); `inactive` is neutral grey. The other four are calibrated for accessible contrast in both themes.
 - Goal: ensure minimum contrast in light/dark without hardcoding in components.
 
-Showcase: route `/status-badges-showcase` demonstrates the four variants.
+Showcase: route `/status-badges-showcase` demonstrates the four semantic variants. For `active`/`inactive`, see the `StatusBadge` component docs.
 
 ---
 
@@ -126,14 +128,6 @@ Showcase: route `/status-badges-showcase` demonstrates the four variants.
 - Tokens: `--ul-font-sans`, `--ul-font-display`.
 - Binding: `@theme inline` in `globals.css` defines `--font-sans` and `--font-display`.
 - Use: `font-sans` and `font-display` classes (no direct `font-family`).
-
----
-
-## Checklist — Next 16 migration (middleware → proxy)
-
-- Simple rewrites/forwarding → `proxy` in `next.config.mjs`.
-- Complex logic (auth/headers) → Route Handlers/Server Components.
-- Goal: remove build warning and keep architecture clean.
 
 ---
 
