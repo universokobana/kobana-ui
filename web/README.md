@@ -21,22 +21,22 @@ O comando inicia o Next.js com Turbopack e um watcher que sincroniza conteúdo M
 
 ### Windows / PowerShell
 
-O script `dev` usa `&` no estilo bash (`node scripts/watch-content.mjs & next dev …`) para rodar o watcher e o Next.js em paralelo. **PowerShell não suporta esse operador** — `npm run dev` vai iniciar apenas o watcher e o servidor Next.js nunca sobe.
+The `dev` script uses bash-style `&` (`node scripts/watch-content.mjs & next dev …`) to run the watcher and Next.js in parallel. **PowerShell does not support this operator** — `npm run dev` will start only the watcher and the Next.js server never comes up.
 
-Use uma das alternativas abaixo:
+Use one of the alternatives below:
 
 ```powershell
-# A) Sem watcher de MDX (mais simples — basta rodar o Next.js):
+# A) Without the MDX watcher (simplest — just run Next.js):
 npx next dev --turbopack --port 4000
 
-# B) Em dois terminais separados:
+# B) In two separate terminals:
 #   Terminal 1
 node scripts/watch-content.mjs
 #   Terminal 2
 npx next dev --turbopack --port 4000
 ```
 
-Como alternativa, rodar `npm run dev` dentro de um shell compatível com bash (Git Bash, WSL) também funciona.
+Alternatively, running `npm run dev` inside a bash-compatible shell (Git Bash, WSL) also works.
 
 ## Build
 

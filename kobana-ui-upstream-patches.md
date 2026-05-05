@@ -50,7 +50,7 @@ For consumers outside this monorepo who install only the standalone `tokens` reg
 | `active` | brand-aligned "on", live, enabled (lime fill) | `oklch(0.20 0.10 130)` / `hsl(--ul-kobana-lime)` | same fg / same lime bg |
 | `inactive` | neutral "off", paused, disabled (grey fill) | `oklch(0.50 0 0)` / `oklch(0.95 0 0)` | `oklch(0.65 0 0)` / `oklch(0.25 0 0)` |
 
-`active` is intentionally brand-aligned (lime) rather than another shade of `success` — "ativo" is on-brand, not just "another positive outcome". `inactive` is neutral grey, not muted text.
+`active` is intentionally brand-aligned (lime) rather than another shade of `success` — the "active" state should read as on-brand, not just "another positive outcome". `inactive` is neutral grey, not muted text.
 
 ---
 
