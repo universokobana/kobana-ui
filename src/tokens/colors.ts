@@ -68,34 +68,34 @@ export const tokensCss = `@layer base {
     --kobana-gray: 0 0% 40%;
     --kobana-purple: 285 75% 52%;
 
-    /* Status Colors */
-    --color-status-success: oklch(0.72 0.19 142);
-    --color-status-warning: oklch(0.75 0.18 85);
-    --color-status-error: oklch(0.63 0.24 25);
-    --color-status-info: oklch(0.7 0.15 250);
+    /* Status Colors — values mirror Underlith canonical (web/styles/underlith.tokens.css) */
+    --color-status-success: oklch(0.30 0.13 145);
+    --color-status-warning: oklch(0.40 0.12 75);
+    --color-status-error: oklch(0.40 0.16 25);
+    --color-status-info: oklch(0.40 0.13 240);
     --color-status-active: oklch(0.20 0.10 130);
     --color-status-inactive: oklch(0.50 0 0);
 
-    --color-status-success-bg: oklch(0.72 0.19 142 / 0.1);
-    --color-status-warning-bg: oklch(0.75 0.18 85 / 0.1);
-    --color-status-error-bg: oklch(0.63 0.24 25 / 0.1);
-    --color-status-info-bg: oklch(0.7 0.15 250 / 0.1);
+    --color-status-success-bg: oklch(0.98 0.03 145);
+    --color-status-warning-bg: oklch(0.97 0.04 75);
+    --color-status-error-bg: oklch(0.97 0.04 25);
+    --color-status-info-bg: oklch(0.97 0.04 240);
     --color-status-active-bg: hsl(var(--kobana-lime));
     --color-status-inactive-bg: oklch(0.95 0 0);
   }
 
   .dark {
-    --color-status-success: oklch(0.78 0.17 142);
-    --color-status-warning: oklch(0.8 0.16 85);
-    --color-status-error: oklch(0.7 0.22 25);
-    --color-status-info: oklch(0.76 0.13 250);
+    --color-status-success: oklch(0.78 0.18 145);
+    --color-status-warning: oklch(0.82 0.16 75);
+    --color-status-error: oklch(0.72 0.20 25);
+    --color-status-info: oklch(0.78 0.15 240);
     --color-status-active: oklch(0.20 0.10 130);
     --color-status-inactive: oklch(0.65 0 0);
 
-    --color-status-success-bg: oklch(0.78 0.17 142 / 0.15);
-    --color-status-warning-bg: oklch(0.8 0.16 85 / 0.15);
-    --color-status-error-bg: oklch(0.7 0.22 25 / 0.15);
-    --color-status-info-bg: oklch(0.76 0.13 250 / 0.15);
+    --color-status-success-bg: oklch(0.22 0.06 145);
+    --color-status-warning-bg: oklch(0.25 0.06 75);
+    --color-status-error-bg: oklch(0.22 0.07 25);
+    --color-status-info-bg: oklch(0.22 0.06 240);
     --color-status-active-bg: hsl(var(--kobana-lime));
     --color-status-inactive-bg: oklch(0.25 0 0);
   }
