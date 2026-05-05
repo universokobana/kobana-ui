@@ -181,14 +181,14 @@ function PortalPageItemRow({ item }: { item: PortalPageItem }) {
 
 const sectionVariants = {
   default: '',
-  warning: 'border-yellow-500/20 bg-yellow-500/5',
-  danger: 'border-red-500/20 bg-red-500/5',
+  warning: 'border-status-warning/20 bg-status-warning-bg',
+  danger: 'border-status-error/20 bg-status-error-bg',
 } as const;
 
 const sectionTitleVariants = {
   default: '',
-  warning: 'text-yellow-600',
-  danger: 'text-red-600',
+  warning: 'text-status-warning',
+  danger: 'text-status-error',
 } as const;
 
 function PortalPageSectionCard({ section }: { section: PortalPageSection }) {

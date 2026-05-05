@@ -7,7 +7,7 @@ import React, { useState } from "react"
 function KobanaLogo() {
   return (
     <div className="flex items-center gap-2">
-      <div className="flex size-8 items-center justify-center rounded-lg bg-[#D3FD54]">
+      <div className="flex size-8 items-center justify-center rounded-lg bg-kobana-lime">
         <span className="text-lg font-bold text-black">K</span>
       </div>
       <span className="text-lg font-bold text-white">kobana</span>
@@ -63,7 +63,7 @@ export default function ManageLoginPageDemo() {
 
   return (
     <div className="relative w-full overflow-hidden rounded-lg" style={{ minHeight: 500 }}>
-      <div className="flex min-h-[500px] items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
+      <div className="dark flex min-h-[500px] items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
         <div className="w-full max-w-md rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur">
           {/* Header */}
           <div className="mb-6 space-y-4 text-center">
@@ -80,7 +80,7 @@ export default function ManageLoginPageDemo() {
           <div className="space-y-4">
             {/* Error */}
             {error && (
-              <div className="flex items-start gap-2 rounded-md border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-400">
+              <div className="flex items-start gap-2 rounded-md border border-status-error/20 bg-status-error-bg p-3 text-sm text-status-error">
                 <AlertCircleIcon className="mt-0.5 size-4 shrink-0" />
                 <span>{error}</span>
               </div>

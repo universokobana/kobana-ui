@@ -159,7 +159,7 @@ export function DashboardLoginPage({
   };
 
   return (
-    <div className={cn('flex min-h-screen flex-col items-center justify-center bg-black', className)}>
+    <div className={cn('dark flex min-h-screen flex-col items-center justify-center bg-black', className)}>
       <div className="w-full max-w-md space-y-8 px-4">
         {/* Header with logo */}
         <div className="flex flex-col items-center space-y-4">
@@ -176,7 +176,7 @@ export function DashboardLoginPage({
             <h2 className="font-display text-xl font-semibold text-white">
               {labels.login}
             </h2>
-            <p className="mt-1 text-sm text-[#676767]">
+            <p className="mt-1 text-sm text-kobana-gray">
               {labels.loginDescription}
             </p>
           </div>
@@ -184,7 +184,7 @@ export function DashboardLoginPage({
           <div className="space-y-4">
             {/* Error */}
             {externalError && (
-              <div className="flex items-start gap-2 rounded-md border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-400">
+              <div className="flex items-start gap-2 rounded-md border border-status-error/20 bg-status-error-bg p-3 text-sm text-status-error">
                 <AlertCircleIcon className="mt-0.5 size-4 shrink-0" />
                 <span>{externalError}</span>
               </div>
@@ -195,7 +195,7 @@ export function DashboardLoginPage({
               type="button"
               onClick={handleLogin}
               disabled={isLoading}
-              className="inline-flex h-10 w-full items-center justify-center rounded-md bg-[#D3FD54] px-4 text-sm font-semibold text-black transition-colors hover:bg-[#D3FD54]/90 disabled:opacity-50"
+              className="inline-flex h-10 w-full items-center justify-center rounded-md bg-kobana-lime px-4 text-sm font-semibold text-black transition-colors hover:bg-kobana-lime/90 disabled:opacity-50"
             >
               {isLoading ? (
                 <>
@@ -219,7 +219,7 @@ export function DashboardLoginPage({
                     <span className="w-full border-t border-white/10" />
                   </div>
                   <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-black px-2 text-[#676767]">
+                    <span className="bg-black px-2 text-kobana-gray">
                       {labels.or}
                     </span>
                   </div>
@@ -228,16 +228,16 @@ export function DashboardLoginPage({
                 {/* Magic link sent state */}
                 {magicLinkStatus === 'sent' ? (
                   <div className="space-y-3 py-2 text-center">
-                    <CheckCircleIcon className="mx-auto size-8 text-green-500" />
+                    <CheckCircleIcon className="mx-auto size-8 text-status-success" />
                     <p className="text-sm font-medium text-white">{labels.magicLinkSent}</p>
-                    <p className="text-sm text-[#676767]">{labels.magicLinkSentDescription}</p>
+                    <p className="text-sm text-kobana-gray">{labels.magicLinkSentDescription}</p>
                     <button
                       type="button"
                       onClick={() => {
                         setMagicLinkStatus('idle');
                         setMagicLinkEmail('');
                       }}
-                      className="text-sm text-[#D3FD54] hover:underline"
+                      className="text-sm text-kobana-lime hover:underline"
                     >
                       {labels.magicLinkSendAnother}
                     </button>
@@ -245,11 +245,11 @@ export function DashboardLoginPage({
                 ) : (
                   <form onSubmit={handleMagicLinkSend} className="space-y-3">
                     <div className="space-y-2">
-                      <label htmlFor="magic-link-email" className="block text-sm text-[#676767]">
+                      <label htmlFor="magic-link-email" className="block text-sm text-kobana-gray">
                         {labels.magicLinkEmailLabel}
                       </label>
                       <div className="relative">
-                        <MailIcon className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-[#676767]" />
+                        <MailIcon className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-kobana-gray" />
                         <input
                           id="magic-link-email"
                           type="email"
@@ -257,13 +257,13 @@ export function DashboardLoginPage({
                           value={magicLinkEmail}
                           onChange={(e) => setMagicLinkEmail(e.target.value)}
                           required
-                          className="h-10 w-full rounded-md border border-white/10 bg-white/5 pl-10 pr-3 text-sm text-white placeholder:text-[#676767]/50 focus:border-[#D3FD54]/50 focus:outline-none focus:ring-1 focus:ring-[#D3FD54]/50"
+                          className="h-10 w-full rounded-md border border-white/10 bg-white/5 pl-10 pr-3 text-sm text-white placeholder:text-kobana-gray/50 focus:border-kobana-lime/50 focus:outline-none focus:ring-1 focus:ring-kobana-lime/50"
                         />
                       </div>
                     </div>
 
                     {magicLinkStatus === 'error' && (
-                      <div className="flex items-start gap-2 rounded-md border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-400">
+                      <div className="flex items-start gap-2 rounded-md border border-status-error/20 bg-status-error-bg p-3 text-sm text-status-error">
                         <AlertCircleIcon className="mt-0.5 size-4 shrink-0" />
                         <span>{labels.magicLinkError}</span>
                       </div>
@@ -292,13 +292,13 @@ export function DashboardLoginPage({
             )}
 
             {/* Terms */}
-            <p className="text-center text-sm text-[#676767]">
+            <p className="text-center text-sm text-kobana-gray">
               {labels.termsPrefix}{' '}
-              <a href={termsHref} className="text-[#D3FD54] hover:underline">
+              <a href={termsHref} className="text-kobana-lime hover:underline">
                 {labels.termsOfUse}
               </a>{' '}
               {labels.and}{' '}
-              <a href={privacyHref} className="text-[#D3FD54] hover:underline">
+              <a href={privacyHref} className="text-kobana-lime hover:underline">
                 {labels.privacyPolicy}
               </a>
               .

@@ -224,9 +224,9 @@ const allCustomers = [
 
 const statusLabels: Record<string, string> = { active: "Ativo", suspended: "Suspenso", closed: "Encerrado" }
 const statusColors: Record<string, string> = {
-  active: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400",
-  suspended: "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400",
-  closed: "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400",
+  active: "bg-status-active-bg text-status-active",
+  suspended: "bg-status-error-bg text-status-error",
+  closed: "bg-status-inactive-bg text-status-inactive",
 }
 
 function formatCurrency(value: number) {
@@ -422,7 +422,7 @@ export default function ManageListPageDemo() {
                       </td>
                     )}
                     {visibleCols.subscriptions && <td className="p-4 text-center">{row.subscriptions}</td>}
-                    {visibleCols.mrr && <td className="p-4 text-right font-medium text-green-600">{formatCurrency(row.mrr)}</td>}
+                    {visibleCols.mrr && <td className="p-4 text-right font-medium text-status-success">{formatCurrency(row.mrr)}</td>}
                     {visibleCols.totalPaid && <td className="p-4 text-right font-mono">{formatCurrency(row.totalPaid)}</td>}
                     {visibleCols.createdAt && <td className="p-4 text-muted-foreground">{row.createdAt}</td>}
                     <td className="p-4 text-right">

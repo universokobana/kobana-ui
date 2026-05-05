@@ -71,7 +71,7 @@ export default function OnboardingChecklistDemo() {
               <span className="flex shrink-0 items-center">
                 {task.completed ? (
                   <svg
-                    className="h-5 w-5 text-emerald-500"
+                    className="h-5 w-5 text-status-success"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"

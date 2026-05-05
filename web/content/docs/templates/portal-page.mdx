@@ -84,14 +84,14 @@ Para listagens com tabela (sorting, seleção, bulk actions), use o template **L
     {
       label: "Total pago",
       value: "R$ 6.600,00",
-      icon: <Wallet className="h-6 w-6 text-green-600" />,
-      iconClassName: "bg-green-500/10",
+      icon: <Wallet className="h-6 w-6 text-status-success" />,
+      iconClassName: "bg-status-success-bg",
     },
     {
       label: "Faturas pagas",
       value: "5",
-      icon: <Receipt className="h-6 w-6 text-blue-600" />,
-      iconClassName: "bg-blue-500/10",
+      icon: <Receipt className="h-6 w-6 text-status-info" />,
+      iconClassName: "bg-status-info-bg",
     },
   ]}
   sections={[
@@ -101,8 +101,8 @@ Para listagens com tabela (sorting, seleção, bulk actions), use o template **L
       variant: "warning",
       items: openInvoices.map((inv) => ({
         id: inv.id,
-        icon: <FileText className="h-5 w-5 text-orange-500" />,
-        iconClassName: "bg-orange-500/10",
+        icon: <FileText className="h-5 w-5 text-status-warning" />,
+        iconClassName: "bg-status-warning-bg",
         title: inv.number,
         badge: <Badge variant="warning">Pendente</Badge>,
         meta: `${inv.period} • Vence em ${inv.dueDate}`,
@@ -120,8 +120,8 @@ Para listagens com tabela (sorting, seleção, bulk actions), use o template **L
       icon: <FileText className="h-5 w-5" />,
       items: paidInvoices.map((inv) => ({
         id: inv.id,
-        icon: <CheckCircle2 className="h-5 w-5 text-green-500" />,
-        iconClassName: "bg-green-500/10",
+        icon: <CheckCircle2 className="h-5 w-5 text-status-success" />,
+        iconClassName: "bg-status-success-bg",
         title: inv.number,
         badge: <Badge variant="success">Pago</Badge>,
         meta: `${inv.period} • Pago em ${inv.paidAt}`,

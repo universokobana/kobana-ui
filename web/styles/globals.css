@@ -93,11 +93,14 @@
   --ul-color-sidebar-border: var(--ul-sidebar-border);
   --ul-color-sidebar-ring: var(--ul-sidebar-ring);
 
-  --ul-color-kobana-lime: var(--ul-kobana-lime);
-  --ul-color-kobana-black: var(--ul-kobana-black);
-  --ul-color-kobana-white: var(--ul-kobana-white);
-  --ul-color-kobana-gray: var(--ul-kobana-gray);
-  --ul-color-kobana-purple: var(--ul-kobana-purple);
+  /* Brand canonical tokens are stored as raw HSL components for shadcn-style
+     alpha modulation (hsl(var(--token) / <alpha>)). Consumption aliases must
+     be wrapped so Tailwind v4 utilities like bg-kobana-lime render valid CSS. */
+  --ul-color-kobana-lime: hsl(var(--ul-kobana-lime));
+  --ul-color-kobana-black: hsl(var(--ul-kobana-black));
+  --ul-color-kobana-white: hsl(var(--ul-kobana-white));
+  --ul-color-kobana-gray: hsl(var(--ul-kobana-gray));
+  --ul-color-kobana-purple: hsl(var(--ul-kobana-purple));
 
   --ul-color-status-success: var(--ul-status-success);
   --ul-color-status-success-bg: var(--ul-status-success-bg);
