@@ -46,6 +46,26 @@ export default function StatusBadgesShowcase() {
         >
           Info
         </span>
+        <span
+          data-badge="status-active"
+          className="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium"
+          style={{
+            color: 'var(--ul-color-status-active)',
+            backgroundColor: 'var(--ul-color-status-active-bg)',
+          }}
+        >
+          Active
+        </span>
+        <span
+          data-badge="status-inactive"
+          className="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium"
+          style={{
+            color: 'var(--ul-color-status-inactive)',
+            backgroundColor: 'var(--ul-color-status-inactive-bg)',
+          }}
+        >
+          Inactive
+        </span>
       </div>
     </main>
   );

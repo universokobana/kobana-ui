@@ -44,10 +44,10 @@ export interface HeaderNotificationsProps {
 }
 
 const severityColors: Record<string, string> = {
-  info: 'bg-blue-500',
-  warning: 'bg-yellow-500',
-  error: 'bg-red-500',
-  critical: 'bg-red-600',
+  info: 'bg-status-info',
+  warning: 'bg-status-warning',
+  error: 'bg-status-error',
+  critical: 'bg-destructive',
 };
 
 function formatTimeAgo(dateString: string): string {

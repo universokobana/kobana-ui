@@ -36,14 +36,33 @@
 }
 
 :root {
+  /* For each status family:
+     -    : the deep colored value, used as foreground OR as a solid bg
+     - -bg: a tinted near-surface, used as the bg of light/subtle badges
+     - -on: the foreground color to use when the deep value is the bg
+            (Material/HIG-style "on-color" pair, ensures readable contrast). */
   --ul-status-success:    oklch(0.30 0.13 145);
   --ul-status-success-bg: oklch(0.98 0.03 145);
+  --ul-status-success-on: oklch(0.98 0.03 145);
   --ul-status-warning:    oklch(0.40 0.12 75);
   --ul-status-warning-bg: oklch(0.97 0.04 75);
+  --ul-status-warning-on: oklch(0.97 0.04 75);
   --ul-status-error:      oklch(0.40 0.16 25);
   --ul-status-error-bg:   oklch(0.97 0.04 25);
+  --ul-status-error-on:   oklch(0.97 0.04 25);
   --ul-status-info:       oklch(0.40 0.13 240);
   --ul-status-info-bg:    oklch(0.97 0.04 240);
+  --ul-status-info-on:    oklch(0.97 0.04 240);
+
+  /* Active = brand-aligned (lime). Inactive = neutral grey.
+     Active is rarely used as a solid bg, but -on is defined for API symmetry:
+     near-white reads on the dark-green deep value. */
+  --ul-status-active:     oklch(0.20 0.10 130);
+  --ul-status-active-bg:  hsl(var(--ul-kobana-lime));
+  --ul-status-active-on:  oklch(0.985 0 0);
+  --ul-status-inactive:   oklch(0.50 0 0);
+  --ul-status-inactive-bg: oklch(0.95 0 0);
+  --ul-status-inactive-on: oklch(0.95 0 0);
 }
 
 /* ── Colors: Light ───────────────────────────────────────────────────────── */
@@ -64,7 +83,7 @@
   --ul-accent:                    oklch(0.97 0 0);
   --ul-accent-foreground:         oklch(0.205 0 0);
   --ul-destructive:               oklch(0.577 0.245 27.325);
-  --ul-destructive-foreground:    oklch(0.577 0.245 27.325);
+  --ul-destructive-foreground:    oklch(0.985 0 0);
   --ul-border:                    oklch(0.922 0 0);
   --ul-input:                     oklch(0.922 0 0);
   --ul-ring:                      oklch(0.708 0 0);
@@ -96,7 +115,7 @@
   --ul-accent:                    oklch(0.269 0 0);
   --ul-accent-foreground:         oklch(0.985 0 0);
   --ul-destructive:               oklch(0.577 0.245 27.325);
-  --ul-destructive-foreground:    oklch(0.577 0.245 27.325);
+  --ul-destructive-foreground:    oklch(0.985 0 0);
   --ul-border:                    oklch(0.269 0 0);
   --ul-input:                     oklch(0.269 0 0);
   --ul-ring:                      oklch(0.439 0 0);
@@ -108,6 +127,31 @@
   --ul-sidebar-accent-foreground: oklch(0.985 0 0);
   --ul-sidebar-border:            oklch(0.269 0 0);
   --ul-sidebar-ring:              oklch(0.439 0 0);
+
+  /* Status — flip lightness so foreground pops on dark surfaces and
+     -bg variants become a dark tinted fill rather than a near-white block.
+     -on flips alongside -bg: dark tinted fg reads on the now-bright deep value. */
+  --ul-status-success:    oklch(0.78 0.18 145);
+  --ul-status-success-bg: oklch(0.22 0.06 145);
+  --ul-status-success-on: oklch(0.22 0.06 145);
+  --ul-status-warning:    oklch(0.82 0.16 75);
+  --ul-status-warning-bg: oklch(0.25 0.06 75);
+  --ul-status-warning-on: oklch(0.25 0.06 75);
+  --ul-status-error:      oklch(0.72 0.20 25);
+  --ul-status-error-bg:   oklch(0.22 0.07 25);
+  --ul-status-error-on:   oklch(0.22 0.07 25);
+  --ul-status-info:       oklch(0.78 0.15 240);
+  --ul-status-info-bg:    oklch(0.22 0.06 240);
+  --ul-status-info-on:    oklch(0.22 0.06 240);
+
+  /* Active stays brand-aligned (lime) — vibrant in both themes. Inactive flips.
+     active-on stays near-white because active deep value also stays dark green. */
+  --ul-status-active:     oklch(0.20 0.10 130);
+  --ul-status-active-bg:  hsl(var(--ul-kobana-lime));
+  --ul-status-active-on:  oklch(0.985 0 0);
+  --ul-status-inactive:   oklch(0.65 0 0);
+  --ul-status-inactive-bg: oklch(0.25 0 0);
+  --ul-status-inactive-on: oklch(0.25 0 0);
 }
 
 /* ── Dashboard theme — Kobana Lime as primary ────────────────────────────── */

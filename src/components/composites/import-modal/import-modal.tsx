@@ -426,7 +426,7 @@ export function ImportModal({
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-green-500"
+                className="text-status-success"
               >
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                 <path d="m9 11 3 3L22 4" />
@@ -456,7 +456,7 @@ export function ImportModal({
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-yellow-500"
+                className="text-status-warning"
               >
                 <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
                 <path d="M12 9v4" />

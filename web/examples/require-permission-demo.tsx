@@ -36,8 +36,8 @@ export default function RequirePermissionDemo() {
               onClick={() => toggle(p)}
               className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
                 can(p)
-                  ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
-                  : "bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400"
+                  ? "bg-status-success-bg text-status-success"
+                  : "bg-status-inactive-bg text-status-inactive"
               }`}
             >
               {p}
@@ -48,16 +48,16 @@ export default function RequirePermissionDemo() {
       <div className="space-y-2 rounded-lg border p-4">
         <p className="text-sm font-medium">Conteúdo protegido:</p>
         {can("charges:read") ? (
-          <p className="text-sm text-green-600">
+          <p className="text-sm text-status-success">
             ✓ Você pode ver cobranças
           </p>
         ) : (
-          <p className="text-sm text-red-600">
+          <p className="text-sm text-status-error">
             ✕ Sem permissão para ver cobranças
           </p>
         )}
         {can("charges:delete") ? (
-          <button className="rounded-md bg-red-600 px-3 py-1.5 text-sm text-white">
+          <button className="rounded-md bg-destructive px-3 py-1.5 text-sm text-destructive-foreground">
             Excluir Cobrança
           </button>
         ) : (

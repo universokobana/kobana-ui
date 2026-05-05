@@ -30,13 +30,13 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-black text-white">
+      <section className="dark bg-black text-white">
         <div className="mx-auto flex max-w-screen-2xl flex-col items-center justify-center gap-8 px-4 py-24 text-center md:px-8 md:py-32">
           <div className="flex flex-col gap-4">
             <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
               Kobana UI
             </h1>
-            <p className="mx-auto max-w-[42rem] text-lg text-gray-400 sm:text-xl">
+            <p className="mx-auto max-w-[42rem] text-lg text-muted-foreground sm:text-xl">
               Design System para produtos Kobana. Componentes compostos,
               reutilizáveis e acessíveis construídos com shadcn/ui.
             </p>
@@ -44,7 +44,7 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/docs"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-[#D3FD54] px-8 text-sm font-semibold text-black shadow transition-colors hover:bg-[#D3FD54]/90"
+              className="inline-flex h-10 items-center justify-center rounded-md bg-kobana-lime px-8 text-sm font-semibold text-black shadow transition-colors hover:bg-kobana-lime/90"
             >
               Get Started
             </Link>
@@ -55,7 +55,7 @@ export default function HomePage() {
               Componentes
             </Link>
           </div>
-          <div className="inline-flex h-10 items-center justify-center rounded-md border border-white/20 bg-white/5 px-4 font-mono text-sm text-gray-300">
+          <div className="inline-flex h-10 items-center justify-center rounded-md border border-white/20 bg-white/5 px-4 font-mono text-sm text-muted-foreground">
             npx @kobana/ui init
           </div>
         </div>

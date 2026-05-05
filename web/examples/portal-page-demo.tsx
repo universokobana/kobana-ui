@@ -154,8 +154,8 @@ export default function PortalPageDemo() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-lg border bg-card p-6 shadow-sm">
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-500/10">
-              <WalletIcon className="h-6 w-6 text-green-600" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-status-success-bg">
+              <WalletIcon className="h-6 w-6 text-status-success" />
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Total pago</p>
@@ -165,8 +165,8 @@ export default function PortalPageDemo() {
         </div>
         <div className="rounded-lg border bg-card p-6 shadow-sm">
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/10">
-              <ReceiptIcon className="h-6 w-6 text-blue-600" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-status-info-bg">
+              <ReceiptIcon className="h-6 w-6 text-status-info" />
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Faturas pagas</p>
@@ -176,8 +176,8 @@ export default function PortalPageDemo() {
         </div>
         <div className="rounded-lg border bg-card p-6 shadow-sm">
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-yellow-500/10">
-              <ClockIcon className="h-6 w-6 text-yellow-600" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-status-warning-bg">
+              <ClockIcon className="h-6 w-6 text-status-warning" />
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Pendentes</p>
@@ -187,8 +187,8 @@ export default function PortalPageDemo() {
         </div>
         <div className="rounded-lg border bg-card p-6 shadow-sm">
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-500/10">
-              <AlertCircleIcon className="h-6 w-6 text-orange-600" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-status-error-bg">
+              <AlertCircleIcon className="h-6 w-6 text-status-error" />
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Valor pendente</p>
@@ -199,9 +199,9 @@ export default function PortalPageDemo() {
       </div>
 
       {/* Pending Invoices */}
-      <div className="rounded-lg border border-yellow-500/20 bg-yellow-500/5 shadow-sm">
+      <div className="rounded-lg border border-status-warning/20 bg-status-warning-bg shadow-sm">
         <div className="flex flex-col space-y-1.5 p-6">
-          <h3 className="flex items-center gap-2 text-2xl font-semibold leading-none tracking-tight text-yellow-600">
+          <h3 className="flex items-center gap-2 text-2xl font-semibold leading-none tracking-tight text-status-warning">
             <CreditCardIcon className="h-5 w-5" />
             Faturas pendentes
           </h3>
@@ -211,19 +211,19 @@ export default function PortalPageDemo() {
           {openInvoices.map((invoice) => (
             <div key={invoice.id} className="flex flex-col gap-4 rounded-lg border bg-background p-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-start gap-4">
-                <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${invoice.status === "overdue" ? "bg-red-500/10" : "bg-orange-500/10"}`}>
-                  <FileTextIcon className={`h-5 w-5 ${invoice.status === "overdue" ? "text-red-500" : "text-orange-500"}`} />
+                <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${invoice.status === "overdue" ? "bg-status-error-bg" : "bg-status-warning-bg"}`}>
+                  <FileTextIcon className={`h-5 w-5 ${invoice.status === "overdue" ? "text-status-error" : "text-status-warning"}`} />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
                     <p className="font-medium">{invoice.number}</p>
                     {invoice.status === "overdue" ? (
-                      <span className="inline-flex items-center rounded-full border border-red-500/20 bg-red-500/10 px-2.5 py-0.5 text-xs font-medium text-red-600">
+                      <span className="inline-flex items-center rounded-full border border-status-error/20 bg-status-error-bg px-2.5 py-0.5 text-xs font-medium text-status-error">
                         <AlertCircleIcon className="mr-1 h-3 w-3" />
                         Vencida
                       </span>
                     ) : (
-                      <span className="inline-flex items-center rounded-full border border-orange-500/20 bg-orange-500/10 px-2.5 py-0.5 text-xs font-medium text-orange-600">
+                      <span className="inline-flex items-center rounded-full border border-status-warning/20 bg-status-warning-bg px-2.5 py-0.5 text-xs font-medium text-status-warning">
                         <ClockIcon className="mr-1 h-3 w-3" />
                         Pendente
                       </span>
@@ -266,13 +266,13 @@ export default function PortalPageDemo() {
             {pagedInvoices.map((invoice) => (
               <div key={invoice.id} className="flex flex-col gap-4 rounded-lg border p-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500/10">
-                    <CheckCircleIcon className="h-5 w-5 text-green-500" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-status-success-bg">
+                    <CheckCircleIcon className="h-5 w-5 text-status-success" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
                       <p className="font-medium">{invoice.number}</p>
-                      <span className="inline-flex items-center rounded-full border border-green-500/20 bg-green-500/10 px-2.5 py-0.5 text-xs font-medium text-green-600">
+                      <span className="inline-flex items-center rounded-full border border-status-success/20 bg-status-success-bg px-2.5 py-0.5 text-xs font-medium text-status-success">
                         <CheckCircleIcon className="mr-1 h-3 w-3" />
                         Pago
                       </span>

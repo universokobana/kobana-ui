@@ -85,7 +85,7 @@ export const OnboardingChecklist = React.forwardRef<
 
                 <span className="flex shrink-0 items-center">
                   {task.completed ? (
-                    <Check className="h-5 w-5 text-emerald-500" />
+                    <Check className="h-5 w-5 text-status-success" />
                   ) : (
                     <Circle className="h-5 w-5 text-muted-foreground/40" />
                   )}

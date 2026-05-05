@@ -20,11 +20,11 @@ const variantStyles = {
   },
   warning: {
     icon: '⚠',
-    actionClass: 'bg-yellow-600 text-white hover:bg-yellow-600/90',
+    actionClass: 'bg-status-warning text-status-warning-on hover:bg-status-warning/90',
   },
   info: {
     icon: 'ℹ',
-    actionClass: '',
+    actionClass: 'bg-status-info text-status-info-on hover:bg-status-info/90',
   },
 } as const;
 

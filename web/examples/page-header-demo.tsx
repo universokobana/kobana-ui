@@ -3,9 +3,9 @@ export default function PageHeaderDemo() {
     <div className="w-full space-y-6">
       <div className="space-y-2">
         <nav className="flex text-sm text-muted-foreground">
-          <span className="text-blue-600 hover:underline">Dashboard</span>
+          <span className="text-foreground hover:underline">Dashboard</span>
           <span className="mx-1">/</span>
-          <span className="text-blue-600 hover:underline">Cobranças</span>
+          <span className="text-foreground hover:underline">Cobranças</span>
           <span className="mx-1">/</span>
           <span>Detalhes</span>
         </nav>

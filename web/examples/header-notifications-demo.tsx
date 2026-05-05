@@ -5,7 +5,8 @@ import { useState } from "react"
 const mockNotifications = [
   { id: "1", title: "Pagamento recebido", description: "Cobrança #001 paga", severity: "info" as const, timestamp: new Date(Date.now() - 5 * 60_000).toISOString(), read: false },
   { id: "2", title: "Cobrança vencida", description: "Cobrança #002 está vencida", severity: "warning" as const, timestamp: new Date(Date.now() - 2 * 3600_000).toISOString(), read: false },
-  { id: "3", title: "Erro na transferência", description: "Transferência #005 falhou", severity: "error" as const, timestamp: new Date(Date.now() - 24 * 3600_000).toISOString(), read: true },
+  { id: "3", title: "Falha de conciliação", description: "Saldo divergente em conta principal", severity: "critical" as const, timestamp: new Date(Date.now() - 30 * 60_000).toISOString(), read: false },
+  { id: "4", title: "Erro na transferência", description: "Transferência #005 falhou", severity: "error" as const, timestamp: new Date(Date.now() - 24 * 3600_000).toISOString(), read: true },
 ]
 
 function timeAgo(timestamp: string) {
@@ -19,10 +20,10 @@ function timeAgo(timestamp: string) {
 }
 
 const severityColors = {
-  info: "bg-blue-500",
-  warning: "bg-yellow-500",
-  error: "bg-red-500",
-  critical: "bg-red-700",
+  info: "bg-status-info",
+  warning: "bg-status-warning",
+  error: "bg-status-error",
+  critical: "bg-destructive",
 }
 
 export default function HeaderNotificationsDemo() {
@@ -37,7 +38,7 @@ export default function HeaderNotificationsDemo() {
       >
         🔔
         {unread > 0 && (
-          <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[10px] text-white">
+          <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-destructive text-[10px] text-destructive-foreground">
             {unread}
           </span>
         )}

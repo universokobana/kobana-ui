@@ -4,12 +4,12 @@ import { cn } from '@/lib/utils';
 
 const defaultStatusConfig: Record<string, { color: string; bgColor: string }> = {
   active: {
-    color: 'var(--color-status-success)',
-    bgColor: 'var(--color-status-success-bg)',
+    color: 'var(--color-status-active)',
+    bgColor: 'var(--color-status-active-bg)',
   },
   inactive: {
-    color: 'var(--color-status-error)',
-    bgColor: 'var(--color-status-error-bg)',
+    color: 'var(--color-status-inactive)',
+    bgColor: 'var(--color-status-inactive-bg)',
   },
   pending: {
     color: 'var(--color-status-warning)',
